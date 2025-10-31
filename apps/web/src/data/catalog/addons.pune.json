@@ -1,0 +1,20 @@
+[
+  {
+    "code": "LAB_BASIC",
+    "name": "Basic Labs Panel",
+    "price": 999,
+    "description": "Complete blood count, basic metabolic panel"
+  },
+  {
+    "code": "KNEE_IMPLANT_STD",
+    "name": "Standard Arthroscopy Implants (set)",
+    "price": 34999,
+    "description": "Standard implant set for knee arthroscopy procedures"
+  },
+  {
+    "code": "ROOM_UPGRADE",
+    "name": "Room Upgrade per day",
+    "price": 2500,
+    "description": "Private room upgrade from standard ward"
+  }
+]

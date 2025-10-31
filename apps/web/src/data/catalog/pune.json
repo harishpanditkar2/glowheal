@@ -1,0 +1,663 @@
+{
+  "city": "Pune",
+  "citySlug": "pune",
+  "currency": "INR",
+  "teleconsult": {
+    "first_consult": 0,
+    "note": "Glowheal in-house doctor"
+  },
+  "specialties": [
+    {
+      "slug": "dermatology",
+      "title": "Dermatology",
+      "items": [
+        {
+          "code": "ACNE_PLAN_30",
+          "name": "Acne Care Plan (30 days)",
+          "price": 899,
+          "unit": "plan",
+          "includes": [
+            "1 specialist follow-up",
+            "Personalized regimen",
+            "WhatsApp check-ins"
+          ],
+          "excludes": [
+            "Prescription meds",
+            "Lab tests"
+          ]
+        },
+        {
+          "code": "PRP_HAIR_SINGLE",
+          "name": "PRP Hair (1 session)",
+          "price": 4999,
+          "unit": "session",
+          "includes": [
+            "PRP kit",
+            "Procedure fee",
+            "Post-care guide"
+          ],
+          "excludes": [
+            "Anesthetics beyond local",
+            "Adjunct treatments"
+          ]
+        },
+        {
+          "code": "PRP_HAIR_4PK",
+          "name": "PRP Hair Package (4 sessions)",
+          "price": 17999,
+          "unit": "package",
+          "includes": [
+            "4 PRP sessions",
+            "Follow-up review"
+          ],
+          "excludes": [
+            "Microneedling add-ons"
+          ]
+        },
+        {
+          "code": "HAIR_TX_1000",
+          "name": "Hair Transplant Up to 1000 grafts (FUE)",
+          "price": 49999,
+          "unit": "package",
+          "includes": [
+            "OT charges",
+            "Local anesthesia",
+            "First follow-up"
+          ],
+          "excludes": [
+            "Advanced technique upgrades",
+            "Additional grafts >1000"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "hair-care",
+      "title": "Hair Care",
+      "items": [
+        {
+          "code": "DANDRUFF_PLAN_30",
+          "name": "Dandruff/Scalp Treatment Plan (30 days)",
+          "price": 899,
+          "unit": "plan",
+          "includes": [
+            "Personalized regimen",
+            "1 follow-up"
+          ],
+          "excludes": [
+            "Prescription meds",
+            "Lab tests"
+          ]
+        },
+        {
+          "code": "PRP_SCALP_SINGLE",
+          "name": "PRP Scalp Boost (1 session)",
+          "price": 4999,
+          "unit": "session",
+          "includes": [
+            "PRP kit",
+            "Procedure fee",
+            "Post-care guide"
+          ],
+          "excludes": [
+            "Anesthetics beyond local",
+            "Adjunct treatments"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "weight-management",
+      "title": "Weight Management",
+      "items": [
+        {
+          "code": "WEIGHT_LOSS_30",
+          "name": "Weight Loss Starter (30 days)",
+          "price": 1499,
+          "unit": "plan",
+          "includes": [
+            "Nutrition plan",
+            "1 review"
+          ],
+          "excludes": [
+            "Medications",
+            "Lab tests",
+            "Exercise devices"
+          ]
+        },
+        {
+          "code": "METABOLIC_PANEL_DIET",
+          "name": "Metabolic Panel + Diet Consult",
+          "price": 1999,
+          "unit": "package",
+          "includes": [
+            "Curated lab panel via partner",
+            "Diet session"
+          ],
+          "excludes": [
+            "Advanced tests outside bundle"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "mental-health",
+      "title": "Mental Health",
+      "items": [
+        {
+          "code": "THERAPY_STD",
+          "name": "Therapy Session (50–60 min)",
+          "price": 1499,
+          "unit": "session",
+          "includes": [
+            "Licensed therapist",
+            "Confidential session"
+          ],
+          "excludes": [
+            "Formal reports/letters"
+          ]
+        },
+        {
+          "code": "THERAPY_4PK",
+          "name": "Therapy 4-Session Pack",
+          "price": 5299,
+          "unit": "package",
+          "includes": [
+            "4 therapy sessions",
+            "Progress review"
+          ],
+          "excludes": [
+            "Psychiatrist consults",
+            "Medicines"
+          ]
+        },
+        {
+          "code": "PSY_FOLLOWUP",
+          "name": "Psychiatrist Follow-up",
+          "price": 1299,
+          "unit": "session",
+          "includes": [
+            "MD/DNB Psychiatrist consultation"
+          ],
+          "excludes": [
+            "Medicines"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "nutrition-dietetics",
+      "title": "Nutrition & Dietetics",
+      "items": [
+        {
+          "code": "DIET_PLAN_30",
+          "name": "Diet Plan (30 days)",
+          "price": 899,
+          "unit": "plan",
+          "includes": [
+            "Personalized plan",
+            "1 follow-up"
+          ],
+          "excludes": [
+            "Supplements",
+            "Lab tests"
+          ]
+        },
+        {
+          "code": "LIFESTYLE_DISEASE_BUNDLE",
+          "name": "Lifestyle Disease Bundle (diabetes/hyperlipidemia)",
+          "price": 1999,
+          "unit": "package",
+          "includes": [
+            "Curated labs via partner",
+            "Consult"
+          ],
+          "excludes": [
+            "Advanced imaging"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "womens-health",
+      "title": "Women's Health",
+      "items": [
+        {
+          "code": "PCOS_PLAN_30",
+          "name": "PCOS Management Plan (30 days)",
+          "price": 1499,
+          "unit": "plan",
+          "includes": [
+            "Personalized regimen",
+            "1 follow-up"
+          ],
+          "excludes": [
+            "Medications",
+            "Lab tests",
+            "Ultrasound"
+          ]
+        },
+        {
+          "code": "PRENATAL_NUTRITION_LABS",
+          "name": "Prenatal Nutrition + Basic Labs",
+          "price": 2499,
+          "unit": "package",
+          "includes": [
+            "Curated labs",
+            "Nutrition consult"
+          ],
+          "excludes": [
+            "Scans"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "mens-health",
+      "title": "Men's Health",
+      "items": [
+        {
+          "code": "HAIR_HORMONE_SCREEN",
+          "name": "Hair & Hormone Screen + Consult",
+          "price": 1999,
+          "unit": "package",
+          "includes": [
+            "Curated labs",
+            "Consult"
+          ],
+          "excludes": [
+            "Imaging",
+            "Advanced tests"
+          ]
+        },
+        {
+          "code": "ED_LIFESTYLE_PLAN_30",
+          "name": "ED Lifestyle Plan (30 days)",
+          "price": 1499,
+          "unit": "plan",
+          "includes": [
+            "Lifestyle plan",
+            "1 follow-up"
+          ],
+          "excludes": [
+            "Medicines",
+            "Procedures"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "sleep-stress",
+      "title": "Sleep & Stress Management",
+      "items": [
+        {
+          "code": "SLEEP_COACHING_30",
+          "name": "Sleep Coaching (30 days)",
+          "price": 1499,
+          "unit": "plan",
+          "includes": [
+            "Sleep regimen",
+            "1 review"
+          ],
+          "excludes": [
+            "Sleep devices",
+            "Lab tests"
+          ]
+        },
+        {
+          "code": "ANXIETY_STRESS_TOOLKIT",
+          "name": "Anxiety Stress Toolkit (therapy oriented)",
+          "price": 1499,
+          "unit": "session",
+          "includes": [
+            "Licensed professional",
+            "Therapy session"
+          ],
+          "excludes": [
+            "Medicines",
+            "Formal reports"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "gut-health",
+      "title": "Gut Health",
+      "items": [
+        {
+          "code": "IBS_GUT_PLAN_30",
+          "name": "IBS/Gut Care Plan (30 days)",
+          "price": 1499,
+          "unit": "plan",
+          "includes": [
+            "Care plan",
+            "1 follow-up"
+          ],
+          "excludes": [
+            "Medications",
+            "Lab tests",
+            "Endoscopy"
+          ]
+        },
+        {
+          "code": "GUT_PANEL_DIET",
+          "name": "Gut Panel + Diet Consult",
+          "price": 1999,
+          "unit": "package",
+          "includes": [
+            "Curated labs",
+            "Diet consult"
+          ],
+          "excludes": [
+            "Endoscopy",
+            "USG"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "metabolic-health",
+      "title": "Metabolic Health",
+      "items": [
+        {
+          "code": "THYROID_METABOLIC_PLAN_30",
+          "name": "Thyroid/Metabolic Plan (30 days)",
+          "price": 1499,
+          "unit": "plan",
+          "includes": [
+            "Management plan",
+            "1 follow-up"
+          ],
+          "excludes": [
+            "Medications",
+            "Lab tests"
+          ]
+        },
+        {
+          "code": "METABOLIC_LABS_BUNDLE",
+          "name": "Metabolic Labs Bundle + Consult",
+          "price": 1999,
+          "unit": "package",
+          "includes": [
+            "Curated lab bundle via partner",
+            "Consult"
+          ],
+          "excludes": [
+            "Advanced hormones"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "preventive-labs",
+      "title": "Preventive Lab Testing",
+      "items": [
+        {
+          "code": "BASIC_HEALTH_PANEL",
+          "name": "Basic Health Panel",
+          "price": 1250,
+          "unit": "package",
+          "includes": [
+            "CBC",
+            "Fasting glucose",
+            "Lipid profile"
+          ],
+          "excludes": [
+            "Home collection (if not specified)"
+          ]
+        },
+        {
+          "code": "COMPREHENSIVE_CHECKUP_MALE",
+          "name": "Comprehensive Check-up (Male)",
+          "price": 4999,
+          "unit": "package",
+          "includes": [
+            "Curated large panel",
+            "Basic health markers"
+          ],
+          "excludes": [
+            "Imaging unless specified"
+          ]
+        },
+        {
+          "code": "COMPREHENSIVE_CHECKUP_FEMALE",
+          "name": "Comprehensive Check-up (Female)",
+          "price": 6999,
+          "unit": "package",
+          "includes": [
+            "Curated large panel",
+            "Basic health markers"
+          ],
+          "excludes": [
+            "Imaging unless specified"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "iv-therapy",
+      "title": "IV Therapy",
+      "items": [
+        {
+          "code": "VITAMIN_BOOST_IV",
+          "name": "Vitamin Boost IV",
+          "price": 2999,
+          "unit": "session",
+          "includes": [
+            "Infusion",
+            "Consumables"
+          ],
+          "excludes": [
+            "Advanced mixes"
+          ]
+        },
+        {
+          "code": "HYDRATION_IV",
+          "name": "Hydration IV",
+          "price": 2499,
+          "unit": "session",
+          "includes": [
+            "Infusion",
+            "Consumables"
+          ],
+          "excludes": [
+            "Meds beyond standard solution"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "orthopedics",
+      "title": "Orthopedics",
+      "items": [
+        {
+          "code": "ORTHO_FUP",
+          "name": "Ortho Specialist Follow-up",
+          "price": 899,
+          "unit": "visit",
+          "includes": [
+            "Consultation"
+          ],
+          "excludes": [
+            "X-ray",
+            "MRI"
+          ]
+        },
+        {
+          "code": "KNEE_ARTHRO_BASE",
+          "name": "Knee Arthroscopy (Base Package)",
+          "price": 149999,
+          "unit": "package",
+          "includes": [
+            "Surgeon fee",
+            "OT/Anesthesia",
+            "1-day stay"
+          ],
+          "excludes": [
+            "Implants",
+            "Extended stay >1 day",
+            "ICU"
+          ]
+        }
+      ]
+    }
+  ],
+  "packages": [
+    {
+      "code": "WEIGHT_LOSS_PACK_4W",
+      "name": "Weight Loss Complete Pack (4 weeks)",
+      "price": 2999,
+      "unit": "package",
+      "includes": [
+        "Weight Loss Starter Plan (30 days)",
+        "Metabolic Panel + Diet Consult",
+        "Diet Plan (30 days)",
+        "Weekly progress check-ins"
+      ],
+      "excludes": [
+        "Medications",
+        "Exercise devices",
+        "Advanced imaging"
+      ],
+      "bundledItems": ["WEIGHT_LOSS_30", "METABOLIC_PANEL_DIET", "DIET_PLAN_30"],
+      "standaloneTotal": 4397,
+      "savings": 1398
+    },
+    {
+      "code": "THERAPY_4PK",
+      "name": "Therapy 4-Session Pack",
+      "price": 5299,
+      "unit": "package",
+      "includes": [
+        "4 therapy sessions",
+        "Progress review"
+      ],
+      "excludes": [
+        "Psychiatrist consults",
+        "Medicines"
+      ],
+      "bundledItems": ["THERAPY_STD", "THERAPY_STD", "THERAPY_STD", "THERAPY_STD"],
+      "standaloneTotal": 5996,
+      "savings": 697
+    },
+    {
+      "code": "PRP_HAIR_4PK",
+      "name": "PRP Hair Package (4 sessions)",
+      "price": 17999,
+      "unit": "package",
+      "includes": [
+        "4 PRP sessions",
+        "Follow-up review"
+      ],
+      "excludes": [
+        "Microneedling add-ons"
+      ],
+      "bundledItems": ["PRP_HAIR_SINGLE", "PRP_HAIR_SINGLE", "PRP_HAIR_SINGLE", "PRP_HAIR_SINGLE"],
+      "standaloneTotal": 19996,
+      "savings": 1997
+    },
+    {
+      "code": "SKIN_WELLNESS_PACK",
+      "name": "Skin Wellness Pack (2 months)",
+      "price": 1699,
+      "unit": "package",
+      "includes": [
+        "Acne Care Plan (30 days)",
+        "Dandruff/Scalp Treatment (30 days)",
+        "2 specialist follow-ups"
+      ],
+      "excludes": [
+        "Prescription meds",
+        "Lab tests"
+      ],
+      "bundledItems": ["ACNE_PLAN_30", "DANDRUFF_PLAN_30"],
+      "standaloneTotal": 1798,
+      "savings": 99
+    },
+    {
+      "code": "SKIN_CLEAR_4W",
+      "name": "Skin Clear Complete (4 weeks)",
+      "price": 1699,
+      "unit": "package",
+      "includes": [
+        "Acne Care Plan (30 days)",
+        "Diet Plan (30 days)",
+        "Weekly skin progress check-ins"
+      ],
+      "excludes": [
+        "Prescription medications",
+        "Facial treatments",
+        "Advanced procedures"
+      ],
+      "bundledItems": ["ACNE_PLAN_30", "DIET_PLAN_30"],
+      "standaloneTotal": 1798,
+      "savings": 99
+    },
+    {
+      "code": "HAIR_RESTORE_6W",
+      "name": "Hair Restoration Program (6 weeks)",
+      "price": 6999,
+      "unit": "package",
+      "includes": [
+        "1 PRP Hair Treatment session",
+        "Dandruff/Scalp Treatment (30 days)",
+        "2 specialist follow-up sessions",
+        "Hair care guidance"
+      ],
+      "excludes": [
+        "Additional PRP sessions",
+        "Hair transplant procedures",
+        "Prescription medications"
+      ],
+      "bundledItems": ["PRP_HAIR_SINGLE", "DANDRUFF_PLAN_30"],
+      "standaloneTotal": 7898,
+      "savings": 899
+    },
+    {
+      "code": "HEALTH_CHECK_PLUS",
+      "name": "Comprehensive Health Check Plus",
+      "price": 5999,
+      "unit": "package",
+      "includes": [
+        "Comprehensive Health Panel with labs",
+        "Doctor consultation and report review",
+        "Diet Plan (30 days)",
+        "Follow-up session included"
+      ],
+      "excludes": [
+        "Advanced imaging (CT/MRI)",
+        "Specialist referrals outside package",
+        "Additional lab tests"
+      ],
+      "bundledItems": ["COMPREHENSIVE_HEALTH", "DIET_PLAN_30"],
+      "standaloneTotal": 7898,
+      "savings": 1899
+    },
+    {
+      "code": "SLEEP_STRESS_4W",
+      "name": "Sleep & Stress Relief (4 weeks)",
+      "price": 2899,
+      "unit": "package",
+      "includes": [
+        "2 Therapy sessions",
+        "Sleep coaching consultation",
+        "Stress management plan",
+        "Weekly check-ins"
+      ],
+      "excludes": [
+        "Psychiatric medications",
+        "Sleep study tests",
+        "Additional therapy beyond 2 sessions"
+      ],
+      "bundledItems": ["THERAPY_STD", "THERAPY_STD", "SLEEP_HYGIENE"],
+      "standaloneTotal": 3997,
+      "savings": 1098
+    }
+  ],
+  "disclaimers": [
+    "Your first consultation is free with Glowheal's in-house doctor.",
+    "Payment occurs only after consent based on selected services.",
+    "Fixed prices apply at partner clinics in Pune.",
+    "Add-ons (labs, implants, room upgrades) are billed per Glowheal add-on catalog after explicit consent."
+  ]
+}
