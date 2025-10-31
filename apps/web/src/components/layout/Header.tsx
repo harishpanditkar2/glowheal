@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/Button';
 import { CitySelector } from '@/components/ui/CitySelector';
 import { generateWhatsAppURL, formatPhoneForWhatsApp } from '@/lib/utils';
 import { useFreeCta, getFreeConsultWhatsAppURL } from '@/hooks/useFreeCta';
+import { useCity, getCityDisplayName } from '@/lib/city-context';
 import services from '@/data/services.json';
 
 const mainNav = [
@@ -21,6 +22,8 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const { ctaText, ctaHref, whatsappText } = useFreeCta();
+  const { city } = useCity();
+  const cityDisplayName = getCityDisplayName(city);
   const whatsappPhone = '+918329563445';
 
   return (
@@ -37,6 +40,46 @@ export function Header() {
               Glowheal
             </span>
           </Link>
+
+          {/* Mobile Location Badge - Shows between logo and hamburger */}
+          <div className="flex lg:hidden items-center gap-2">
+            <div className="flex items-center gap-1.5 px-3 py-1.5 bg-jade-50 rounded-full border border-jade-200">
+              <svg className="w-4 h-4 text-jade-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span className="text-xs font-semibold text-jade-700">{cityDisplayName}</span>
+            </div>
+            
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 text-forest-700 hover:text-jade-600"
+              aria-label="Toggle menu"
+            >
+              <svg
+                className="w-7 h-7"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                {isMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-6">
