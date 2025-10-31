@@ -47,15 +47,23 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           id={selectId}
           className={cn(
             'w-full px-4 py-3 rounded-lg border-2 transition-colors duration-200',
-            'bg-white appearance-none',
+            'bg-white text-forest-900 text-base font-medium appearance-none',
             'focus:outline-none focus:ring-2 focus:ring-forest-700 focus:border-transparent',
-            'disabled:bg-gray-100 disabled:cursor-not-allowed',
+            'disabled:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-500',
+            '[&>option]:text-forest-900 [&>option]:bg-white [&>option]:py-2',
             {
               'border-mist-300 hover:border-mist-400': !error,
               'border-red-500 focus:ring-red-500': error,
             },
             className
           )}
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23166534'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E")`,
+            backgroundPosition: 'right 0.75rem center',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: '1.25rem',
+            paddingRight: '2.5rem',
+          }}
           aria-invalid={error ? 'true' : 'false'}
           aria-describedby={
             error ? `${selectId}-error` : helperText ? `${selectId}-helper` : undefined
@@ -63,12 +71,12 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           {...props}
         >
           {placeholder && (
-            <option value="" disabled>
+            <option value="" disabled className="text-gray-500">
               {placeholder}
             </option>
           )}
           {options.map((option) => (
-            <option key={option.value} value={option.value}>
+            <option key={option.value} value={option.value} className="text-forest-900 bg-white py-2">
               {option.label}
             </option>
           ))}

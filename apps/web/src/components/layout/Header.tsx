@@ -135,27 +135,26 @@ export function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 text-navy-800"
+            className="lg:hidden p-2 text-forest-700 hover:text-jade-600"
             aria-label="Toggle menu"
           >
             <svg
-              className="w-6 h-6"
+              className="w-7 h-7"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
+              strokeWidth={2}
             >
               {isMenuOpen ? (
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={2}
                   d="M6 18L18 6M6 6l12 12"
                 />
               ) : (
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={2}
                   d="M4 6h16M4 12h16M4 18h16"
                 />
               )}
@@ -165,13 +164,13 @@ export function Header() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-gray-200">
-            <nav className="space-y-4">
+          <div className="lg:hidden py-6 border-t border-gray-200 bg-white">
+            <nav className="space-y-1">
               {mainNav.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="block text-navy-800 hover:text-jade-600 font-medium py-2"
+                  className="block text-forest-700 hover:bg-jade-50 hover:text-jade-700 font-medium py-3 px-4 rounded-lg text-base transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
@@ -179,15 +178,16 @@ export function Header() {
               ))}
               <Link
                 href="/join-doctor"
-                className="block text-navy-800 hover:text-jade-600 font-medium py-2"
+                className="block text-forest-700 hover:bg-jade-50 hover:text-jade-700 font-medium py-3 px-4 rounded-lg text-base transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Join as Doctor
               </Link>
             </nav>
-            <div className="mt-4 space-y-3">
+            <div className="mt-6 px-4 space-y-3">
+              <CitySelector />
               <Link href={ctaHref} className="block">
-                <Button variant="free" size="lg" className="w-full">
+                <Button variant="free" size="lg" className="w-full text-base">
                   {ctaText}
                 </Button>
               </Link>

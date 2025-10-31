@@ -74,56 +74,56 @@ export default function HomePage() {
       <MultiSchemaRenderer schemas={[organizationSchema, medicalOrgSchema]} />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-forest-jade text-white py-20 md:py-32">
+      <section className="relative bg-gradient-forest-jade text-white py-16 md:py-32">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold font-display mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold font-display mb-6 leading-tight">
               Free First Consultation.<br />
               Fixed Prices. Right Care.
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-jade-100 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl md:text-2xl mb-8 text-jade-100 max-w-3xl mx-auto leading-relaxed">
               Talk to our in-house doctor at no cost; get a personalized plan and city-specific fixed prices—no surprise fees.
             </p>
             
             {/* CTA Row with City Selector */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
               <Link href={ctaHref}>
-                <Button variant="free" size="lg">
+                <Button variant="free" size="lg" className="w-full sm:w-auto text-base sm:text-lg">
                   {ctaText}
                 </Button>
               </Link>
               <Link href="/join-doctor">
-                <Button variant="outline" size="lg" className="bg-white/10 border-white text-white hover:bg-white/20">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto bg-white/10 border-white text-white hover:bg-white/20 text-base sm:text-lg">
                   Join as Doctor
                 </Button>
               </Link>
             </div>
             
             {/* Microproof Row */}
-            <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-jade-100 mt-4 md:mt-5">
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm sm:text-base text-jade-100 mt-4 md:mt-5 px-2">
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span>500+ doctors</span>
+                <span className="whitespace-nowrap">500+ doctors</span>
               </div>
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span>2M+ patients</span>
+                <span className="whitespace-nowrap">2M+ patients</span>
               </div>
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span>12+ specialties</span>
+                <span className="whitespace-nowrap">12+ specialties</span>
               </div>
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                 </svg>
-                <span>Pune first</span>
+                <span className="whitespace-nowrap">Pune first</span>
               </div>
             </div>
           </div>
