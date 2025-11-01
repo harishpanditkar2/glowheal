@@ -34,16 +34,27 @@ export function Header() {
     { slug: 'bengaluru', name: 'Bengaluru' },
   ];
 
-  // Close city dropdown when clicking outside
+  // Close city dropdown when clicking outside or pressing Escape
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (cityDropdownRef.current && !cityDropdownRef.current.contains(event.target as Node)) {
         setIsCityDropdownOpen(false);
       }
     }
+    
+    function handleEscapeKey(event: KeyboardEvent) {
+      if (event.key === 'Escape' && isCityDropdownOpen) {
+        setIsCityDropdownOpen(false);
+      }
+    }
+    
     if (isCityDropdownOpen) {
       document.addEventListener('mousedown', handleClickOutside);
-      return () => document.removeEventListener('mousedown', handleClickOutside);
+      document.addEventListener('keydown', handleEscapeKey);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+        document.removeEventListener('keydown', handleEscapeKey);
+      };
     }
   }, [isCityDropdownOpen]);
 
@@ -73,15 +84,17 @@ export function Header() {
               <button
                 onClick={() => setIsCityDropdownOpen(!isCityDropdownOpen)}
                 className="flex items-center gap-1.5 px-3 py-1.5 bg-jade-50 rounded-full border border-jade-200 hover:border-jade-300 hover:shadow-sm transition-all min-h-[48px]"
-                aria-label="Select city"
+                aria-label={`Select city. Currently showing ${cityDisplayName} prices`}
                 aria-haspopup="listbox"
                 aria-expanded={isCityDropdownOpen}
+                aria-controls="city-dropdown-menu"
               >
                 <svg className="w-5 h-5 text-forest-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-sm font-semibold text-forest-900">{cityDisplayName}</span>
+                {/* Hide text label on md+ to avoid double city context, keep icon */}
+                <span className="text-sm font-semibold text-forest-900 md:sr-only">{cityDisplayName}</span>
                 <svg 
                   className={`w-3.5 h-3.5 text-forest-600 transition-transform ${isCityDropdownOpen ? 'rotate-180' : ''}`}
                   fill="none" 
@@ -95,7 +108,12 @@ export function Header() {
 
               {/* City Dropdown */}
               {isCityDropdownOpen && (
-                <div className="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-200 py-2 z-50">
+                <div 
+                  id="city-dropdown-menu"
+                  role="listbox"
+                  aria-label="City selection menu"
+                  className="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-200 py-2 z-50"
+                >
                   {CITIES.map((cityOption) => {
                     const status = getCityStatus(cityOption.slug);
                     const isSelected = city === cityOption.slug;

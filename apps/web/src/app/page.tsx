@@ -81,7 +81,7 @@ export default function HomePage() {
               Free First Consultation.<br />
               Fixed Prices. Right Care.
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl mb-8 text-jade-100 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl mb-8 text-jade-100 max-w-3xl mx-auto leading-relaxed line-clamp-2 md:line-clamp-none">
               Talk to our in-house doctor at no cost; get a personalized plan and city-specific fixed prices—no surprise fees.
             </p>
             
@@ -101,25 +101,25 @@ export default function HomePage() {
             
             {/* Microproof Row */}
             <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm sm:text-base text-white mt-4 md:mt-5 px-2">
-              <div className="flex items-center gap-2 bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
+              <div className="flex items-center gap-2 h-9 bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
                 <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
                 <span className="whitespace-nowrap font-semibold drop-shadow-sm">500+ doctors</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
+              <div className="flex items-center gap-2 h-9 bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
                 <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
                 <span className="whitespace-nowrap font-semibold drop-shadow-sm">2M+ patients</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
+              <div className="flex items-center gap-2 h-9 bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
                 <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
                 <span className="whitespace-nowrap font-semibold drop-shadow-sm">12+ specialties</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
+              <div className="flex items-center gap-2 h-9 bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
                 <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                 </svg>
@@ -228,8 +228,8 @@ export default function HomePage() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {services.map((service) => {
-              // Mark most booked services
-              const mostBookedSlugs = ['mental-health', 'dermatology', 'nutrition-dietetics'];
+              // Mark most booked services (limit to 5 for clarity)
+              const mostBookedSlugs = ['dermatology', 'mental-health', 'nutrition-dietetics', 'hair-care', 'weight-management'];
               const showMostBooked = mostBookedSlugs.includes(service.slug);
               
               return (
