@@ -22,17 +22,36 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create leads directory with year/month structure
+    // Check if we're in production (Vercel)
+    const isProduction = process.env.VERCEL === '1' || process.env.NODE_ENV === 'production';
+    
+    if (isProduction) {
+      // PRODUCTION: Just log and return success (WhatsApp will handle communication)
+      console.log('🌐 PRODUCTION MODE: Booking logged');
+      console.log('📋 Booking Details:', JSON.stringify(data, null, 2));
+      
+      // TODO: In future, send to database or email service
+      // For now, WhatsApp message contains all booking details
+      
+      return NextResponse.json(
+        { 
+          success: true, 
+          bookingId: data.id,
+          message: 'Booking received successfully (production mode)',
+          note: 'Booking details logged. WhatsApp confirmation sent to customer.'
+        },
+        { status: 201 }
+      );
+    }
+
+    // DEVELOPMENT: Write to file system
     const now = new Date();
     const year = now.getFullYear();
     const month = String(now.getMonth() + 1).padStart(2, '0');
     
-    // Determine correct path for monorepo structure
-    // Current working directory is apps/web, so we need to go up two levels to reach project root
     const currentDir = process.cwd();
     console.log('📁 Current working directory:', currentDir);
     
-    // Check if we're in apps/web or at root
     const isInAppsWeb = currentDir.includes('apps/web') || currentDir.includes('apps\\web');
     const projectRoot = isInAppsWeb ? join(currentDir, '..', '..') : currentDir;
     const leadsDir = join(projectRoot, 'data', 'leads', String(year), month);

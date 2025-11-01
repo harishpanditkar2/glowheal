@@ -221,7 +221,8 @@ function BookAppointmentPageContent() {
   };
 
   const onSubmit = async (data: BookingFormData) => {
-    console.log('Form submitted with data:', data);
+    console.log('=== FORM SUBMISSION STARTED ===');
+    console.log('Form submitted with data:', JSON.stringify(data, null, 2));
     setIsSubmitting(true);
 
     try {
@@ -268,17 +269,23 @@ function BookAppointmentPageContent() {
       console.log('Submitting lead data:', leadData);
 
       // Save to API route (which writes to /data/leads/*.json)
+      console.log('=== CALLING BOOKINGS API ===');
       const response = await fetch('/api/bookings', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(leadData),
       });
 
+      console.log('=== API RESPONSE STATUS:', response.status, '===');
+      
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
-        console.error('Booking API error:', errorData);
+        console.error('❌ Booking API error response:', errorData);
         throw new Error(errorData.error || 'Failed to submit booking');
       }
+
+      const responseData = await response.json();
+      console.log('✅ API Success response:', responseData);
 
       // Store submitted data for success page
       setSubmittedData(leadData);
@@ -391,7 +398,15 @@ ${servicesText}
       }, 500); // Small delay to ensure success page renders first
       
     } catch (error) {
-      console.error('Booking submission error:', error);
+      console.error('=== BOOKING SUBMISSION ERROR ===');
+      console.error('Error object:', error);
+      console.error('Error type:', typeof error);
+      console.error('Error instanceof Error:', error instanceof Error);
+      if (error instanceof Error) {
+        console.error('Error message:', error.message);
+        console.error('Error stack:', error.stack);
+      }
+      
       const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
       alert(`Failed to submit booking: ${errorMessage}\n\nPlease check the browser console for details or contact us on WhatsApp.`);
     } finally {
@@ -456,13 +471,13 @@ ${servicesText}
               </p>
 
               <div className="bg-jade-50 rounded-lg p-6 mb-6">
-                <h2 className="font-semibold text-forest-700 mb-3">Your Details:</h2>
-                <div className="text-left space-y-2 text-sm">
-                  <p><strong>Consultation Type:</strong> {isFreeConsult ? 'Free First Consultation (₹0)' : 'Specialist Consultation'}</p>
-                  <p><strong>Specialty:</strong> {formData.specialty}</p>
-                  <p><strong>Visit Type:</strong> {formData.visitType === 'online' ? 'Online Video Consultation' : 'In-Clinic Visit (Pune)'}</p>
-                  <p><strong>Preferred Date:</strong> {formData.preferredDate}</p>
-                  <p><strong>Preferred Time:</strong> {formData.preferredTime}</p>
+                <h2 className="font-semibold text-forest-900 mb-3 text-lg">Your Details:</h2>
+                <div className="text-left space-y-2 text-sm text-gray-800">
+                  <p><strong className="text-forest-700">Consultation Type:</strong> {isFreeConsult ? 'Free First Consultation (₹0)' : 'Specialist Consultation'}</p>
+                  <p><strong className="text-forest-700">Specialty:</strong> {formData.specialty}</p>
+                  <p><strong className="text-forest-700">Visit Type:</strong> {formData.visitType === 'online' ? 'Online Video Consultation' : 'In-Clinic Visit (Bhadravati)'}</p>
+                  <p><strong className="text-forest-700">Preferred Date:</strong> {formData.preferredDate}</p>
+                  <p><strong className="text-forest-700">Preferred Time:</strong> {formData.preferredTime}</p>
                 </div>
               </div>
 
@@ -1033,10 +1048,19 @@ ${servicesText}
                       type="submit"
                       disabled={isSubmitting}
                       className="flex-1"
-                      onClick={() => {
-                        console.log('Submit button clicked');
+                      onClick={async () => {
+                        console.log('=== SUBMIT BUTTON CLICKED ===');
                         console.log('Form errors:', errors);
                         console.log('Current form values:', getValues());
+                        console.log('Is submitting:', isSubmitting);
+                        
+                        // Manually trigger validation
+                        const isValid = await trigger();
+                        console.log('Form validation result:', isValid);
+                        
+                        if (!isValid) {
+                          console.error('❌ Form validation failed:', errors);
+                        }
                       }}
                     >
                       {isSubmitting ? 'Submitting...' : 'Confirm Booking'}
