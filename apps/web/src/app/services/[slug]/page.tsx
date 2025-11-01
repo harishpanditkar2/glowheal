@@ -129,9 +129,18 @@ export default function ServicePage({ params }: Props) {
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-forest-700 via-jade-600 to-forest-800 text-white py-20 md:py-28 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-gradient-to-br from-jade-600 to-forest-800" />
-        </div>
+        {/* Hero Background Image */}
+        {service.heroImage && (
+          <div className="absolute inset-0 z-0">
+            <img
+              src={service.heroImage}
+              alt={`${service.name} consultation`}
+              className="w-full h-full object-cover opacity-20"
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-forest-900/80 to-jade-900/80" />
+          </div>
+        )}
+        
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <div className="text-7xl mb-6">{service.icon}</div>
