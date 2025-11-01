@@ -5,52 +5,47 @@ import services from '@/data/services.json';
 
 const footerSections = [
   {
-    title: 'Services',
-    links: services.slice(0, 6).map((service) => ({
+    title: '🌸 Conditions',
+    links: services.slice(0, 5).map((service) => ({
       label: service.name,
-      href: `/services/${service.slug}`,
+      href: `/conditions/${service.slug}`,
     })),
   },
   {
-    title: 'More Services',
-    links: services.slice(6, 12).map((service) => ({
+    title: '🌿 More Conditions',
+    links: services.slice(5, 10).map((service) => ({
       label: service.name,
-      href: `/services/${service.slug}`,
+      href: `/conditions/${service.slug}`,
     })),
   },
   {
-    title: 'For Patients',
+    title: '📋 Quick Links',
     links: [
-      { label: 'Free First Consultation', href: '/book' },
-      { label: 'Pune Fixed Prices', href: '/pricing' },
-      { label: 'Dermatology Pricing', href: '/pricing/dermatology' },
-      { label: 'Mental Health Pricing', href: '/pricing/mental-health' },
-      { label: 'Orthopedics Pricing', href: '/pricing/orthopedics' },
-      { label: 'Find Doctors', href: '/doctors' },
-      { label: 'Browse Services', href: '/services' },
-      // Removed: Health Packages, Cities, Reviews, Blog - pages not yet created
+      { label: '🆓 Free Consultation', href: '/book' },
+      { label: '💰 Pricing', href: '/pricing' },
+      { label: '📍 Conditions', href: '/conditions' },
+      { label: '👩‍⚕️ About Dr. Chetna', href: '/about' },
     ],
   },
   {
-    title: 'For Doctors',
+    title: '📍 Location',
     links: [
-      { label: 'Find Doctors', href: '/doctors' },
-      { label: 'View Services', href: '/services' },
-      // Removed: Doctor signup/login/dashboard - auth not yet implemented
+      { label: '🏥 Clinic - Pune', href: '/contact' },
+      { label: '💻 Online Consultations', href: '/book' },
+      { label: '💬 Contact Us', href: '/contact' },
+      { label: '📞 WhatsApp', href: `https://wa.me/918329563445` },
     ],
   },
   {
-    title: 'Company',
+    title: 'ℹ️ Company',
     links: [
-      { label: 'Special Offers', href: '/landing/glowheal-offer' },
-      { label: 'All Services', href: '/services' },
       { label: 'About Us', href: '/about' },
       { label: 'Contact Us', href: '/contact' },
-      // Removed: Careers, Press - pages not yet created
+      { label: 'Pricing', href: '/pricing' },
     ],
   },
   {
-    title: 'Legal',
+    title: '📄 Legal',
     links: [
       { label: 'Privacy Policy', href: '/privacy' },
       { label: 'Terms of Service', href: '/terms' },
@@ -118,17 +113,17 @@ export function Footer() {
     <footer className="bg-forest-900 text-white pt-16 pb-8">
       <div className="container mx-auto px-4">
         {/* Free Consultation CTA Banner */}
-        <div className="bg-gradient-to-r from-jade-700 to-forest-700 rounded-2xl p-8 mb-12 text-center">
+        <div className="bg-gradient-to-r from-teal-600 to-amber-600 rounded-2xl p-8 mb-12 text-center">
           <h3 className="font-bold font-display text-2xl md:text-3xl mb-3">
-            Start with a Free Consultation
+            🌟 Start with a Free Consultation 🌟
           </h3>
-          <p className="text-mist-100 mb-6 max-w-2xl mx-auto">
-            {proofText}
+          <p className="text-white/90 mb-6 max-w-2xl mx-auto">
+            Get personalized care from Dr. Chetna Bhaisare — Your first consultation is FREE! 💚
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href={ctaHref}>
-              <Button variant="primary" size="lg" className="min-w-[200px]">
-                Book Free Consultation
+              <Button variant="primary" size="lg" className="min-w-[200px] bg-white text-teal-700 hover:bg-teal-50">
+                📅 Book Free Consultation
               </Button>
             </Link>
             <Link
@@ -136,8 +131,8 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="secondary" size="lg" className="min-w-[200px] bg-white text-forest-700 hover:bg-mist-50">
-                Chat on WhatsApp
+              <Button variant="secondary" size="lg" className="min-w-[200px] bg-amber-500 text-white hover:bg-amber-600 border-0">
+                💬 Chat on WhatsApp
               </Button>
             </Link>
           </div>
@@ -168,23 +163,23 @@ export function Footer() {
         <div className="border-t border-gray-700 pt-8 mb-8">
           <div className="max-w-2xl mx-auto text-center">
             <h3 className="font-bold font-display text-xl mb-2">
-              Subscribe to Health Updates
+              📧 Subscribe to Wellness Updates
             </h3>
             <p className="text-gray-300 mb-4">
-              Get expert health tips, special offers, and wellness advice delivered to your inbox.
+              Get expert health tips, Ayurveda insights, and wellness advice from Dr. Chetna 🌿
             </p>
             <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-lg bg-white text-forest-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-lime-500 font-medium"
+                className="flex-1 px-4 py-3 rounded-lg bg-white text-forest-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-teal-500 font-medium"
                 required
               />
               <button
                 type="submit"
-                className="px-6 py-3 bg-lime-400 text-forest-900 rounded-lg font-semibold hover:bg-lime-500 hover:shadow-lg transition-all"
+                className="px-6 py-3 bg-teal-500 text-white rounded-lg font-semibold hover:bg-teal-600 hover:shadow-lg transition-all"
               >
-                Subscribe
+                ✨ Subscribe
               </button>
             </form>
           </div>
@@ -219,7 +214,7 @@ export function Footer() {
               />
             </div>
             <p className="text-gray-400 text-sm">
-              © {currentYear} Glowheal. All rights reserved.
+              © {currentYear} Dr. Chetna Bhaisare — Glowheal. All rights reserved. 💚
             </p>
           </div>
         </div>

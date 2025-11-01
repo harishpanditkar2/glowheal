@@ -5,13 +5,13 @@ import { MultiSchemaRenderer } from '@/components/schema/SchemaRenderer';
 import { buildOrganizationSchema, buildBreadcrumbSchema } from '@/lib/schema-builders';
 
 export const metadata: Metadata = {
-  title: 'About Glowheal | Transparent Healthcare Platform',
+  title: 'About Dr. Chetna Bhaisare | Dermatology & Ayurveda',
   description:
-    'Glowheal connects patients with verified doctors across India. Fixed transparent pricing, free first consultation, and quality healthcare you can trust.',
-  keywords: 'about glowheal, healthcare platform, verified doctors, transparent pricing, telemedicine india',
+    'Dr. Chetna Bhaisare specializes in Dermatology and Ayurveda with 10+ years of experience. Integrative approach combining modern medicine with traditional healing.',
+  keywords: 'Dr. Chetna Bhaisare, dermatologist pune, ayurvedic doctor, integrative medicine, skin specialist',
   openGraph: {
-    title: 'About Glowheal | Quality Healthcare Platform',
-    description: 'Connecting patients with verified doctors. Fixed pricing, free first consultation.',
+    title: 'About Dr. Chetna Bhaisare | Dermatology & Ayurveda',
+    description: 'Integrative healthcare combining modern dermatology with traditional Ayurveda. 10+ years experience.',
     type: 'website',
   },
 };
@@ -30,24 +30,27 @@ export default function AboutPage() {
       <MultiSchemaRenderer schemas={schemas} />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-forest-50 to-jade-50 py-20">
+      <section className="bg-gradient-to-br from-teal-50 to-amber-50 py-20">
         <div className="container-width max-w-4xl text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-forest-900 mb-6 tracking-tight">
-            Healthcare Made Simple, Transparent, and Accessible
+            👩‍⚕️ Dr. Chetna Bhaisare 🌿
           </h1>
+          <p className="text-2xl text-teal-600 font-semibold mb-4">
+            Dermatology & Ayurveda Specialist
+          </p>
           <p className="text-lg text-forest-700 mb-8 max-w-3xl mx-auto">
-            Glowheal is a digital healthcare platform connecting patients with verified doctors across India.
-            We believe in transparent pricing, quality care, and making healthcare accessible to everyone.
+            ✨ Integrative healthcare approach combining modern dermatology with traditional Ayurvedic healing. ✨<br/>
+            Over 10 years of experience helping patients achieve optimal skin health and wellness. 💚
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/book">
               <Button variant="primary" size="lg">
-                Book Free Consultation
+                📅 Book Consultation
               </Button>
             </Link>
-            <Link href="/pricing">
+            <Link href="/contact">
               <Button variant="secondary" size="lg">
-                View Fixed Pricing
+                💬 Contact Us
               </Button>
             </Link>
           </div>
@@ -58,119 +61,86 @@ export default function AboutPage() {
       <section className="py-16 bg-white">
         <div className="container-width max-w-6xl">
           <div className="mb-16">
-            <h2 className="text-3xl font-bold text-forest-900 mb-4 text-center">Our Mission</h2>
+            <h2 className="text-3xl font-bold text-forest-900 mb-4 text-center">🎯 My Approach</h2>
             <p className="text-lg text-forest-700 text-center max-w-3xl mx-auto">
-              To make quality healthcare accessible and affordable by connecting patients with verified doctors,
-              providing transparent pricing, and ensuring a seamless consultation experience from the first free call
-              to ongoing specialist care.
+              I believe in treating the whole person, not just symptoms. By combining modern dermatological 
+              treatments with time-tested Ayurvedic principles, I help patients achieve lasting results and 
+              optimal well-being. 🌱
             </p>
           </div>
 
-          {/* Founders Section */}
+          {/* Doctor Profile */}
           <div className="mb-16">
-            <h2 className="text-3xl font-bold text-forest-900 mb-8 text-center">Our Leadership</h2>
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {/* Founder */}
-              <div className="bg-gradient-to-br from-forest-50 to-jade-50 rounded-2xl p-8 shadow-soft hover:shadow-md transition-shadow">
+            <div className="max-w-3xl mx-auto">
+              <div className="bg-gradient-to-br from-teal-50 to-amber-50 rounded-2xl p-8 shadow-soft">
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-24 h-24 bg-lime-400 rounded-full flex items-center justify-center mb-4 shadow-md">
-                    <span className="text-3xl font-bold text-forest-900">HP</span>
+                  <div className="w-32 h-32 bg-teal-400 rounded-full flex items-center justify-center mb-6 shadow-md">
+                    <span className="text-5xl font-bold text-white">CB</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-forest-900 mb-2">Harish Panditkar</h3>
-                  <p className="text-lime-600 font-semibold mb-4">Founder & CEO</p>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    Harish brings extensive experience in building high-performance API-driven platforms and scalable web applications. 
-                    He leads Glowheal's business strategy, technology architecture, go-to-market execution, and platform development.
+                  <h3 className="text-3xl font-bold text-forest-900 mb-2">Dr. Chetna Bhaisare</h3>
+                  <p className="text-teal-600 font-semibold text-xl mb-6">👩‍⚕️ Doctor</p>
+                  <p className="text-gray-700 leading-relaxed mb-6 text-lg">
+                    With over 10 years of clinical experience, I specialize in integrative healthcare that bridges 
+                    modern dermatology and traditional Ayurveda. My practice focuses on personalized treatment plans 
+                    that address both immediate concerns and long-term wellness. 💙
                   </p>
-                  <div className="space-y-2 text-sm text-forest-700">
-                    <p className="flex items-center gap-2 justify-center">
-                      <svg className="w-4 h-4 text-lime-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      Business & Technology Strategy
-                    </p>
-                    <p className="flex items-center gap-2 justify-center">
-                      <svg className="w-4 h-4 text-lime-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      Platform Architecture & Development
-                    </p>
-                    <p className="flex items-center gap-2 justify-center">
-                      <svg className="w-4 h-4 text-lime-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      Go-To-Market & Performance Marketing
-                    </p>
-                    <p className="flex items-center gap-2 justify-center">
-                      <svg className="w-4 h-4 text-lime-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      Automation & Growth Engineering
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Co-Founder */}
-              <div className="bg-gradient-to-br from-jade-50 to-forest-50 rounded-2xl p-8 shadow-soft hover:shadow-md transition-shadow">
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-24 h-24 bg-jade-400 rounded-full flex items-center justify-center mb-4 shadow-md">
-                    <span className="text-3xl font-bold text-forest-900">CB</span>
-                  </div>
-                  <h3 className="text-2xl font-bold text-forest-900 mb-2">Dr. Chetna Bhaisare</h3>
-                  <p className="text-jade-600 font-semibold mb-4">Co-Founder & CMO</p>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    Dr. Chetna brings credible clinical expertise as Chief Medical Officer (CMO) at Glowheal. 
-                    She leads patient consultations, clinical operations, wellness programs, and strategic partnerships with healthcare providers across India.
-                  </p>
-                  <div className="space-y-2 text-sm text-forest-700">
-                    <p className="flex items-center gap-2 justify-center">
-                      <svg className="w-4 h-4 text-jade-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      Clinical Operations & Consultations
-                    </p>
-                    <p className="flex items-center gap-2 justify-center">
-                      <svg className="w-4 h-4 text-jade-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      Wellness Programs & Patient Care
-                    </p>
-                    <p className="flex items-center gap-2 justify-center">
-                      <svg className="w-4 h-4 text-jade-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      Healthcare Partnerships & Network
-                    </p>
-                    <p className="flex items-center gap-2 justify-center">
-                      <svg className="w-4 h-4 text-jade-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      Marketing & Operational Continuity
-                    </p>
+                  
+                  <div className="w-full space-y-4 text-left">
+                    <h4 className="text-xl font-semibold text-forest-900 mb-3">🎓 Specializations</h4>
+                    <div className="grid md:grid-cols-2 gap-3">
+                      <div className="flex items-start gap-3">
+                        <span className="text-2xl">🔬</span>
+                        <div>
+                          <p className="font-semibold text-forest-900">Dermatology</p>
+                          <p className="text-sm text-gray-600">Acne, Eczema, Psoriasis, Hair Loss, Skin Aging</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <span className="text-2xl">🌿</span>
+                        <div>
+                          <p className="font-semibold text-forest-900">Ayurveda</p>
+                          <p className="text-sm text-gray-600">Panchakarma, Dosha Balancing, Rasayana</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <span className="text-2xl">💆‍♀️</span>
+                        <div>
+                          <p className="font-semibold text-forest-900">Holistic Wellness</p>
+                          <p className="text-sm text-gray-600">Stress Management, Lifestyle Guidance</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <span className="text-2xl">🛡️</span>
+                        <div>
+                          <p className="font-semibold text-forest-900">Preventive Care</p>
+                          <p className="text-sm text-gray-600">Skin Health, Anti-aging, Nutrition</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Why We Started Section */}
-          <div className="mb-16 bg-gradient-to-br from-amber-50 to-lime-50 rounded-2xl p-8 md:p-12">
-            <h2 className="text-3xl font-bold text-forest-900 mb-6 text-center">Why We Started Glowheal</h2>
+          {/* Why Choose Me */}
+          <div className="mb-16 bg-gradient-to-br from-amber-50 to-teal-50 rounded-2xl p-8 md:p-12">
+            <h2 className="text-3xl font-bold text-forest-900 mb-6 text-center">💡 Why Choose Integrative Care</h2>
             <div className="max-w-3xl mx-auto space-y-4 text-gray-700 leading-relaxed">
               <p>
-                Healthcare in India is broken. Patients face unclear pricing, hidden fees, and confusing referrals to specialists 
-                they don't need. We experienced this firsthand—watching friends and family struggle to find trustworthy care at 
-                transparent prices.
+                Modern dermatology excels at treating symptoms quickly and effectively. Ayurveda offers deep wisdom 
+                about root causes and long-term balance. Together, they create a comprehensive approach that addresses 
+                both immediate concerns and underlying health patterns. 🌟
               </p>
               <p>
-                Glowheal was born from a simple idea: <strong className="text-forest-900">what if healthcare was as transparent 
-                as ordering a product online?</strong> You see the price upfront, you talk to a doctor for free first, and you only 
-                pay when you're ready to proceed.
+                <strong className="text-forest-900">My practice philosophy:</strong> Every patient is unique. I take 
+                time to understand your medical history, lifestyle, and goals before recommending treatments. Whether 
+                you're dealing with chronic skin conditions or seeking preventive care, you'll receive personalized 
+                attention and evidence-based solutions. 🎯
               </p>
               <p>
-                We combine Harish's technical expertise in building scalable platforms with Dr. Chetna's clinical experience 
-                to create a healthcare platform that actually works for patients—no surprises, no confusion, just honest care.
+                With consultations available both in-clinic and online, quality healthcare is accessible when you need 
+                it. Your first consultation is always free—because good health starts with good conversation. 💬✨
               </p>
             </div>
           </div>
