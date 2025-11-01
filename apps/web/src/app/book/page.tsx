@@ -15,7 +15,7 @@ import servicesData from '@/data/services.json';
 // TODO: This booking page needs complete rewrite for single-doctor model
 // Temporary stub functions to make it compile
 
-const getCityDisplayName = (city: string) => 'Pune';
+const getCityDisplayName = (city: string) => 'Bhadravati';
 const getCatalogItem = (city: string, code: string) => ({ name: code, price: 0, unit: 'session', code });
 const getCatalog = (city: string) => ({ 
   specialties: [] as Array<{ 
@@ -32,7 +32,7 @@ const getCatalog = (city: string) => ({
   }> 
 });
 const formatPrice = (price: number) => `₹${price}`;
-const citiesData = [{ slug: 'pune', name: 'Pune' }];
+const citiesData = [{ slug: 'bhadravati', name: 'Bhadravati' }];
 const useFreeCta = () => ({ ctaText: 'Book Free Consultation', proofText: 'Free first consultation' });
 const getFreeConsultWhatsAppURL = (specialty?: string, city?: string) => 
   `https://wa.me/918329563445?text=${encodeURIComponent('Hi, I want to book a consultation')}`;
@@ -79,7 +79,7 @@ function BookAppointmentPageContent() {
   const specialtySlug = searchParams.get('specialty');
   // TODO: Remove city logic - single location
   // const { city: contextCity } = useCity();
-  const contextCity = 'pune'; // Temporary hardcode
+  const contextCity = 'bhadravati'; // Temporary hardcode
   
   // State for selected catalog items (provisional) - Default to free consultation
   const [selectedItems, setSelectedItems] = useState<string[]>(() => {
@@ -256,11 +256,11 @@ function BookAppointmentPageContent() {
         },
         // NEW: Add selected catalog items (currently none - simplified form)
         items: selectedItems.map(code => {
-          const item = getCatalogItem('pune', code);
+          const item = getCatalogItem('bhadravati', code);
           return item ? {
             code: item.code,
             price: item.price,
-            city: 'Pune',
+            city: 'Bhadravati',
           } : null;
         }).filter(Boolean),
       };
@@ -292,7 +292,7 @@ function BookAppointmentPageContent() {
             body: JSON.stringify({
               leadId: id,
               items: selectedItems,
-              city: 'Pune', // Single location - always Pune
+              city: 'Bhadravati', // Single location - always Bhadravati
               contact: {
                 name: data.name,
                 phone: phoneWithPrefix,
@@ -346,7 +346,7 @@ function BookAppointmentPageContent() {
       if (typeof window !== 'undefined') {
         const servicesText = selectedItems.length > 0
           ? selectedItems.map(code => {
-              const item = getCatalogItem('pune', code);
+              const item = getCatalogItem('bhadravati', code);
               return item ? `- ${item.name} (${formatPrice(item.price)})` : '';
             }).filter(Boolean).join('\n')
           : 'No specific services selected';
@@ -360,7 +360,7 @@ function BookAppointmentPageContent() {
 
 💚 *Consultation Type:* Free First Consultation (₹0)
 🩺 *Specialty:* ${data.specialty}
-📍 *Visit Type:* ${data.visitType === 'online' ? 'Online Video Consultation' : 'In-Clinic Visit (Pune)'}
+📍 *Visit Type:* ${data.visitType === 'online' ? 'Online Video Consultation' : 'In-Clinic Visit (Bhadravati)'}
 📅 *Preferred Date:* ${data.preferredDate}
 ⏰ *Preferred Time:* ${data.preferredTime}
 
@@ -402,7 +402,7 @@ ${servicesText}
     
     // WhatsApp message with free consultation context and selected services
     const selectedServiceNames = selectedItems
-      .map(code => getCatalogItem('pune', code)?.name)
+          .map(code => getCatalogItem('bhadravati', code)?.name)
       .filter(Boolean)
       .join(', ');
     
@@ -470,7 +470,7 @@ ${servicesText}
                   {(() => {
                     const specialties = new Set(
                       selectedItems
-                        .map(code => getCatalogItem('pune', code))
+                    .map(code => getCatalogItem('bhadravati', code))
                         .filter(Boolean)
                         .map(item => {
                           // Map item code to specialty
@@ -516,12 +516,12 @@ ${servicesText}
                     })}
                   </div>
                   <div className="bg-white rounded-lg p-4 text-sm text-gray-700">
-                    <p className="font-semibold text-forest-700 mb-2">Important:</p>
+                      <p className="font-semibold text-forest-700 mb-2">Important:</p>
                     <ul className="list-disc list-inside space-y-1 text-xs">
                       <li>Payment only required <strong>after</strong> your free consultation and consent to treatment.</li>
                       <li>Our doctor will discuss these services during your call and confirm they're right for you.</li>
                       <li>Add-ons (labs, imaging, implants) are billed per Glowheal add-on catalog.</li>
-                      <li>All prices are fixed for Pune. No hidden charges.</li>
+                      <li>All prices are fixed for Bhadravati. No hidden charges.</li>
                     </ul>
                   </div>
 
@@ -906,9 +906,9 @@ ${servicesText}
                             <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clipRule="evenodd" />
                           </svg>
                           <div className="flex-1">
-                            <div className="font-bold text-forest-700 text-base">In-Clinic Visit (Pune)</div>
+                            <div className="font-bold text-forest-700 text-base">In-Clinic Visit (Bhadravati)</div>
                             <p className="text-sm text-gray-600 mt-1">
-                              Visit Dr. Chetna Bhaisare at the clinic in Pune
+                              Visit Dr. Chetna Bhaisare at the clinic in Bhadravati
                             </p>
                           </div>
                         </div>
