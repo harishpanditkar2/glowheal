@@ -163,7 +163,7 @@ export default function HomePage() {
             </div>
             <div>
               <div className="flex flex-col items-center mb-2">
-                <span className="text-3xl md:text-4xl font-bold text-jade-500">Pune</span>
+                <span className="text-3xl md:text-4xl font-bold text-jade-500">Bhadravati</span>
               </div>
               <div className="text-gray-600 font-medium">In-clinic & Online</div>
             </div>

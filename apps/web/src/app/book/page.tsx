@@ -324,7 +324,7 @@ function BookAppointmentPageContent() {
         }
       }
       
-      // Show success state
+      // Show success state FIRST
       setBookingSuccess(true);
       
       // Store in localStorage for recovery
@@ -336,22 +336,23 @@ function BookAppointmentPageContent() {
           event: 'free_consult_form_submit',
           selectedItems: selectedItems,
           itemsCount: selectedItems.length,
-          city: 'pune', // Single location - always Pune
+          city: 'bhadravati', // Single location - always Bhadravati
           specialty: data.specialty,
           visitType: data.visitType,
         });
       }
       
-      // WhatsApp submission: Format message and open WhatsApp
-      if (typeof window !== 'undefined') {
-        const servicesText = selectedItems.length > 0
-          ? selectedItems.map(code => {
-              const item = getCatalogItem('bhadravati', code);
-              return item ? `- ${item.name} (${formatPrice(item.price)})` : '';
-            }).filter(Boolean).join('\n')
-          : 'No specific services selected';
-        
-        const whatsappMessage = `🌿 *Glowheal Booking Confirmation*
+      // WhatsApp submission: Format message and open WhatsApp AFTER success state is set
+      setTimeout(() => {
+        if (typeof window !== 'undefined') {
+          const servicesText = selectedItems.length > 0
+            ? selectedItems.map(code => {
+                const item = getCatalogItem('bhadravati', code);
+                return item ? `- ${item.name} (${formatPrice(item.price)})` : '';
+              }).filter(Boolean).join('\n')
+            : 'No specific services selected';
+          
+          const whatsappMessage = `🌿 *Glowheal Booking Confirmation*
 
 📋 *Booking ID:* ${id}
 👤 *Name:* ${data.name}
@@ -372,13 +373,22 @@ ${servicesText}
 
 ✅ I confirm booking and will wait for your call to schedule the consultation.`;
 
-        const whatsappUrl = `https://wa.me/918329563445?text=${encodeURIComponent(whatsappMessage)}`;
-        
-        console.log('Opening WhatsApp with URL:', whatsappUrl);
-        
-        // Open WhatsApp immediately
-        window.open(whatsappUrl, '_blank');
-      }
+          const whatsappUrl = `https://wa.me/918329563445?text=${encodeURIComponent(whatsappMessage)}`;
+          
+          console.log('Opening WhatsApp with URL:', whatsappUrl);
+          console.log('WhatsApp URL length:', whatsappUrl.length);
+          
+          // Try to open WhatsApp
+          const whatsappWindow = window.open(whatsappUrl, '_blank');
+          
+          if (!whatsappWindow) {
+            console.warn('WhatsApp popup blocked by browser');
+            // Fallback: show clickable link
+            alert('Please click OK to open WhatsApp');
+            window.location.href = whatsappUrl;
+          }
+        }
+      }, 500); // Small delay to ensure success page renders first
       
     } catch (error) {
       console.error('Booking submission error:', error);
