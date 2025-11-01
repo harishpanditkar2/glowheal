@@ -78,7 +78,6 @@ export default function AboutPage() {
                     <span className="text-5xl font-bold text-white">CB</span>
                   </div>
                   <h3 className="text-3xl font-bold text-forest-900 mb-2">Dr. Chetna Bhaisare</h3>
-                  <p className="text-teal-600 font-semibold text-xl mb-6">👩‍⚕️ Doctor</p>
                   <p className="text-gray-700 leading-relaxed mb-6 text-lg">
                     With over 10 years of clinical experience, I specialize in integrative healthcare that bridges 
                     modern dermatology and traditional Ayurveda. My practice focuses on personalized treatment plans 
