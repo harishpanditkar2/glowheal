@@ -438,9 +438,10 @@ export default function ServicePage({ params }: Props) {
                   {plan.name}
                 </h3>
                 <div className="mb-6">
-                  <span className="text-4xl font-bold">₹{plan.price.toLocaleString('en-IN')}</span>
-                  <span className={plan.recommended ? 'text-jade-100' : 'text-gray-500'}>
-                    {' '}
+                  <span className={`text-4xl font-bold ${plan.recommended ? 'text-white' : 'text-forest-900'}`}>
+                    ₹{plan.price.toLocaleString('en-IN')}
+                  </span>
+                  <span className={`text-base ml-1 ${plan.recommended ? 'text-white/90' : 'text-gray-600'}`}>
                     / package
                   </span>
                 </div>
