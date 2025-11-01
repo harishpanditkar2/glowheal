@@ -275,7 +275,9 @@ function BookAppointmentPageContent() {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to submit booking');
+        const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+        console.error('Booking API error:', errorData);
+        throw new Error(errorData.error || 'Failed to submit booking');
       }
 
       // Store submitted data for success page
@@ -380,7 +382,8 @@ ${servicesText}
       
     } catch (error) {
       console.error('Booking submission error:', error);
-      alert('Failed to submit booking. Please try again or contact us on WhatsApp.');
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+      alert(`Failed to submit booking: ${errorMessage}\n\nPlease check the browser console for details or contact us on WhatsApp.`);
     } finally {
       setIsSubmitting(false);
     }
@@ -870,6 +873,7 @@ ${servicesText}
                           type="radio"
                           value="online"
                           {...register('visitType')}
+                          defaultChecked={true}
                           className="sr-only peer"
                         />
                         <div className="flex items-start gap-3 mb-2">
