@@ -870,7 +870,6 @@ ${servicesText}
                           type="radio"
                           value="online"
                           {...register('visitType')}
-                          defaultChecked
                           className="sr-only peer"
                         />
                         <div className="flex items-start gap-3 mb-2">
