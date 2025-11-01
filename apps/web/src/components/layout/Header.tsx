@@ -69,7 +69,7 @@ export function Header() {
         {/* Top Bar */}
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center py-2">
+          <Link href="/" className="flex items-center">
             <img 
               src="/images/logo-with-text.svg" 
               alt="Glowheal - Healthcare Platform" 

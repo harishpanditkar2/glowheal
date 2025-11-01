@@ -28,10 +28,11 @@ export default function BlogPage() {
   return (
     <>
       <MultiSchemaRenderer schemas={schemas} />
-
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-forest-50 to-jade-50 py-20">
-        <div className="container-width max-w-4xl text-center">
+      
+      <div className="min-h-screen bg-white">
+        {/* Hero Section */}
+        <section className="bg-gradient-to-br from-forest-50 to-jade-50 py-20">
+          <div className="container-width max-w-4xl text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-forest-900 mb-6 tracking-tight">
             Healthcare Insights & Wellness Tips
           </h1>
@@ -122,6 +123,8 @@ export default function BlogPage() {
           </div>
         </div>
       </section>
+      </div>
     </>
   );
 }
+

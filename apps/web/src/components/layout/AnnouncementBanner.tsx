@@ -39,7 +39,7 @@ export function AnnouncementBanner() {
   // Don't render during SSR to avoid hydration mismatch
   if (!isClient) {
     // Reserve space to prevent CLS
-    return <div className="h-14 bg-lime-400" aria-hidden="true" />;
+    return <div className="h-11 bg-lime-400" aria-hidden="true" />;
   }
 
   if (!isVisible) {
@@ -48,7 +48,7 @@ export function AnnouncementBanner() {
 
   return (
     <div
-      className="relative bg-lime-400 text-forest-900 py-3 px-4 shadow-md"
+      className="relative bg-lime-400 text-forest-900 py-2 px-4 shadow-md"
       role="banner"
       aria-label="Site announcement"
     >

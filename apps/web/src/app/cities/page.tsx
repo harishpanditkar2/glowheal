@@ -52,10 +52,11 @@ export default function CitiesPage() {
   return (
     <>
       <MultiSchemaRenderer schemas={schemas} />
-
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-forest-50 to-jade-50 py-20">
-        <div className="container-width max-w-4xl text-center">
+      
+      <div className="min-h-screen bg-white">
+        {/* Hero Section */}
+        <section className="bg-gradient-to-br from-forest-50 to-jade-50 py-20">
+          <div className="container-width max-w-4xl text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-forest-900 mb-6 tracking-tight">
             Healthcare Services Across India
           </h1>
@@ -142,6 +143,7 @@ export default function CitiesPage() {
           </Link>
         </div>
       </section>
+      </div>
     </>
   );
 }

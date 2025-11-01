@@ -155,45 +155,40 @@ export default function DoctorProfilePage({ params }: { params: { slug: string }
   return (
     <>
       <MultiSchemaRenderer schemas={schemas} />
+      
+      <div className="min-h-screen bg-white">
+        {/* Hero Section */}
+        <section className="bg-gradient-to-r from-forest-700 to-jade-600 text-white py-12">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
+              {/* Breadcrumb */}
+              <nav className="mb-6 text-sm">
+                <ol className="flex items-center space-x-2">
+                  <li>
+                    <Link href="/" className="text-white/80 hover:text-white transition-colors">
+                      Home
+                    </Link>
+                  </li>
+                  <li className="text-forest-200">/</li>
+                  <li>
+                    <Link href="/doctors" className="text-white/80 hover:text-white transition-colors">
+                      Doctors
+                    </Link>
+                  </li>
+                  <li className="text-forest-200">/</li>
+                  <li className="text-white">{doctor.name}</li>
+                </ol>
+              </nav>
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-forest-700 to-jade-600 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            {/* Breadcrumb */}
-            <nav className="mb-6 text-sm">
-              <ol className="flex items-center space-x-2">
-                <li>
-                  <Link href="/" className="text-white/80 hover:text-white transition-colors">
-                    Home
-                  </Link>
-                </li>
-                <li className="text-forest-200">/</li>
-                <li>
-                  <Link href="/doctors" className="text-white/80 hover:text-white transition-colors">
-                    Doctors
-                  </Link>
-                </li>
-                <li className="text-forest-200">/</li>
-                <li className="text-white">{doctor.name}</li>
-              </ol>
-            </nav>
-
-            <div className="flex flex-col md:flex-row gap-8 items-start">
-              {/* Doctor Photo */}
-              <div
-                className="flex-shrink-0"
-                style={{
-                  width: '200px',
-                  height: '200px',
-                  position: 'relative',
-                }}
-              >
-                <div className="w-full h-full rounded-full bg-gradient-to-br from-forest-400 to-jade-400 flex items-center justify-center overflow-hidden">
-                  {/* [TODO: Replace with actual image using next/image] */}
-                  <div className="text-6xl">👨‍⚕️</div>
+              <div className="flex flex-col md:flex-row gap-8 items-start">
+                {/* Doctor Photo */}
+                <div className="flex-shrink-0 w-48 h-48 md:w-52 md:h-52">
+                  <img
+                    src={doctor.image}
+                    alt={`${doctor.name} - ${doctor.specialty}`}
+                    className="w-full h-full rounded-full object-cover shadow-xl border-4 border-white"
+                  />
                 </div>
-              </div>
 
               {/* Doctor Info */}
               <div className="flex-1">
@@ -553,6 +548,7 @@ export default function DoctorProfilePage({ params }: { params: { slug: string }
             </Link>
           )}
         </div>
+      </div>
       </div>
     </>
   );
