@@ -62,9 +62,9 @@ export function ServiceCard({
             </div>
             <div className="space-y-2">
               <Button 
-                variant="primary" 
+                variant="outline" 
                 size="sm" 
-                className="w-full"
+                className="w-full bg-white hover:bg-gray-50 border-2 border-forest-300 text-forest-900 font-semibold hover:border-lime-500"
                 onClick={(e) => {
                   // Prevent Link navigation, let parent Link handle it
                   e.stopPropagation();

@@ -599,14 +599,14 @@ ${servicesText}
 
           {/* Progress Indicator */}
           <div className="mb-8">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between gap-2">
               {STEPS.map((step, index) => (
-                <div key={step.id} className="flex items-center flex-1">
-                  <div className="flex flex-col items-center flex-1">
+                <div key={step.id} className="flex items-center flex-1 min-w-0">
+                  <div className="flex flex-col items-center flex-1 min-w-0">
                     <button
                       onClick={() => goToStep(step.id)}
                       disabled={step.id > currentStep && currentStep < STEPS.length}
-                      className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg transition-all mb-2 ${
+                      className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold text-base sm:text-lg transition-all mb-2 flex-shrink-0 ${
                         currentStep >= step.id
                           ? 'bg-lime-400 text-forest-900 shadow-md cursor-pointer hover:bg-lime-500'
                           : 'bg-gray-200 text-gray-600 cursor-not-allowed'
@@ -614,16 +614,16 @@ ${servicesText}
                     >
                       {step.id}
                     </button>
-                    <div className="text-center">
-                      <p className={`text-sm font-semibold ${currentStep >= step.id ? 'text-forest-900' : 'text-gray-600'}`}>
+                    <div className="text-center w-full px-1">
+                      <p className={`text-xs sm:text-sm font-semibold truncate ${currentStep >= step.id ? 'text-forest-900' : 'text-gray-600'}`}>
                         {step.title}
                       </p>
-                      <p className="text-xs text-gray-500">{step.description}</p>
+                      <p className="text-[10px] sm:text-xs text-gray-500 truncate hidden sm:block">{step.description}</p>
                     </div>
                   </div>
                   {index < STEPS.length - 1 && (
                     <div
-                      className={`flex-1 h-1 mx-2 transition-colors ${
+                      className={`flex-shrink-0 w-4 sm:w-8 h-1 mx-1 sm:mx-2 transition-colors ${
                         currentStep > step.id ? 'bg-lime-400' : 'bg-gray-200'
                       }`}
                     />

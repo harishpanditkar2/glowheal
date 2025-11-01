@@ -224,7 +224,7 @@ export default function JoinDoctorPage() {
                 <span className="group-open:rotate-180 transition-transform">▼</span>
               </summary>
               <p className="text-gray-700 mt-4">
-                Patients can cancel up to 6 hours before appointment. No-shows or late cancellations are tracked; persistent offenders are flagged. You won't be penalized for patient-side cancellations.
+                Patients can cancel up to 1 day before their scheduled appointment. Same-day cancellations are not permitted. Doctors will not receive payment for cancelled bookings. No-shows or late cancellations are tracked; persistent offenders are flagged. You won't be penalized for patient-side cancellations within the allowed timeframe.
               </p>
             </details>
 

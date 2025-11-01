@@ -298,7 +298,7 @@ export function Header() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden py-6 border-t border-gray-200 bg-white">
+          <div className="lg:hidden py-6 border-t border-gray-200 bg-white max-h-[calc(100vh-5rem)] overflow-y-auto">
             <nav className="space-y-1">
               {mainNav.map((item) => (
                 item.label === 'Services' ? (
@@ -319,7 +319,7 @@ export function Header() {
                       </svg>
                     </button>
                     {isMobileServicesOpen && (
-                      <div className="ml-4 mt-2 space-y-1 border-l-2 border-lime-400 pl-4">
+                      <div className="ml-4 mt-2 space-y-1 border-l-2 border-lime-400 pl-4 max-h-[400px] overflow-y-auto">
                         {services.map((service) => (
                           <Link
                             key={service.slug}
