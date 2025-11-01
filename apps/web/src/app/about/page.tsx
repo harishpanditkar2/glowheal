@@ -56,14 +56,124 @@ export default function AboutPage() {
 
       {/* Mission & Values */}
       <section className="py-16 bg-white">
-        <div className="container-width max-w-4xl">
-          <div className="mb-12">
+        <div className="container-width max-w-6xl">
+          <div className="mb-16">
             <h2 className="text-3xl font-bold text-forest-900 mb-4 text-center">Our Mission</h2>
             <p className="text-lg text-forest-700 text-center max-w-3xl mx-auto">
               To make quality healthcare accessible and affordable by connecting patients with verified doctors,
               providing transparent pricing, and ensuring a seamless consultation experience from the first free call
               to ongoing specialist care.
             </p>
+          </div>
+
+          {/* Founders Section */}
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold text-forest-900 mb-8 text-center">Our Leadership</h2>
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {/* Founder */}
+              <div className="bg-gradient-to-br from-forest-50 to-jade-50 rounded-2xl p-8 shadow-soft hover:shadow-md transition-shadow">
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-24 h-24 bg-lime-400 rounded-full flex items-center justify-center mb-4 shadow-md">
+                    <span className="text-3xl font-bold text-forest-900">HP</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-forest-900 mb-2">Harish Panditkar</h3>
+                  <p className="text-lime-600 font-semibold mb-4">Founder & CEO</p>
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    Harish brings extensive experience in building high-performance API-driven platforms and scalable web applications. 
+                    He leads Glowheal's business strategy, technology architecture, go-to-market execution, and platform development.
+                  </p>
+                  <div className="space-y-2 text-sm text-forest-700">
+                    <p className="flex items-center gap-2 justify-center">
+                      <svg className="w-4 h-4 text-lime-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      Business & Technology Strategy
+                    </p>
+                    <p className="flex items-center gap-2 justify-center">
+                      <svg className="w-4 h-4 text-lime-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      Platform Architecture & Development
+                    </p>
+                    <p className="flex items-center gap-2 justify-center">
+                      <svg className="w-4 h-4 text-lime-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      Go-To-Market & Performance Marketing
+                    </p>
+                    <p className="flex items-center gap-2 justify-center">
+                      <svg className="w-4 h-4 text-lime-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      Automation & Growth Engineering
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Co-Founder */}
+              <div className="bg-gradient-to-br from-jade-50 to-forest-50 rounded-2xl p-8 shadow-soft hover:shadow-md transition-shadow">
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-24 h-24 bg-jade-400 rounded-full flex items-center justify-center mb-4 shadow-md">
+                    <span className="text-3xl font-bold text-forest-900">CB</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-forest-900 mb-2">Dr. Chetna Bhaisare</h3>
+                  <p className="text-jade-600 font-semibold mb-4">Co-Founder & COO</p>
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    Dr. Chetna brings credible clinical expertise and operational leadership to Glowheal. 
+                    She oversees patient consultations, wellness programs, day-to-day operations, marketing strategy, 
+                    and strategic partnerships with healthcare providers.
+                  </p>
+                  <div className="space-y-2 text-sm text-forest-700">
+                    <p className="flex items-center gap-2 justify-center">
+                      <svg className="w-4 h-4 text-jade-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      Clinical Operations & Consultations
+                    </p>
+                    <p className="flex items-center gap-2 justify-center">
+                      <svg className="w-4 h-4 text-jade-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      Wellness Programs & Patient Care
+                    </p>
+                    <p className="flex items-center gap-2 justify-center">
+                      <svg className="w-4 h-4 text-jade-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      Healthcare Partnerships & Network
+                    </p>
+                    <p className="flex items-center gap-2 justify-center">
+                      <svg className="w-4 h-4 text-jade-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      Marketing & Operational Continuity
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Why We Started Section */}
+          <div className="mb-16 bg-gradient-to-br from-amber-50 to-lime-50 rounded-2xl p-8 md:p-12">
+            <h2 className="text-3xl font-bold text-forest-900 mb-6 text-center">Why We Started Glowheal</h2>
+            <div className="max-w-3xl mx-auto space-y-4 text-gray-700 leading-relaxed">
+              <p>
+                Healthcare in India is broken. Patients face unclear pricing, hidden fees, and confusing referrals to specialists 
+                they don't need. We experienced this firsthand—watching friends and family struggle to find trustworthy care at 
+                transparent prices.
+              </p>
+              <p>
+                Glowheal was born from a simple idea: <strong className="text-forest-900">what if healthcare was as transparent 
+                as ordering a product online?</strong> You see the price upfront, you talk to a doctor for free first, and you only 
+                pay when you're ready to proceed.
+              </p>
+              <p>
+                We combine Harish's technical expertise in building scalable platforms with Dr. Chetna's clinical experience 
+                to create a healthcare platform that actually works for patients—no surprises, no confusion, just honest care.
+              </p>
+            </div>
           </div>
 
           {/* Key Features */}

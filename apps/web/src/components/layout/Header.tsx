@@ -16,7 +16,6 @@ const mainNav = [
   { label: 'Cities', href: '/cities' },
   { label: 'Blog', href: '/blog' },
   { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' },
 ];
 
 export function Header() {
