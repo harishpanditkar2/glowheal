@@ -209,11 +209,12 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-pink-coral rounded-full flex items-center justify-center">
-                <span className="text-white font-bold">G</span>
-              </div>
-              <span className="text-xl font-bold font-display">Glowheal</span>
+            <div className="flex items-center">
+              <img 
+                src="/images/logo-white.svg" 
+                alt="Glowheal" 
+                className="h-8 w-auto"
+              />
             </div>
             <p className="text-gray-400 text-sm">
               © {currentYear} Glowheal. All rights reserved.

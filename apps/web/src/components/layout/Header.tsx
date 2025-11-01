@@ -69,13 +69,12 @@ export function Header() {
         {/* Top Bar */}
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-amber-500 rounded-full flex items-center justify-center">
-              <span className="text-forest-700 font-bold text-xl">G</span>
-            </div>
-            <span className="text-2xl font-bold font-display text-forest-700">
-              Glowheal
-            </span>
+          <Link href="/" className="flex items-center">
+            <img 
+              src="/images/logo-with-text.svg" 
+              alt="Glowheal - Healthcare Platform" 
+              className="h-10 w-auto"
+            />
           </Link>
 
           {/* Mobile Location Badge - Shows between logo and hamburger */}
