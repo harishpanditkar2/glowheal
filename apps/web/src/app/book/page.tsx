@@ -834,6 +834,7 @@ ${servicesText}
                         value: service.name,
                         label: service.name,
                       })),
+                      { value: 'Other', label: 'Other / Not Sure' },
                     ]}
                     {...register('specialty')}
                     error={errors.specialty?.message}
@@ -867,7 +868,7 @@ ${servicesText}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {/* Online Consultation */}
                       <label
-                        className="relative flex flex-col p-5 border-2 border-gray-300 rounded-xl cursor-pointer hover:border-jade-500 transition-colors"
+                        className="relative flex flex-col p-5 border-2 rounded-xl cursor-pointer hover:border-jade-500 transition-colors peer-checked:border-jade-600 peer-checked:bg-jade-50/30"
                       >
                         <input
                           type="radio"
@@ -887,12 +888,12 @@ ${servicesText}
                             </p>
                           </div>
                         </div>
-                        <div className="absolute inset-0 border-3 border-jade-600 rounded-xl opacity-0 peer-checked:opacity-100 transition-opacity" />
+                        <div className="absolute inset-0 border-4 border-jade-600 rounded-xl opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none" />
                       </label>
 
                       {/* In-Clinic Visit */}
                       <label
-                        className="relative flex flex-col p-5 border-2 border-gray-300 rounded-xl cursor-pointer hover:border-jade-500 transition-colors"
+                        className="relative flex flex-col p-5 border-2 rounded-xl cursor-pointer hover:border-jade-500 transition-colors"
                       >
                         <input
                           type="radio"
@@ -911,7 +912,7 @@ ${servicesText}
                             </p>
                           </div>
                         </div>
-                        <div className="absolute inset-0 border-3 border-jade-600 rounded-xl opacity-0 peer-checked:opacity-100 transition-opacity" />
+                        <div className="absolute inset-0 border-4 border-jade-600 rounded-xl opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none" />
                       </label>
                     </div>
                     {errors.visitType && (
@@ -948,7 +949,7 @@ ${servicesText}
                       ].map((option) => (
                         <label
                           key={option.value}
-                          className="relative flex flex-col items-center p-4 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-forest-500 hover:bg-forest-50 transition-all"
+                          className="relative flex flex-col items-center p-4 border-2 rounded-lg cursor-pointer hover:border-forest-500 hover:bg-forest-50 transition-all"
                         >
                           <input
                             type="radio"
@@ -960,7 +961,7 @@ ${servicesText}
                             {option.label}
                           </div>
                           <div className="text-sm text-gray-600 peer-checked:text-forest-700 peer-checked:font-medium">{option.time}</div>
-                          <div className="absolute inset-0 border-3 border-lime-500 bg-lime-50/30 rounded-lg opacity-0 peer-checked:opacity-100 transition-opacity" />
+                          <div className="absolute inset-0 border-4 border-lime-500 bg-lime-50/30 rounded-lg opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none" />
                         </label>
                       ))}
                     </div>
