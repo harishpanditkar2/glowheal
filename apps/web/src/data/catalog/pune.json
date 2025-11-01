@@ -27,45 +27,78 @@
           ]
         },
         {
-          "code": "PRP_HAIR_SINGLE",
-          "name": "Hair Growth Therapy - Single Session",
-          "price": 3499,
+          "code": "PIGMENTATION_TREATMENT",
+          "name": "Pigmentation & Dark Spots Treatment",
+          "price": 799,
           "unit": "session",
           "includes": [
-            "Hair growth treatment",
-            "Doctor procedure fee",
-            "Care instructions"
+            "Consultation",
+            "Treatment session",
+            "Skincare routine guidance"
           ],
           "excludes": [
-            "Additional treatments"
+            "Multiple sessions",
+            "Chemical peels"
           ]
         },
         {
-          "code": "PRP_HAIR_4PK",
-          "name": "Hair Growth Therapy - 4 Sessions",
-          "price": 12499,
-          "unit": "package",
+          "code": "ANTI_AGING_CONSULT",
+          "name": "Anti-Aging Skin Consultation",
+          "price": 699,
+          "unit": "session",
           "includes": [
-            "4 treatment sessions",
-            "Progress tracking",
+            "Detailed skin analysis",
+            "Personalized treatment plan",
+            "Product recommendations"
+          ],
+          "excludes": [
+            "Cosmetic procedures",
+            "Premium products"
+          ]
+        },
+        {
+          "code": "ECZEMA_TREATMENT_30",
+          "name": "Eczema & Psoriasis - 30 Days",
+          "price": 899,
+          "unit": "plan",
+          "includes": [
+            "Initial consultation",
+            "2 follow-up visits",
+            "Treatment monitoring"
+          ],
+          "excludes": [
+            "Specialized tests",
+            "Biologics"
+          ]
+        },
+        {
+          "code": "CHEMICAL_PEEL_BASIC",
+          "name": "Chemical Peel - Basic",
+          "price": 1499,
+          "unit": "session",
+          "includes": [
+            "Pre-treatment consultation",
+            "Chemical peel procedure",
+            "Post-care instructions"
+          ],
+          "excludes": [
+            "Multiple sessions",
+            "Advanced peels"
+          ]
+        },
+        {
+          "code": "MOLE_WART_REMOVAL",
+          "name": "Mole/Wart Removal",
+          "price": 1999,
+          "unit": "procedure",
+          "includes": [
+            "Consultation",
+            "Removal procedure",
             "Follow-up care"
           ],
           "excludes": [
-            "Additional treatments"
-          ]
-        },
-        {
-          "code": "HAIR_TX_1000",
-          "name": "Hair Transplant - Up to 1000 Grafts",
-          "price": 39999,
-          "unit": "package",
-          "includes": [
-            "Transplant procedure",
-            "Local anesthesia",
-            "First follow-up"
-          ],
-          "excludes": [
-            "Additional grafts over 1000"
+            "Multiple removals",
+            "Biopsy"
           ]
         }
       ]
@@ -90,17 +123,75 @@
           ]
         },
         {
-          "code": "PRP_SCALP_SINGLE",
-          "name": "Scalp Growth Therapy - Single Session",
+          "code": "HAIR_FALL_CONSULTATION",
+          "name": "Hair Fall Consultation & Analysis",
+          "price": 499,
+          "unit": "session",
+          "includes": [
+            "Detailed hair analysis",
+            "Treatment plan",
+            "Lifestyle recommendations"
+          ],
+          "excludes": [
+            "Follow-up sessions",
+            "Medications"
+          ]
+        },
+        {
+          "code": "PRP_HAIR_SINGLE",
+          "name": "PRP Hair Treatment - Single Session",
           "price": 3499,
           "unit": "session",
           "includes": [
-            "Scalp treatment",
+            "PRP therapy session",
             "Doctor procedure fee",
             "Care instructions"
           ],
           "excludes": [
-            "Additional treatments"
+            "Multiple sessions"
+          ]
+        },
+        {
+          "code": "PRP_HAIR_4PK",
+          "name": "PRP Hair Treatment - 4 Sessions",
+          "price": 12499,
+          "unit": "package",
+          "includes": [
+            "4 PRP sessions",
+            "Progress tracking",
+            "Follow-up care"
+          ],
+          "excludes": [
+            "Additional sessions"
+          ]
+        },
+        {
+          "code": "HAIR_TX_1000",
+          "name": "Hair Transplant - Up to 1000 Grafts",
+          "price": 39999,
+          "unit": "package",
+          "includes": [
+            "Transplant procedure",
+            "Local anesthesia",
+            "First follow-up"
+          ],
+          "excludes": [
+            "Additional grafts over 1000"
+          ]
+        },
+        {
+          "code": "SCALP_TREATMENT",
+          "name": "Advanced Scalp Treatment",
+          "price": 1299,
+          "unit": "session",
+          "includes": [
+            "Deep scalp cleansing",
+            "Therapeutic treatment",
+            "Home care kit"
+          ],
+          "excludes": [
+            "Multiple sessions",
+            "PRP therapy"
           ]
         }
       ]
@@ -124,6 +215,21 @@
           ]
         },
         {
+          "code": "WEIGHT_LOSS_90",
+          "name": "Weight Loss Plan - 90 Days",
+          "price": 2499,
+          "unit": "plan",
+          "includes": [
+            "Comprehensive nutrition plan",
+            "3 progress reviews",
+            "WhatsApp support"
+          ],
+          "excludes": [
+            "Medications",
+            "Lab tests"
+          ]
+        },
+        {
           "code": "METABOLIC_PANEL_DIET",
           "name": "Metabolic Panel + Nutrition Consult",
           "price": 1499,
@@ -134,6 +240,51 @@
           ],
           "excludes": [
             "Advanced specialty tests"
+          ]
+        },
+        {
+          "code": "PCOS_WEIGHT_PLAN",
+          "name": "PCOS Weight Management - 60 Days",
+          "price": 1999,
+          "unit": "plan",
+          "includes": [
+            "PCOS-specific diet plan",
+            "2 consultations",
+            "Lifestyle guidance"
+          ],
+          "excludes": [
+            "Hormonal tests",
+            "Medications"
+          ]
+        },
+        {
+          "code": "THYROID_WEIGHT_CONSULT",
+          "name": "Thyroid & Weight Consultation",
+          "price": 799,
+          "unit": "session",
+          "includes": [
+            "Detailed consultation",
+            "Treatment plan",
+            "Diet recommendations"
+          ],
+          "excludes": [
+            "Thyroid tests",
+            "Medications"
+          ]
+        },
+        {
+          "code": "BARIATRIC_CONSULT",
+          "name": "Bariatric Surgery Consultation",
+          "price": 1299,
+          "unit": "session",
+          "includes": [
+            "Eligibility assessment",
+            "Procedure explanation",
+            "Pre-op guidance"
+          ],
+          "excludes": [
+            "Surgery costs",
+            "Tests"
           ]
         }
       ]
@@ -179,6 +330,47 @@
           ],
           "excludes": [
             "Medications"
+          ]
+        },
+        {
+          "code": "ANXIETY_PROGRAM_8W",
+          "name": "Anxiety Management - 8 Weeks",
+          "price": 5999,
+          "unit": "program",
+          "includes": [
+            "8 therapy sessions",
+            "Coping strategies",
+            "Progress monitoring"
+          ],
+          "excludes": [
+            "Medications",
+            "Emergency sessions"
+          ]
+        },
+        {
+          "code": "STRESS_COUNSELING",
+          "name": "Stress & Burnout Counseling",
+          "price": 899,
+          "unit": "session",
+          "includes": [
+            "Single counseling session",
+            "Stress management techniques"
+          ],
+          "excludes": [
+            "Follow-up sessions"
+          ]
+        },
+        {
+          "code": "COUPLES_THERAPY",
+          "name": "Couples Therapy Session",
+          "price": 1499,
+          "unit": "session",
+          "includes": [
+            "90-minute session",
+            "Relationship guidance"
+          ],
+          "excludes": [
+            "Individual therapy"
           ]
         }
       ]
@@ -669,6 +861,64 @@
       "bundledItems": ["THERAPY_STD", "THERAPY_STD", "SLEEP_HYGIENE"],
       "standaloneTotal": 2997,
       "savings": 698
+    },
+    {
+      "code": "COMPLETE_SKIN_CARE",
+      "name": "Complete Skin Care - 3 Months",
+      "price": 2799,
+      "unit": "package",
+      "includes": [
+        "Acne Treatment (30 days)",
+        "Pigmentation Treatment",
+        "Chemical Peel - Basic",
+        "2 follow-up consultations"
+      ],
+      "excludes": [
+        "Advanced procedures",
+        "Multiple peels"
+      ],
+      "bundledItems": ["ACNE_PLAN_30", "PIGMENTATION_TREATMENT", "CHEMICAL_PEEL_BASIC"],
+      "standaloneTotal": 2897,
+      "savings": 98
+    },
+    {
+      "code": "WELLNESS_TOTAL_CARE",
+      "name": "Total Wellness Package - 2 Months",
+      "price": 3999,
+      "unit": "package",
+      "includes": [
+        "2 Therapy sessions",
+        "Weight Loss Plan (30 days)",
+        "Nutrition Plan (30 days)",
+        "Comprehensive Health Check"
+      ],
+      "excludes": [
+        "Medications",
+        "Advanced imaging"
+      ],
+      "bundledItems": ["THERAPY_STD", "THERAPY_STD", "WEIGHT_LOSS_30", "DIET_PLAN_30", "COMPREHENSIVE_HEALTH"],
+      "standaloneTotal": 5896,
+      "savings": 1897
+    },
+    {
+      "code": "HAIR_COMPLETE_12W",
+      "name": "Complete Hair Transformation - 12 Weeks",
+      "price": 8999,
+      "unit": "package",
+      "includes": [
+        "2 PRP Hair Treatments",
+        "Advanced Scalp Treatment",
+        "Hair Fall Consultation",
+        "Dandruff Treatment (30 days)",
+        "4 follow-up visits"
+      ],
+      "excludes": [
+        "Hair transplant",
+        "Additional PRP sessions"
+      ],
+      "bundledItems": ["PRP_HAIR_SINGLE", "PRP_HAIR_SINGLE", "SCALP_TREATMENT", "HAIR_FALL_CONSULTATION", "DANDRUFF_PLAN_30"],
+      "standaloneTotal": 9796,
+      "savings": 797
     }
   ],
   "disclaimers": [

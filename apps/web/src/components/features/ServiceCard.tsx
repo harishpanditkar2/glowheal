@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
 import { useCity, getCityDisplayName } from '@/lib/city-context';
-import { SpecialtyIcon } from '@/components/ui/SpecialtyIcon';
 
 interface ServiceCardProps {
   id: string;
@@ -46,8 +45,8 @@ export function ServiceCard({
           </div>
         )}
         <CardHeader>
-          <div className="mb-3 text-forest-600">
-            <SpecialtyIcon specialty={slug} size="lg" />
+          <div className="mb-3 text-5xl">
+            {icon}
           </div>
           <CardTitle as="h3" className="text-forest-700">
             {name}
