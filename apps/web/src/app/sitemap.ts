@@ -1,12 +1,10 @@
 import { MetadataRoute } from 'next';
 import services from '@/data/services.json';
-import doctors from '@/data/doctors.sample.json';
-import cities from '@/data/cities.json';
 
 /**
- * Dynamic sitemap generation for Glowheal
- * Includes: Homepage, Services, Doctors, Cities
- * Updates automatically when data files change
+ * Dynamic sitemap generation for Dr. Chetna Bhaisare
+ * Includes: Homepage, About, Conditions, Pricing, Contact, Book
+ * Updates automatically when services data changes
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://glowheal.in';
@@ -21,39 +19,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
 
-    // Services listing page
+    // About page
     {
-      url: `${baseUrl}/services`,
+      url: `${baseUrl}/about`,
       lastModified: currentDate,
-      changeFrequency: 'weekly',
+      changeFrequency: 'monthly',
       priority: 0.9,
     },
 
-    // Individual service pages
+    // Individual condition pages (Dermatology + Ayurveda)
     ...services.map((service) => ({
-      url: `${baseUrl}/services/${service.slug}`,
+      url: `${baseUrl}/conditions/${service.slug}`,
       lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
+      changeFrequency: 'monthly' as const,
       priority: 0.8,
     })),
 
-    // Doctors listing page
+    // Pricing page
     {
-      url: `${baseUrl}/doctors`,
+      url: `${baseUrl}/pricing`,
       lastModified: currentDate,
-      changeFrequency: 'daily',
-      priority: 0.9,
+      changeFrequency: 'monthly',
+      priority: 0.7,
     },
 
-    // Individual doctor profiles
-    ...doctors.map((doctor) => ({
-      url: `${baseUrl}/doctors/${doctor.slug}`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    })),
-
-    // Booking flow
+    // Book appointment page
     {
       url: `${baseUrl}/book`,
       lastModified: currentDate,
@@ -61,27 +51,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
 
-    // City pages (when implemented)
-    ...cities.map((city) => ({
-      url: `${baseUrl}/cities/${city.slug}`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.6,
-    })),
-
-    // Static pages
-    {
-      url: `${baseUrl}/about`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
+    // Contact page
     {
       url: `${baseUrl}/contact`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.5,
+      priority: 0.6,
     },
+
+    // Privacy & Terms
     {
       url: `${baseUrl}/privacy`,
       lastModified: currentDate,
@@ -94,7 +72,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.3,
     },
-
-    // Note: /landing/ pages intentionally excluded (noindex)
   ];
 }

@@ -240,15 +240,12 @@ export default function HomePage() {
               
               return (
                 <ServiceCard
-                  key={service.id}
-                  id={service.id}
+                  key={service.slug}
                   name={service.name}
                   slug={service.slug}
-                  tagline={service.tagline}
+                  shortDescription={service.shortDescription}
                   icon={service.icon}
-                  priceRange={service.priceRange}
-                  consultationFee={service.consultationFee}
-                  showMostBooked={showMostBooked}
+                  category={service.category as 'dermatology' | 'ayurveda'}
                 />
               );
             })}

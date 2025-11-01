@@ -11,10 +11,31 @@ import { Select } from '@/components/ui/Select';
 import { Textarea } from '@/components/ui/Textarea';
 import Link from 'next/link';
 import servicesData from '@/data/services.json';
-import citiesData from '@/data/cities.json';
-import { useFreeCta, getFreeConsultWhatsAppURL } from '@/hooks/useFreeCta';
-import { getCatalog, getCatalogItem, formatPrice, type CatalogItem } from '@/lib/catalog';
-import { useCity, getCityDisplayName } from '@/lib/city-context';
+
+// TODO: This booking page needs complete rewrite for single-doctor model
+// Temporary stub functions to make it compile
+
+const getCityDisplayName = (city: string) => 'Pune';
+const getCatalogItem = (city: string, code: string) => ({ name: code, price: 0, unit: 'session', code });
+const getCatalog = (city: string) => ({ 
+  specialties: [] as Array<{ 
+    slug: string;
+    title: string; 
+    items: Array<{ 
+      code: string; 
+      name: string;
+      price: number;
+      unit: string;
+      includes?: string[];
+      excludes?: string[];
+    }> 
+  }> 
+});
+const formatPrice = (price: number) => `₹${price}`;
+const citiesData = [{ slug: 'pune', name: 'Pune' }];
+const useFreeCta = () => ({ ctaText: 'Book Free Consultation', proofText: 'Free first consultation' });
+const getFreeConsultWhatsAppURL = (specialty?: string, city?: string) => 
+  `https://wa.me/918329563445?text=${encodeURIComponent('Hi, I want to book a consultation')}`;
 
 // Step 1: Contact Info Schema
 const contactSchema = z.object({
@@ -57,7 +78,9 @@ function BookAppointmentPageContent() {
   const searchParams = useSearchParams();
   const serviceCode = searchParams.get('service');
   const specialtySlug = searchParams.get('specialty');
-  const { city: contextCity } = useCity();
+  // TODO: Remove city logic - single location
+  // const { city: contextCity } = useCity();
+  const contextCity = 'pune'; // Temporary hardcode
   
   // State for selected catalog items (provisional) - Default to free consultation
   const [selectedItems, setSelectedItems] = useState<string[]>(() => {
@@ -1280,7 +1303,7 @@ ${servicesText}
                               <span className="text-sm text-gray-600">/ {item.unit}</span>
                             </div>
 
-                            {item.includes.length > 0 && (
+                            {item.includes && item.includes.length > 0 && (
                               <div className="text-xs space-y-1">
                                 <p className="font-semibold text-gray-700">Includes:</p>
                                 <ul className="list-none space-y-0.5">

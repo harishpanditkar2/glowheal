@@ -4,8 +4,6 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { WhatsAppButton } from '@/components/layout/WhatsAppButton';
 import { AnnouncementBanner } from '@/components/layout/AnnouncementBanner';
-import { CityProvider } from '@/lib/city-context';
-import { getCityFromCookieServer } from '@/lib/server-city';
 
 // Fonts are now self-hosted in globals.css with @font-face
 // This eliminates Google Fonts CDN request and improves LCP by 200-500ms
@@ -13,24 +11,26 @@ import { getCityFromCookieServer } from '@/lib/server-city';
 export const metadata: Metadata = {
   metadataBase: new URL('https://glowheal.in'),
   title: {
-    default: 'Glowheal - Free First Consultation | Online Doctor Video Call',
-    template: '%s | Glowheal',
+    default: 'Dr. Chetna Bhaisare - Dermatology & Ayurveda | Integrative Skin & Wellness Care',
+    template: '%s | Dr. Chetna Bhaisare',
   },
   description:
-    'Start with a free consultation with our in-house doctor. Get routed to 500+ verified specialists if needed. Video consultation for dermatology, mental health, nutrition & more. Available 24/7.',
+    'Dr. Chetna Bhaisare offers integrative healthcare combining modern dermatology with traditional Ayurveda. BAMS, CMO with 10+ years experience. Specializing in acne, eczema, hair loss, skin rejuvenation, and Ayurvedic wellness treatments.',
   keywords: [
-    'free online doctor consultation',
-    'free first consultation',
-    'telemedicine india',
-    'video call doctor',
-    'dermatologist online',
-    'mental health counseling',
-    'nutrition consultation',
-    'healthcare platform',
+    'dermatologist pune',
+    'ayurvedic doctor pune',
+    'skin specialist',
+    'Dr. Chetna Bhaisare',
+    'integrative dermatology',
+    'ayurvedic skin treatment',
+    'holistic skincare',
+    'panchakarma',
+    'acne treatment',
+    'hair loss treatment',
   ],
-  authors: [{ name: 'Glowheal' }],
-  creator: 'Glowheal',
-  publisher: 'Glowheal',
+  authors: [{ name: 'Dr. Chetna Bhaisare' }],
+  creator: 'Dr. Chetna Bhaisare',
+  publisher: 'Dr. Chetna Bhaisare',
   formatDetection: {
     email: false,
     address: false,
@@ -40,10 +40,10 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_IN',
     url: 'https://glowheal.in',
-    siteName: 'Glowheal',
-    title: 'Glowheal - Free First Consultation | Online Doctor Video Call',
+    siteName: 'Dr. Chetna Bhaisare - Dermatology & Ayurveda',
+    title: 'Dr. Chetna Bhaisare - Integrative Dermatology & Ayurveda',
     description:
-      'Start with a free consultation. Connect with 500+ verified doctors if needed. Available 24/7.',
+      'Combining modern dermatology with traditional Ayurveda for comprehensive skin and wellness care. 10+ years experience.',
     images: [
       {
         url: '/images/og-homepage.jpg',
@@ -101,9 +101,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Read city from cookie on server to prevent hydration mismatch
-  const initialCity = getCityFromCookieServer();
-  
   return (
     <html lang="en">
       <head>
@@ -118,24 +115,22 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased">
-        <CityProvider initialCity={initialCity}>
-          <a
-            href="#main-content"
-            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-6 focus:py-3 focus:bg-jade-600 focus:text-white focus:rounded-lg"
-          >
-            Skip to main content
-          </a>
-          
-          <AnnouncementBanner />
-          
-          <Header />
-          
-          <main id="main-content">{children}</main>
-          
-          <Footer />
-          
-          <WhatsAppButton />
-        </CityProvider>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-6 focus:py-3 focus:bg-teal-600 focus:text-white focus:rounded-lg"
+        >
+          Skip to main content
+        </a>
+        
+        <AnnouncementBanner />
+        
+        <Header />
+        
+        <main id="main-content">{children}</main>
+        
+        <Footer />
+        
+        <WhatsAppButton />
       </body>
     </html>
   );
