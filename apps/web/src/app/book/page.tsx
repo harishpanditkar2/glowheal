@@ -349,51 +349,42 @@ function BookAppointmentPageContent() {
         });
       }
       
-      // WhatsApp submission: Format message and open WhatsApp AFTER success state is set
+      // WhatsApp submission: Simple message without popups
       setTimeout(() => {
         if (typeof window !== 'undefined') {
-          const servicesText = selectedItems.length > 0
-            ? selectedItems.map(code => {
-                const item = getCatalogItem('bhadravati', code);
-                return item ? `- ${item.name} (${formatPrice(item.price)})` : '';
-              }).filter(Boolean).join('\n')
-            : 'No specific services selected';
+          const servicesText = selectedItems
+            .filter(code => code !== 'FREE_CONSULT')
+            .map(code => {
+              const item = getCatalogItem('bhadravati', code);
+              return item ? `${item.name} (${formatPrice(item.price)})` : '';
+            })
+            .filter(Boolean)
+            .join(', ');
           
-          const whatsappMessage = `🌿 *Glowheal Booking Confirmation*
+          const whatsappMessage = `Glowheal Booking Confirmation
 
-📋 *Booking ID:* ${id}
-👤 *Name:* ${data.name}
-📱 *Phone:* ${phoneWithPrefix}
-📧 *Email:* ${data.email || 'Not provided'}
+Booking ID: ${id}
+Name: ${data.name}
+Phone: ${phoneWithPrefix}
+Email: ${data.email || 'Not provided'}
 
-💚 *Consultation Type:* Free First Consultation (₹0)
-🩺 *Specialty:* ${data.specialty}
-📍 *Visit Type:* ${data.visitType === 'online' ? 'Online Video Consultation' : 'In-Clinic Visit (Bhadravati)'}
-📅 *Preferred Date:* ${data.preferredDate}
-⏰ *Preferred Time:* ${data.preferredTime}
+Consultation: Free First Consultation
+Specialty: ${data.specialty}
+Visit Type: ${data.visitType === 'online' ? 'Online Video Consultation' : 'In-Clinic Visit (Bhadravati)'}
+Preferred Date: ${data.preferredDate}
+Preferred Time: ${data.preferredTime}
 
-📝 *Concern:*
-${data.concern || 'Not specified'}
+Concern: ${data.concern || 'Not specified'}
+${servicesText ? `\nServices: ${servicesText}` : ''}
 
-🛒 *Selected Services (Provisional):*
-${servicesText}
-
-✅ I confirm booking and will wait for your call to schedule the consultation.`;
+I confirm booking and will wait for your call.`;
 
           const whatsappUrl = `https://wa.me/918329563445?text=${encodeURIComponent(whatsappMessage)}`;
           
-          console.log('Opening WhatsApp with URL:', whatsappUrl);
-          console.log('WhatsApp URL length:', whatsappUrl.length);
+          console.log('Opening WhatsApp...');
           
-          // Try to open WhatsApp
-          const whatsappWindow = window.open(whatsappUrl, '_blank');
-          
-          if (!whatsappWindow) {
-            console.warn('WhatsApp popup blocked by browser');
-            // Fallback: show clickable link
-            alert('Please click OK to open WhatsApp');
-            window.location.href = whatsappUrl;
-          }
+          // Direct redirect - no popup, no alerts
+          window.location.href = whatsappUrl;
         }
       }, 500); // Small delay to ensure success page renders first
       
