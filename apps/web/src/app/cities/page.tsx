@@ -79,18 +79,18 @@ export default function CitiesPage() {
       </section>
 
       {/* Cities Grid */}
-      <section className="py-16">
+      <section className="py-16 bg-white">
         <div className="container-width max-w-5xl">
           <div className="grid md:grid-cols-3 gap-8">
             {cities.map((city) => (
               <div
                 key={city.slug}
-                className="bg-white rounded-2xl shadow-soft hover:shadow-soft-lg transition-all duration-300 p-6 border-2 border-transparent hover:border-forest-200 h-full flex flex-col"
+                className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 hover:border-lime-400 h-full flex flex-col"
               >
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-2xl font-bold text-forest-900">{city.name}</h2>
                   {city.status === 'Active' ? (
-                    <span className="px-3 py-1 bg-jade-100 text-jade-700 text-xs font-semibold rounded-full">
+                    <span className="px-3 py-1 bg-lime-100 text-lime-700 text-xs font-semibold rounded-full">
                       Active
                     </span>
                   ) : (

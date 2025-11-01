@@ -207,26 +207,26 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-700 pt-8">
+        <div className="border-t border-gray-700 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex items-center">
               <img 
                 src="/images/logo-white.svg" 
                 alt="Glowheal" 
-                className="h-12 w-auto"
+                className="h-8 w-auto"
               />
             </div>
             <p className="text-gray-400 text-sm">
               © {currentYear} Glowheal. All rights reserved.
             </p>
           </div>
-          
-          {/* Medical Disclaimer - Enhanced for 2025 Compliance */}
-          <div className="border-t border-gray-700 mt-6 pt-6">
-            <p className="text-sm text-gray-400 leading-relaxed max-w-4xl mx-auto text-center">
-              <strong className="text-gray-300">Medical Disclaimer:</strong> The information provided on this website is for educational purposes only and is not intended as a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or qualified health provider with any questions regarding a medical condition. Individual results may vary. No medical service is guaranteed to produce specific outcomes. Never disregard professional medical advice or delay seeking it because of something you have read on this website.
-            </p>
-          </div>
+        </div>
+
+        {/* Medical Disclaimer - Enhanced for 2025 Compliance */}
+        <div className="border-t border-gray-700 mt-6 pt-6">
+          <p className="text-sm text-gray-400 leading-relaxed max-w-4xl mx-auto text-center">
+            <strong className="text-gray-300">Medical Disclaimer:</strong> The information provided on this website is for educational purposes only and is not intended as a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or qualified health provider with any questions regarding a medical condition. Individual results may vary. No medical service is guaranteed to produce specific outcomes. Never disregard professional medical advice or delay seeking it because of something you have read on this website.
+          </p>
         </div>
       </div>
     </footer>

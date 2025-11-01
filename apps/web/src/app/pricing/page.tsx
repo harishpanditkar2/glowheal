@@ -80,7 +80,7 @@ export default function PricingPage() {
         </div>
       </nav>
       {/* Hero */}
-      <section className="section-spacing bg-gradient-forest-jade text-white">
+      <section className="py-16 md:py-20 bg-gradient-forest-jade text-white">
         <div className="container-width">
           <div className="max-w-3xl mx-auto text-center">
             {/* City Pill */}
@@ -132,12 +132,12 @@ export default function PricingPage() {
       </section>
 
       {/* Free Consultation Banner */}
-      <section className="py-8 bg-amber-50 border-y border-amber-200">
+      <section className="py-8 bg-lime-50 border-y-2 border-lime-400">
         <div className="container-width">
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-center md:text-left">
-            <div className="w-12 h-12 rounded-full bg-amber-500 flex items-center justify-center flex-shrink-0">
-              <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            <div className="w-12 h-12 rounded-full bg-lime-400 flex items-center justify-center flex-shrink-0">
+              <svg className="w-6 h-6 text-forest-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
             </div>
             <div>
@@ -265,7 +265,7 @@ export default function PricingPage() {
       </section>
 
       {/* CTA */}
-      <section className="section-spacing bg-gradient-to-r from-forest-700 to-jade-700 text-white">
+      <section className="py-16 md:py-20 bg-gradient-to-r from-forest-700 to-jade-700 text-white">
         <div className="container-width text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Get Started?

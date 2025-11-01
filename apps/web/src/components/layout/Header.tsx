@@ -67,13 +67,13 @@ export function Header() {
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
       <div className="container mx-auto px-4">
         {/* Top Bar */}
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center py-2">
             <img 
               src="/images/logo-with-text.svg" 
               alt="Glowheal - Healthcare Platform" 
-              className="h-12 w-auto"
+              className="h-10 w-auto"
             />
           </Link>
 
@@ -191,60 +191,70 @@ export function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6">
+          <nav className="hidden lg:flex items-center space-x-8">
             {mainNav.map((item) =>
               item.label === 'Services' ? (
                 <div
                   key={item.label}
-                  className="relative"
+                  className="relative group"
                   onMouseEnter={() => setIsServicesOpen(true)}
                   onMouseLeave={() => setIsServicesOpen(false)}
                 >
-                  <button className="text-forest-700 hover:text-jade-600 font-medium transition-colors">
+                  <button className={`text-forest-700 hover:text-lime-600 font-semibold text-base transition-colors py-2 ${isServicesOpen ? 'text-lime-600 border-b-2 border-lime-400' : ''}`}>
                     {item.label}
                     <svg
-                      className="inline-block ml-1 w-4 h-4"
+                      className={`inline-block ml-1 w-4 h-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`}
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
+                      strokeWidth={2.5}
                     >
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        strokeWidth={2}
                         d="M19 9l-7 7-7-7"
                       />
                     </svg>
                   </button>
 
-                  {/* Mega Menu */}
+                  {/* Horizontal Mega Menu with hover delay */}
                   {isServicesOpen && (
-                    <div className="absolute left-0 top-full mt-2 w-[600px] bg-white rounded-xl shadow-xl p-6">
-                      <div className="grid grid-cols-2 gap-4">
+                    <div 
+                      className="absolute left-1/2 transform -translate-x-1/2 top-full mt-2 w-[900px] bg-white rounded-2xl shadow-2xl p-8 border-2 border-lime-400"
+                      onMouseEnter={() => setIsServicesOpen(true)}
+                      onMouseLeave={() => setIsServicesOpen(false)}
+                    >
+                      {/* Triangle indicator */}
+                      <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white border-l-2 border-t-2 border-lime-400 rotate-45"></div>
+                      
+                      <div className="grid grid-cols-3 gap-6">
                         {services.map((service) => (
                           <Link
                             key={service.id}
                             href={`/services/${service.slug}`}
-                            className="flex items-start space-x-3 p-3 rounded-lg hover:bg-jade-50 transition-colors"
+                            className="flex items-start space-x-3 p-4 rounded-xl hover:bg-lime-50 hover:border-lime-300 border-2 border-transparent transition-all duration-200 group/item"
                           >
-                            <div className="text-2xl">{service.icon}</div>
-                            <div>
-                              <div className="font-semibold text-forest-700">
+                            <div className="text-3xl group-hover/item:scale-110 transition-transform">{service.icon}</div>
+                            <div className="flex-1">
+                              <div className="font-semibold text-forest-900 group-hover/item:text-lime-600 transition-colors">
                                 {service.name}
                               </div>
-                              <div className="text-sm text-gray-600">
+                              <div className="text-xs text-gray-600 line-clamp-2">
                                 {service.tagline}
                               </div>
                             </div>
                           </Link>
                         ))}
                       </div>
-                      <div className="mt-4 pt-4 border-t border-gray-200">
+                      <div className="mt-6 pt-6 border-t-2 border-gray-200 text-center">
                         <Link
                           href="/services"
-                          className="text-jade-600 hover:text-jade-700 font-medium text-sm"
+                          className="inline-flex items-center gap-2 text-lime-600 hover:text-lime-700 font-semibold text-base group/link"
                         >
-                          View All Services →
+                          View All Services
+                          <svg className="w-5 h-5 group-hover/link:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                          </svg>
                         </Link>
                       </div>
                     </div>
@@ -254,7 +264,7 @@ export function Header() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-forest-700 hover:text-jade-600 font-medium transition-colors"
+                  className="text-forest-700 hover:text-lime-600 font-semibold text-base transition-colors py-2 hover:border-b-2 hover:border-lime-400"
                 >
                   {item.label}
                 </Link>

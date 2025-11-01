@@ -83,8 +83,8 @@ export default function HomePage() {
               <span className="block">FREE First Consultation.</span>
             </h1>
             
-            {/* FREE Capsule - Orange CTA Color for Prominence */}
-            <div className="inline-flex items-center gap-2 bg-cta-orange text-white px-4 py-2 rounded-lg h-10 shadow-cta-hover mb-4">
+            {/* FREE Capsule - Lime green for brand consistency */}
+            <div className="inline-flex items-center gap-2 bg-lime-400 text-forest-900 px-4 py-2 rounded-lg h-10 shadow-md hover:shadow-lg transition-shadow mb-4">
               <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>

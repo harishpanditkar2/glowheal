@@ -35,8 +35,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       'disabled:pointer-events-none disabled:opacity-50',
       // Variants
       {
-        // Primary: Orange CTA for maximum conversion
-        'bg-cta-orange text-white shadow-md hover:bg-cta-orange-hover hover:shadow-cta-hover transform hover:-translate-y-0.5':
+        // Primary: Lime green for brand consistency and high visibility
+        'bg-lime-400 text-forest-900 shadow-md hover:bg-lime-500 hover:shadow-lg transform hover:-translate-y-0.5 font-bold':
           variant === 'primary',
         // Secondary: Forest outline with hover fill
         'border-2 border-forest-700 text-forest-700 bg-white hover:bg-forest-700 hover:text-white':
