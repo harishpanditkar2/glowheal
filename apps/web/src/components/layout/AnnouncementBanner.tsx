@@ -39,7 +39,7 @@ export function AnnouncementBanner() {
   // Don't render during SSR to avoid hydration mismatch
   if (!isClient) {
     // Reserve space to prevent CLS
-    return <div className="h-14 bg-amber-500" aria-hidden="true" />;
+    return <div className="h-14 bg-lime-400" aria-hidden="true" />;
   }
 
   if (!isVisible) {
@@ -48,7 +48,7 @@ export function AnnouncementBanner() {
 
   return (
     <div
-      className="relative bg-amber-500 text-forest-700 py-3 px-4 shadow-md"
+      className="relative bg-lime-400 text-forest-900 py-3 px-4 shadow-md"
       role="banner"
       aria-label="Site announcement"
     >
@@ -78,7 +78,7 @@ export function AnnouncementBanner() {
 
           <Link
             href={ctaHref}
-            className="hidden sm:inline-flex items-center px-4 py-2 bg-forest-700 text-white rounded-lg font-semibold hover:bg-forest-800 transition-colors focus:outline-none focus:ring-2 focus:ring-forest-900 focus:ring-offset-2 focus:ring-offset-amber-500 text-sm whitespace-nowrap"
+            className="hidden sm:inline-flex items-center px-4 py-2 bg-forest-700 text-white rounded-lg font-semibold hover:bg-forest-800 transition-colors focus:outline-none focus:ring-2 focus:ring-forest-900 focus:ring-offset-2 focus:ring-offset-lime-400 text-sm whitespace-nowrap"
             aria-label="Book your free consultation now"
           >
             Book Now
@@ -86,7 +86,7 @@ export function AnnouncementBanner() {
 
           <button
             onClick={handleDismiss}
-            className="flex-shrink-0 p-2 hover:bg-amber-600 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-forest-700 focus:ring-offset-2 focus:ring-offset-amber-500"
+            className="flex-shrink-0 p-2 hover:bg-lime-500 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-forest-700 focus:ring-offset-2 focus:ring-offset-lime-400"
             aria-label="Dismiss announcement"
             style={{ minWidth: '48px', minHeight: '48px' }}
           >

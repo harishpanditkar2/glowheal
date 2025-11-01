@@ -213,7 +213,7 @@ export function Footer() {
               <img 
                 src="/images/logo-white.svg" 
                 alt="Glowheal" 
-                className="h-10 w-auto"
+                className="h-12 w-auto"
               />
             </div>
             <p className="text-gray-400 text-sm">

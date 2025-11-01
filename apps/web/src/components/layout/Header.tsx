@@ -82,20 +82,20 @@ export function Header() {
             <div className="relative" ref={cityDropdownRef}>
               <button
                 onClick={() => setIsCityDropdownOpen(!isCityDropdownOpen)}
-                className="flex items-center gap-1.5 px-3 py-1.5 bg-jade-50 rounded-full border border-jade-200 hover:border-jade-300 hover:shadow-sm transition-all min-h-[48px]"
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-lime-50 rounded-full border-2 border-lime-400 hover:border-lime-500 hover:bg-lime-100 hover:shadow-sm transition-all min-h-[48px]"
                 aria-label={`Select city. Currently showing ${cityDisplayName} prices`}
                 aria-haspopup="listbox"
                 aria-expanded={isCityDropdownOpen}
                 aria-controls="city-dropdown-menu"
               >
-                <svg className="w-5 h-5 text-forest-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg className="w-5 h-5 text-forest-700 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
                 {/* Hide text label on md+ to avoid double city context, keep icon */}
                 <span className="text-sm font-semibold text-forest-900 md:sr-only">{cityDisplayName}</span>
                 <svg 
-                  className={`w-3.5 h-3.5 text-forest-600 transition-transform ${isCityDropdownOpen ? 'rotate-180' : ''}`}
+                  className={`w-3.5 h-3.5 text-forest-700 transition-transform ${isCityDropdownOpen ? 'rotate-180' : ''}`}
                   fill="none" 
                   viewBox="0 0 24 24" 
                   stroke="currentColor"

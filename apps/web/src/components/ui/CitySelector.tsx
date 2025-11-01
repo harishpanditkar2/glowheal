@@ -57,18 +57,18 @@ export function CitySelector() {
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
           'flex items-center gap-2 px-4 py-2.5 rounded-full min-h-[48px]',
-          'bg-gradient-to-r from-forest-50 to-jade-50',
-          'border-2 border-forest-200',
-          'hover:border-forest-400 hover:shadow-md',
+          'bg-lime-50',
+          'border-2 border-lime-400',
+          'hover:border-lime-500 hover:bg-lime-100 hover:shadow-md',
           'transition-all duration-200',
           'focus:outline-none focus:ring-2 focus:ring-forest-700 focus:ring-offset-2',
-          isOpen && 'border-forest-400 shadow-md'
+          isOpen && 'border-lime-500 shadow-md bg-lime-100'
         )}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
         aria-label="Select city for pricing"
       >
-        <svg className="w-5 h-5 text-forest-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+        <svg className="w-5 h-5 text-forest-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
         </svg>
@@ -77,7 +77,7 @@ export function CitySelector() {
         </span>
         <svg
           className={cn(
-            'w-4 h-4 text-forest-600 transition-transform',
+            'w-4 h-4 text-forest-700 transition-transform',
             isOpen && 'rotate-180'
           )}
           fill="none"

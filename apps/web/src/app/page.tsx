@@ -78,9 +78,9 @@ export default function HomePage() {
       <section className="relative bg-gradient-forest-jade text-white py-16 md:py-32">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold font-display mb-6 leading-relaxed">
-              Expert Healthcare.<br />
-              FREE First Consultation.
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold font-display mb-6 leading-tight">
+              <span className="block mb-2">Expert Healthcare.</span>
+              <span className="block">FREE First Consultation.</span>
             </h1>
             
             {/* FREE Capsule - Orange CTA Color for Prominence */}
@@ -88,7 +88,7 @@ export default function HomePage() {
               <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
-              <span className="font-bold whitespace-nowrap">₹0 first visit — no hidden costs</span>
+              <span className="font-bold whitespace-nowrap">₹0 first consultation — no hidden costs</span>
             </div>
             
             {/* Trust Chips - Research-backed confidence builders */}
@@ -111,7 +111,7 @@ export default function HomePage() {
                 <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="whitespace-nowrap">₹0 first consult</span>
+                <span className="whitespace-nowrap">Free consultation</span>
               </span>
             </div>
             
