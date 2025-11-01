@@ -1,0 +1,71 @@
+Issue Type,Severity,Location,Description,How to Fix,Test Method
+Performance,CRITICAL,All Pages,Page load time may exceed 2.5 seconds - kills 50% of mobile traffic,"1. Run Google PageSpeed Insights
+2. Compress all images to WebP
+3. Enable Gzip compression
+4. Implement lazy loading
+5. Minify CSS/JS
+6. Use CDN for static assets","Test with PageSpeed Insights, GTmetrix, WebPageTest. Target: LCP < 2.5s, FCP < 1.8s"
+Mobile,CRITICAL,All Pages,Buttons smaller than 48x48px on mobile - users can't tap accurately,"1. Audit all buttons and links
+2. Set minimum touch target: 48x48px
+3. Add adequate spacing (8px minimum)
+4. Test on actual mobile devices","Use Chrome DevTools mobile view, test on real iPhone/Android"
+Forms,CRITICAL,Booking Form,Form submission may fail or have no error handling,"1. Add client-side validation
+2. Implement real-time error messages
+3. Show success confirmation
+4. Add loading spinner on submit
+5. Prevent double submission","Fill form with invalid data, check error messages, test edge cases"
+Security,CRITICAL,All Forms,Missing HTTPS or mixed content warnings,"1. Verify SSL certificate is valid
+2. Check all resources load via HTTPS
+3. Add HSTS header
+4. Display security badge on forms","Check browser address bar for padlock, run SSL Labs test"
+Accessibility,HIGH,All Pages,Missing alt text on images - screen readers can't interpret,"1. Add descriptive alt text to all images
+2. Use empty alt="""" for decorative images
+3. Test with screen reader","Use WAVE accessibility tool, test with NVDA/JAWS screen reader"
+Accessibility,HIGH,All Pages,Color contrast below WCAG 4.5:1 ratio,"1. Check all text/background combinations
+2. Use darker shades for text on light backgrounds
+3. Ensure links are distinguishable","Use WebAIM Contrast Checker, browser extensions"
+Navigation,HIGH,Header,Phone number not clickable on mobile,"1. Wrap phone in <a href=""tel:+91XXXXXXXXXX"">
+2. Format consistently
+3. Add phone icon","Tap phone number on mobile device, should dial"
+Forms,HIGH,Booking Form,No mobile-optimized date picker,"1. Implement native date input for mobile
+2. Use calendar widget on desktop
+3. Show available time slots",Test booking on iPhone and Android
+Content,HIGH,Service Pages,Missing pricing information causes drop-off,"1. Add clear pricing to each service page
+2. Show ""Starting from ₹XXX""
+3. Link to detailed pricing page","Navigate to each service, verify price is visible within 5 seconds"
+UX,MEDIUM,Homepage,No clear path to book appointment,"1. Add multiple ""Book Now"" CTAs
+2. Ensure above the fold
+3. Make buttons high contrast","Ask 5 users to book appointment without instruction, should succeed"
+Links,MEDIUM,All Pages,Broken links or dead ends,"1. Run broken link checker
+2. Fix all 404 errors
+3. Ensure all footer links work
+4. Test external links","Use online broken link checker, manually click all links"
+Content,MEDIUM,Doctor Pages,Missing doctor photos or credentials,"1. Add professional headshots
+2. List all qualifications
+3. Show specializations
+4. Add patient reviews","Visit each doctor page, verify complete information"
+Forms,MEDIUM,Contact Form,No confirmation message after submission,"1. Show success message on page
+2. Send confirmation email
+3. Redirect to thank you page
+4. Add to calendar option","Submit form, verify user receives feedback immediately"
+Mobile,MEDIUM,All Pages,Horizontal scrolling on small screens,"1. Check viewport meta tag
+2. Use max-width: 100% on images
+3. Test on 320px width
+4. Fix overflowing elements","Test on iPhone SE (smallest common screen), no horizontal scroll"
+Performance,MEDIUM,All Pages,Large uncompressed images slow page load,"1. Compress all images (80% quality)
+2. Use correct dimensions
+3. Implement lazy loading
+4. Convert to WebP format","Check image file sizes, should be < 100KB for most images"
+SEO,LOW,All Pages,Missing or duplicate meta descriptions,"1. Write unique meta description for each page
+2. Keep under 160 characters
+3. Include target keywords","View page source, check <meta name=""description""> tag"
+UX,LOW,Navigation,Menu items not logically organized,"1. Group related services
+2. Limit main menu to 5-7 items
+3. Add dropdown for subcategories","Ask users to find specific service, measure time taken"
+Content,LOW,Footer,Missing important links or contact info,"1. Add privacy policy
+2. Include terms of service
+3. Show address and hours
+4. Add social media links",Check footer on every page for consistency
+UX,LOW,All Pages,No breadcrumb navigation,"1. Add breadcrumbs to all inner pages
+2. Show: Home > Services > Cardiology
+3. Make clickable","Navigate deep into site, verify breadcrumb trail exists"

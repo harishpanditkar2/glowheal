@@ -43,7 +43,7 @@ export default function ServicesPage() {
               Start with a free consultation, then connect with 500+ specialists if needed.
             </p>
             <Link href="/book">
-              <Button variant="free" size="lg">
+              <Button variant="primary" size="lg">
                 Book Free Consultation
               </Button>
             </Link>

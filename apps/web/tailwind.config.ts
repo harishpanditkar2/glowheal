@@ -88,6 +88,35 @@ const config: Config = {
           800: '#1F2937',
           900: '#111827',
         },
+        // Royal Blue - Primary Trust Color (Healthcare Research: +30% trust vs green)
+        'royal-blue': {
+          DEFAULT: '#4169E1',
+          50: '#EFF6FF',
+          100: '#DBEAFE',
+          200: '#BFDBFE',
+          300: '#93C5FD',
+          400: '#60A5FA',
+          500: '#4169E1',
+          600: '#2563EB',
+          700: '#1D4ED8',
+          800: '#1E40AF',
+          900: '#1E3A8A',
+        },
+        // CTA Orange - Action & Urgency (Conversion-optimized)
+        'cta-orange': {
+          DEFAULT: '#FF8C42',
+          hover: '#E67932',
+          50: '#FFF7ED',
+          100: '#FFEDD5',
+          200: '#FED7AA',
+          300: '#FDBA74',
+          400: '#FB923C',
+          500: '#FF8C42',
+          600: '#E67932',
+          700: '#EA580C',
+          800: '#C2410C',
+          900: '#9A3412',
+        },
         // Legacy colors (keep for backward compatibility during migration)
         coral: {
           DEFAULT: '#fb923c',
@@ -126,6 +155,7 @@ const config: Config = {
         'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
         'soft-lg': '0 10px 40px -10px rgba(0, 0, 0, 0.1), 0 20px 30px -5px rgba(0, 0, 0, 0.05)',
         'glow': '0 0 20px rgba(124, 58, 237, 0.3)',
+        'cta-hover': '0 4px 14px 0 rgba(230, 121, 50, 0.22)',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',

@@ -1,0 +1,7 @@
+Button Type,Example Text,Background Color,Text Color,Size (Desktop),Size (Mobile),Border,Border Radius,Hover Effect,Placement
+Primary CTA,Book Free Consultation,#FF8C42 (Orange),#FFFFFF (White),160px x 48px,100% x 52px,None,6px,Darker #E67932,"Hero section, above fold"
+Primary CTA,Schedule Appointment,#0066CC (Blue),#FFFFFF (White),160px x 48px,100% x 52px,None,6px,Darker #0052A3,After service sections
+Secondary CTA,Learn More,Transparent,#0066CC (Blue),140px x 44px,100% x 48px,2px solid #0066CC,6px,"Fill with blue #0066CC, white text",After informational content
+Tertiary CTA,View Doctors,Transparent,#6C757D (Gray),120px x 40px,Auto x 44px,1px solid #6C757D,4px,Fill with gray,"Navigation, footer"
+Phone CTA,Call Now: +91-XXXXX,#25D366 (WhatsApp Green),#FFFFFF (White),180px x 48px,100% x 52px,None,8px,Pulse animation,Header (sticky on mobile)
+Mobile Sticky,Book Now,#FF8C42 (Orange),#FFFFFF (White),Full width x 56px,Full width x 60px,None,0px,Shadow elevation,Bottom of viewport (mobile only)

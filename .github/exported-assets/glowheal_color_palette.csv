@@ -1,0 +1,15 @@
+Color Scheme,Color Name,Hex Code,Usage,Psychology/Effect,Contrast Ratio (on white)
+Recommended Primary,Royal Blue,#4169E1,"Headers, buttons, links, trust badges","Trust, professionalism, calm, medical",4.6:1 (AA Pass)
+Recommended Primary,White,#FFFFFF,"Page backgrounds, card backgrounds","Cleanliness, simplicity, medical sterility",N/A
+Recommended Primary,Light Gray,#F5F5F5,"Section dividers, subtle backgrounds","Subtle, non-distracting, modern",N/A
+Alternative Modern,Teal,#20B2AA,"Headers, buttons, modern medical feel","Modern healthcare, calm, tech-forward",3.9:1 (Need darker for text)
+Alternative Modern,Beige/Cream,#F5F5DC,"Section backgrounds, warmth","Warmth, welcoming, comfortable",N/A
+Alternative Modern,White,#FFFFFF,Primary backgrounds,"Clean, professional",N/A
+Current (If keeping),Forest Green,#2D5F3F,Keep if brand recognition strong,"Health, nature, balance (test against blue)",7.5:1 (AAA Pass)
+Current (If keeping),White,#FFFFFF,Backgrounds,"Medical, clean",N/A
+Accent/CTA Colors,Orange (Primary CTA),#FF8C42,"Primary CTAs (Book Now, Call)","Action, warmth, friendly urgency",3.4:1 (Large text only)
+Accent/CTA Colors,Blue (Secondary CTA),#0066CC,Secondary CTAs (Learn More),"Trust, reliability, safe action",7.8:1 (AAA Pass)
+Background Colors,White,#FFFFFF,Main page background,Maximum clarity and readability,N/A
+Background Colors,Light Gray,#F8F9FA,Alternate section backgrounds,Subtle section separation,N/A
+Text Colors,Dark Charcoal,#212529,Primary text (body copy),"Professional, readable, WCAG compliant",16:1 (AAA Pass)
+Text Colors,Medium Gray,#6C757D,Secondary text (captions),"Less emphasis, supporting info",4.7:1 (AA Pass)

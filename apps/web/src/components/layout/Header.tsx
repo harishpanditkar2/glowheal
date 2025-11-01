@@ -267,7 +267,7 @@ export function Header() {
           <div className="hidden lg:flex items-center space-x-3">
             {/* Primary CTA - Book Free Consultation */}
             <Link href={ctaHref}>
-              <Button variant="free" size="md">
+              <Button variant="primary" size="md">
                 {ctaText}
               </Button>
             </Link>
@@ -311,7 +311,7 @@ export function Header() {
             <div className="mt-6 px-4 space-y-3">
               <CitySelector />
               <Link href={ctaHref} className="block">
-                <Button variant="free" size="lg" className="w-full text-base">
+                <Button variant="primary" size="lg" className="w-full text-base">
                   {ctaText}
                 </Button>
               </Link>

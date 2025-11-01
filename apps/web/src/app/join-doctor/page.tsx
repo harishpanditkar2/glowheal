@@ -47,7 +47,7 @@ export default function JoinDoctorPage() {
               Join 50+ verified doctors across Pune delivering quality care with transparent pricing
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="free" size="lg" href="#apply">
+              <Button variant="primary" size="lg" href="#apply">
                 Join Now (Free)
               </Button>
               <Button variant="secondary" size="lg" href="tel:+918329563445">
@@ -278,7 +278,7 @@ export default function JoinDoctorPage() {
 
       {/* Sticky Mobile CTA */}
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t-2 border-forest-200 p-4 md:hidden z-40 shadow-lg">
-        <Button variant="free" size="lg" href="#apply" className="w-full">
+        <Button variant="primary" size="lg" href="#apply" className="w-full">
           Join Now (Free)
         </Button>
       </div>

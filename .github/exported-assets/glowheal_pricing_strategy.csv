@@ -1,0 +1,11 @@
+Service,Market Average (₹),Recommended Pricing (₹),Strategy,Display Method
+First Consultation,200-400,FREE (₹0),Loss Leader - Critical for acquisition,BOLD - Hero section banner
+General Physician (In-person),200-300,199-249,Competitive with Practo/online platforms,"Show original ₹299, offer ₹199"
+General Physician (Video),180-250,149-199,25% discount vs in-person,Online Exclusive - Save 50%
+Specialist Consultation,400-800,399-599,Mid-range pricing,Starting from ₹399
+Specialist (Video),350-600,299-449,25% discount vs in-person,Video Special - Limited slots
+Basic Health Checkup,"1,999-2,499","999-1,499",Entry-level package,Package - Save ₹500
+Comprehensive Checkup,"2,999-3,999","2,499-3,499",Most Popular - Best value,MOST POPULAR badge
+Premium Full Body Checkup,"4,999-6,999","4,999-6,499",Premium positioning,Comprehensive care package
+Diagnostic Test (Avg),350-400,299-399,Competitive diagnostic pricing,Per test pricing
+Follow-up Consultation,150-250,99-149,Loyalty pricing,Patient loyalty discount

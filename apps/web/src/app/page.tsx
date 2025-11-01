@@ -78,9 +78,18 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold font-display mb-6 leading-tight">
-              Free First Consultation.<br />
-              Fixed Prices. Right Care.
+              Expert Healthcare.<br />
+              FREE First Consultation.
             </h1>
+            
+            {/* FREE Capsule - Orange CTA Color for Prominence */}
+            <div className="inline-flex items-center gap-2 bg-cta-orange text-white px-4 py-2 rounded-lg h-10 shadow-cta-hover mb-6">
+              <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              <span className="font-bold whitespace-nowrap">₹0 first visit — no hidden costs</span>
+            </div>
+            
             <p className="text-lg sm:text-xl md:text-2xl mb-8 text-jade-100 max-w-3xl mx-auto leading-relaxed line-clamp-2 md:line-clamp-none">
               Talk to our in-house doctor at no cost; get a personalized plan and city-specific fixed prices—no surprise fees.
             </p>
@@ -88,12 +97,12 @@ export default function HomePage() {
             {/* CTA Row with City Selector */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
               <Link href={ctaHref}>
-                <Button variant="free" size="lg" className="w-full sm:w-auto text-base sm:text-lg">
+                <Button variant="primary" size="lg" className="w-full sm:w-auto text-base sm:text-lg">
                   {ctaText}
                 </Button>
               </Link>
               <Link href="/join-doctor">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto bg-white/10 border-white text-white hover:bg-white/20 text-base sm:text-lg">
+                <Button variant="secondary" size="lg" className="w-full sm:w-auto text-base sm:text-lg">
                   Join as Doctor
                 </Button>
               </Link>
@@ -354,7 +363,7 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href={ctaHref}>
-              <Button variant="free" size="lg">
+              <Button variant="primary" size="lg">
                 {ctaText}
               </Button>
             </Link>
@@ -369,3 +378,4 @@ export default function HomePage() {
     </>
   );
 }
+

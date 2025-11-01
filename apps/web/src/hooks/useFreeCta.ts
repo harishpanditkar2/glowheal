@@ -6,7 +6,7 @@
  * 
  * @example
  * const { ctaText, ctaHref, whatsappText } = useFreeCta();
- * <Button variant="free" href={ctaHref}>{ctaText}</Button>
+ * <Button variant="primary" href={ctaHref}>{ctaText}</Button>
  */
 
 export function useFreeCta() {

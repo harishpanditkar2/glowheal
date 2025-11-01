@@ -65,7 +65,7 @@ export default function CitiesPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/book">
-              <Button variant="free" size="lg">
+              <Button variant="primary" size="lg">
                 Book Free Consultation
               </Button>
             </Link>
@@ -136,7 +136,7 @@ export default function CitiesPage() {
             Book a free consultation and our team will help you find the right doctor in your city.
           </p>
           <Link href="/book">
-            <Button variant="free" size="lg">
+            <Button variant="primary" size="lg">
               Book Free Consultation
             </Button>
           </Link>

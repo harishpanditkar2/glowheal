@@ -125,7 +125,7 @@ export function Footer() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href={ctaHref}>
-              <Button variant="free" size="lg" className="min-w-[200px]">
+              <Button variant="primary" size="lg" className="min-w-[200px]">
                 Book Free Consultation
               </Button>
             </Link>

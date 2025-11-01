@@ -41,7 +41,7 @@ export default function BlogPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/book">
-              <Button variant="free" size="lg">
+              <Button variant="primary" size="lg">
                 Book Free Consultation
               </Button>
             </Link>
@@ -83,7 +83,7 @@ export default function BlogPage() {
             </div>
             <div className="mt-8 pt-8 border-t border-gray-200">
               <Link href="/book">
-                <Button variant="free" size="lg">
+                <Button variant="primary" size="lg">
                   Book Free Consultation Now
                 </Button>
               </Link>
