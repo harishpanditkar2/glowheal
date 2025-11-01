@@ -27,26 +27,26 @@ export async function POST(request: NextRequest) {
     const year = now.getFullYear();
     const month = String(now.getMonth() + 1).padStart(2, '0');
     
-    // Use environment-aware path resolution
-    // In development: works from apps/web directory
-    // In production: uses absolute path or VERCEL_PROJECT_DIR
-    const projectRoot = process.env.VERCEL ? process.env.VERCEL_PROJECT_DIR || process.cwd() : process.cwd();
-    let leadsDir = join(projectRoot, 'data', 'leads', String(year), month);
+    // Determine correct path for monorepo structure
+    // Current working directory is apps/web, so we need to go up two levels to reach project root
+    const currentDir = process.cwd();
+    console.log('📁 Current working directory:', currentDir);
+    
+    // Check if we're in apps/web or at root
+    const isInAppsWeb = currentDir.includes('apps/web') || currentDir.includes('apps\\web');
+    const projectRoot = isInAppsWeb ? join(currentDir, '..', '..') : currentDir;
+    const leadsDir = join(projectRoot, 'data', 'leads', String(year), month);
     
     console.log('📁 Project root:', projectRoot);
     console.log('📁 Target directory:', leadsDir);
     
-    try {
-      if (!existsSync(leadsDir)) {
-        await mkdir(leadsDir, { recursive: true });
-        console.log('✅ Directory created successfully');
-      }
-    } catch (dirError) {
-      console.error('❌ Failed to create directory:', dirError);
-      // Try alternative path (fallback for monorepo structure)
-      leadsDir = join(process.cwd(), '..', '..', 'data', 'leads', String(year), month);
-      console.log('📁 Trying fallback directory:', leadsDir);
+    // Create directory if it doesn't exist
+    if (!existsSync(leadsDir)) {
+      console.log('📁 Directory does not exist, creating...');
       await mkdir(leadsDir, { recursive: true });
+      console.log('✅ Directory created successfully');
+    } else {
+      console.log('✅ Directory already exists');
     }
 
     // Write lead data to JSON file
