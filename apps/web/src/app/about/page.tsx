@@ -118,10 +118,10 @@ export default function AboutPage() {
                     <span className="text-3xl font-bold text-forest-900">CB</span>
                   </div>
                   <h3 className="text-2xl font-bold text-forest-900 mb-2">Dr. Chetna Bhaisare</h3>
-                  <p className="text-jade-600 font-semibold mb-4">Co-Founder & COO</p>
+                  <p className="text-jade-600 font-semibold mb-4">Co-Founder & Chief Medical Officer</p>
                   <p className="text-gray-700 leading-relaxed mb-4">
-                    Dr. Chetna brings credible clinical expertise and operational leadership to Glowheal. 
-                    She oversees patient consultations, wellness programs, day-to-day operations, marketing strategy, 
+                    Dr. Chetna brings credible clinical expertise and medical leadership to Glowheal. 
+                    She oversees patient consultations, clinical operations, wellness programs, marketing strategy, 
                     and strategic partnerships with healthcare providers.
                   </p>
                   <div className="space-y-2 text-sm text-forest-700">
