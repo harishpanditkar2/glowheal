@@ -62,7 +62,7 @@ export function ServiceCard({
             </div>
             <div>
               <p className="text-jade-600 font-semibold hover:text-jade-800 text-sm">
-                View Fixed Prices →
+                View Care Packages →
               </p>
               <p className="text-xs text-gray-500 mt-1">
                 Start free—talk to a doctor
