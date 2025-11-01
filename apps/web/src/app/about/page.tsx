@@ -173,10 +173,9 @@ export default function AboutPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-forest-900 mb-2">Verified Doctors</h3>
+              <h3 className="text-xl font-semibold text-forest-900 mb-2">Certified Specialist</h3>
               <p className="text-gray-700">
-                All doctors are verified professionals with proven experience in dermatology, mental health, and
-                orthopedics.
+                Dr. Chetna Bhaisare is a certified professional with proven experience in dermatology and Ayurveda.
               </p>
             </div>
 
@@ -210,7 +209,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-semibold text-forest-900 mb-2">Free First Consultation</h3>
               <p className="text-gray-700">
-                Start with a free call to our in-house doctor. Get routed to specialists only if needed.
+                Start with a free consultation with Dr. Chetna to discuss your health concerns and treatment options.
               </p>
             </div>
           </div>
@@ -228,7 +227,7 @@ export default function AboutPage() {
                     Book Your Free First Consultation
                   </h3>
                   <p className="text-gray-700">
-                    Fill out a simple form and schedule your free consultation with our in-house doctor.
+                    Fill out a simple form and schedule your free consultation with Dr. Chetna.
                   </p>
                 </div>
               </div>
@@ -240,7 +239,7 @@ export default function AboutPage() {
                 <div>
                   <h3 className="text-lg font-semibold text-forest-900 mb-1">Get Expert Assessment</h3>
                   <p className="text-gray-700">
-                    Our doctor assesses your concern and recommends the right specialist if needed.
+                    Dr. Chetna assesses your concern and creates a personalized treatment plan for you.
                   </p>
                 </div>
               </div>
