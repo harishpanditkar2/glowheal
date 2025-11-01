@@ -20,8 +20,7 @@ import { useCity, getCityDisplayName } from '@/lib/city-context';
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters').max(100),
   phone: z.string()
-    .regex(/^[6-9]\d{9}$/, 'Enter valid 10-digit mobile number')
-    .transform(val => `91${val}`), // Convert to E.164
+    .regex(/^[6-9]\d{9}$/, 'Enter valid 10-digit mobile number'),
   email: z.string().email('Enter valid email address').optional().or(z.literal('')),
 });
 
@@ -218,6 +217,9 @@ function BookAppointmentPageContent() {
       const id = `booking-${Date.now()}`;
       setBookingId(id);
 
+      // Add 91 prefix to phone if not already present
+      const phoneWithPrefix = data.phone.startsWith('91') ? data.phone : `91${data.phone}`;
+
       // Prepare lead data with selected catalog items
       const leadData = {
         id,
@@ -227,12 +229,12 @@ function BookAppointmentPageContent() {
         consultationType: data.consultationType, // 'free' or 'specialist'
         contact: {
           name: data.name,
-          phone: data.phone, // Already in E.164 format
+          phone: phoneWithPrefix, // E.164 format
           email: data.email || null,
         },
         concern: {
           specialty: data.specialty,
-          description: data.concern,
+          description: data.concern || '',
         },
         preferences: {
           city: data.city,
@@ -279,12 +281,12 @@ function BookAppointmentPageContent() {
               city: data.city,
               contact: {
                 name: data.name,
-                phone: data.phone,
+                phone: phoneWithPrefix,
                 email: data.email || undefined,
               },
               concern: {
                 specialty: data.specialty,
-                description: data.concern,
+                description: data.concern || '',
               },
             }),
           });
@@ -340,7 +342,7 @@ function BookAppointmentPageContent() {
 
 📋 *Booking ID:* ${id}
 👤 *Name:* ${data.name}
-📱 *Phone:* ${data.phone}
+📱 *Phone:* ${phoneWithPrefix}
 📧 *Email:* ${data.email || 'Not provided'}
 
 💚 *Consultation Type:* ${data.consultationType === 'free' ? 'Free First Consultation (₹0)' : 'Direct Specialist (₹499+)'}
@@ -350,7 +352,7 @@ function BookAppointmentPageContent() {
 ⏰ *Preferred Time:* ${data.preferredTime}
 
 📝 *Concern:*
-${data.concern}
+${data.concern || 'Not specified'}
 
 🛒 *Selected Services (Provisional):*
 ${servicesText}
@@ -358,6 +360,8 @@ ${servicesText}
 ✅ I confirm booking and will wait for your call to schedule the consultation.`;
 
         const whatsappUrl = `https://wa.me/918329563445?text=${encodeURIComponent(whatsappMessage)}`;
+        
+        console.log('Opening WhatsApp with URL:', whatsappUrl);
         
         // Open WhatsApp immediately
         window.open(whatsappUrl, '_blank');
