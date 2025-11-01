@@ -7,90 +7,184 @@ interface SpecialtyIconProps {
 }
 
 /**
- * SpecialtyIcon - Modern SVG icons for each medical specialty
- * Uses Heroicons-style paths for consistency
+ * SpecialtyIcon - Colorful, distinctive SVG icons for each medical specialty
+ * Each specialty has a unique color and relevant icon design
  * Size presets: sm=16px, md=20px (default), lg=24px
  */
 export function SpecialtyIcon({ specialty, className, size = 'md' }: SpecialtyIconProps) {
   const sizeClasses = {
-    sm: 'w-4 h-4',
-    md: 'w-5 h-5',
-    lg: 'w-6 h-6',
+    sm: 'w-8 h-8',
+    md: 'w-12 h-12',
+    lg: 'w-16 h-16',
   };
 
   const baseClasses = cn(sizeClasses[size], 'flex-shrink-0', className);
 
-  // Icon mapping by specialty slug
+  // Colorful icon mapping by specialty slug
   const iconMap: Record<string, JSX.Element> = {
     dermatology: (
-      <svg className={baseClasses} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-      </svg>
+      <div className={cn(baseClasses, 'relative')}>
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="28" fill="#FEF3C7" />
+          <path d="M32 12C20.954 12 12 20.954 12 32s8.954 20 20 20 20-8.954 20-20-8.954-20-20-20zm0 36c-8.822 0-16-7.178-16-16s7.178-16 16-16 16 7.178 16 16-7.178 16-16 16z" fill="#F59E0B" />
+          <circle cx="24" cy="26" r="2" fill="#F59E0B" />
+          <circle cx="40" cy="26" r="2" fill="#F59E0B" />
+          <path d="M32 36c-3.314 0-6-2.686-6-6h2c0 2.206 1.794 4 4 4s4-1.794 4-4h2c0 3.314-2.686 6-6 6z" fill="#F59E0B" />
+          <circle cx="32" cy="20" r="1.5" fill="#FBBF24" />
+          <circle cx="20" cy="32" r="1.5" fill="#FBBF24" />
+          <circle cx="44" cy="32" r="1.5" fill="#FBBF24" />
+        </svg>
+      </div>
     ),
     'hair-scalp': (
-      <svg className={baseClasses} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z" />
-      </svg>
+      <div className={cn(baseClasses, 'relative')}>
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="28" fill="#DBEAFE" />
+          <path d="M32 14c-6 0-10 4-10 10 0 3 1 5 2 7-3 2-5 5-5 9 0 6 4 10 10 10h6c6 0 10-4 10-10 0-4-2-7-5-9 1-2 2-4 2-7 0-6-4-10-10-10z" fill="#3B82F6" />
+          <path d="M28 18c0-2 2-4 4-4s4 2 4 4-2 4-4 4-4-2-4-4z" fill="#60A5FA" />
+          <path d="M24 24c0-1.5 1.5-3 3-3s3 1.5 3 3-1.5 3-3 3-3-1.5-3-3z" fill="#60A5FA" />
+          <path d="M34 24c0-1.5 1.5-3 3-3s3 1.5 3 3-1.5 3-3 3-3-1.5-3-3z" fill="#60A5FA" />
+        </svg>
+      </div>
     ),
     'weight-loss': (
-      <svg className={baseClasses} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
-      </svg>
+      <div className={cn(baseClasses, 'relative')}>
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="28" fill="#D1FAE5" />
+          <path d="M32 12L28 24L20 28L28 32L32 44L36 32L44 28L36 24L32 12Z" fill="#10B981" />
+          <circle cx="32" cy="32" r="8" fill="#34D399" />
+          <path d="M24 28h16M28 24v8M36 24v8" stroke="#059669" strokeWidth="2" strokeLinecap="round" />
+          <path d="M26 38c2 2 4 3 6 3s4-1 6-3" stroke="#059669" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+      </div>
     ),
     'mental-health': (
-      <svg className={baseClasses} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-      </svg>
+      <div className={cn(baseClasses, 'relative')}>
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="28" fill="#E0E7FF" />
+          <path d="M32 14c-8 0-14 6-14 14 0 4 2 8 5 10v8c0 2 2 4 4 4h10c2 0 4-2 4-4v-8c3-2 5-6 5-10 0-8-6-14-14-14z" fill="#6366F1" />
+          <circle cx="28" cy="26" r="2" fill="#E0E7FF" />
+          <circle cx="36" cy="26" r="2" fill="#E0E7FF" />
+          <path d="M28 32c0-2 2-4 4-4s4 2 4 4" stroke="#E0E7FF" strokeWidth="2" strokeLinecap="round" />
+          <path d="M24 20c0-4 4-6 8-6s8 2 8 6" stroke="#818CF8" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+      </div>
     ),
     'nutrition-dietetics': (
-      <svg className={baseClasses} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
+      <div className={cn(baseClasses, 'relative')}>
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="28" fill="#FEE2E2" />
+          <path d="M32 12c-8 0-14 6-14 14s6 14 14 14 14-6 14-14-6-14-14-14z" fill="#EF4444" />
+          <path d="M28 16c-4 0-6 3-6 6s2 6 6 6 6-3 6-6-2-6-6-6z" fill="#F87171" />
+          <path d="M32 40c0 8-4 12-4 12h8s-4-4-4-12z" fill="#16A34A" />
+          <ellipse cx="32" cy="24" rx="3" ry="2" fill="#7C2D12" />
+        </svg>
+      </div>
     ),
     'womens-health': (
-      <svg className={baseClasses} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-      </svg>
+      <div className={cn(baseClasses, 'relative')}>
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="28" fill="#FCE7F3" />
+          <path d="M32 14c-6 0-10 4-10 10s4 10 10 10 10-4 10-10-4-10-10-10z" fill="#EC4899" />
+          <circle cx="32" cy="24" r="8" fill="#F9A8D4" />
+          <path d="M32 32v12M26 44h12" stroke="#EC4899" strokeWidth="3" strokeLinecap="round" />
+          <circle cx="32" cy="24" r="4" fill="#FCE7F3" />
+        </svg>
+      </div>
     ),
     'mens-health': (
-      <svg className={baseClasses} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-      </svg>
+      <div className={cn(baseClasses, 'relative')}>
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="28" fill="#DBEAFE" />
+          <circle cx="28" cy="32" r="10" fill="#3B82F6" />
+          <path d="M35 25L44 16M44 16h-6M44 16v6" stroke="#3B82F6" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="28" cy="32" r="6" fill="#93C5FD" />
+        </svg>
+      </div>
     ),
     'sleep-medicine': (
-      <svg className={baseClasses} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-      </svg>
+      <div className={cn(baseClasses, 'relative')}>
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="28" fill="#EDE9FE" />
+          <path d="M38 14c-8 0-14 6-14 14s6 14 14 14c2 0 4-0.5 6-1-3 2-7 3-11 3-10 0-18-8-18-18s8-18 18-18c4 0 8 1 11 3-2-0.5-4-1-6-1z" fill="#8B5CF6" />
+          <circle cx="20" cy="18" r="1.5" fill="#A78BFA" />
+          <circle cx="26" cy="14" r="1.5" fill="#A78BFA" />
+          <circle cx="32" cy="12" r="1.5" fill="#A78BFA" />
+          <circle cx="48" cy="44" r="1.5" fill="#A78BFA" />
+          <circle cx="52" cy="38" r="1.5" fill="#A78BFA" />
+        </svg>
+      </div>
     ),
     'gut-health': (
-      <svg className={baseClasses} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
+      <div className={cn(baseClasses, 'relative')}>
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="28" fill="#FEF3C7" />
+          <path d="M28 14h8c4 0 8 4 8 8v4c0 2-1 4-3 5 2 1 3 3 3 5v4c0 4-4 8-8 8h-8c-4 0-8-4-8-8v-4c0-2 1-4 3-5-2-1-3-3-3-5v-4c0-4 4-8 8-8z" fill="#F59E0B" />
+          <ellipse cx="32" cy="28" rx="6" ry="4" fill="#FCD34D" />
+          <ellipse cx="32" cy="40" rx="6" ry="4" fill="#FCD34D" />
+          <circle cx="28" cy="26" r="1.5" fill="#D97706" />
+          <circle cx="36" cy="26" r="1.5" fill="#D97706" />
+        </svg>
+      </div>
     ),
     'metabolic-health': (
-      <svg className={baseClasses} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
+      <div className={cn(baseClasses, 'relative')}>
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="28" fill="#DCFCE7" />
+          <path d="M32 14L38 26L50 28L38 30L32 42L26 30L14 28L26 26L32 14Z" fill="#22C55E" />
+          <circle cx="32" cy="28" r="6" fill="#86EFAC" />
+          <path d="M28 34c0 2 2 4 4 4s4-2 4-4" stroke="#16A34A" strokeWidth="2" strokeLinecap="round" />
+          <circle cx="28" cy="26" r="1.5" fill="#16A34A" />
+          <circle cx="36" cy="26" r="1.5" fill="#16A34A" />
+        </svg>
+      </div>
     ),
     labs: (
-      <svg className={baseClasses} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-      </svg>
+      <div className={cn(baseClasses, 'relative')}>
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="28" fill="#FEE2E2" />
+          <path d="M26 12h12v16c0 6-4 10-10 10s-10-4-10-10c0-6 4-10 10-10h-2z" fill="#DC2626" />
+          <rect x="26" y="12" width="12" height="4" fill="#EF4444" />
+          <path d="M20 36c0-6 4-10 10-10v-8c-8 0-14 6-14 14 0 8 6 14 14 14 8 0 14-6 14-14h-10c0 2-2 4-4 4s-4-2-4-4z" fill="#F87171" />
+          <circle cx="26" cy="30" r="2" fill="#FECACA" />
+          <circle cx="34" cy="32" r="2" fill="#FECACA" />
+          <circle cx="30" cy="36" r="2" fill="#FECACA" />
+        </svg>
+      </div>
     ),
     'iv-therapy': (
-      <svg className={baseClasses} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-      </svg>
+      <div className={cn(baseClasses, 'relative')}>
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="28" fill="#E0F2FE" />
+          <path d="M28 14h8v8h-8z" fill="#0EA5E9" />
+          <path d="M30 22h4v22h-4z" fill="#38BDF8" />
+          <circle cx="32" cy="18" r="2" fill="#E0F2FE" />
+          <path d="M20 30h24" stroke="#0EA5E9" strokeWidth="2" />
+          <path d="M24 34c0 4 4 8 8 8s8-4 8-8" stroke="#0EA5E9" strokeWidth="2" fill="none" />
+          <circle cx="32" cy="46" r="4" fill="#0EA5E9" opacity="0.3" />
+        </svg>
+      </div>
     ),
     orthopedics: (
-      <svg className={baseClasses} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-      </svg>
+      <div className={cn(baseClasses, 'relative')}>
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="28" fill="#F3E8FF" />
+          <rect x="28" y="14" width="8" height="36" rx="2" fill="#A855F7" />
+          <circle cx="32" cy="20" r="4" fill="#C084FC" />
+          <circle cx="32" cy="32" r="4" fill="#C084FC" />
+          <circle cx="32" cy="44" r="4" fill="#C084FC" />
+          <path d="M20 26h24M20 38h24" stroke="#9333EA" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+      </div>
     ),
     default: (
-      <svg className={baseClasses} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-      </svg>
+      <div className={cn(baseClasses, 'relative')}>
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="28" fill="#F3F4F6" />
+          <path d="M32 14L44 28L32 42L20 28L32 14Z" fill="#6B7280" />
+          <circle cx="32" cy="28" r="6" fill="#9CA3AF" />
+        </svg>
+      </div>
     ),
   };
 
