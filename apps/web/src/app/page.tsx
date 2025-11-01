@@ -228,22 +228,26 @@ export default function HomePage() {
             {[
               {
                 step: '1',
-                title: 'Book Consultation 📱',
+                icon: '📱',
+                title: 'Book Consultation',
                 description: 'Schedule your first consultation with Dr. Chetna — completely free of charge',
               },
               {
                 step: '2',
-                title: 'Initial Assessment 💬',
+                icon: '💬',
+                title: 'Initial Assessment',
                 description: 'Share your health concerns, medical history, and wellness goals',
               },
               {
                 step: '3',
-                title: 'Personalized Plan 📝',
+                icon: '📝',
+                title: 'Personalized Plan',
                 description: 'Get a tailored treatment plan combining dermatology & Ayurveda',
               },
               {
                 step: '4',
-                title: 'Ongoing Care ✨',
+                icon: '✨',
+                title: 'Ongoing Care',
                 description: 'Follow-up consultations, prescriptions, and continuous support',
               },
             ].map((item) => (
@@ -251,7 +255,10 @@ export default function HomePage() {
                 <div className="w-16 h-16 bg-forest-700 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                   {item.step}
                 </div>
-                <h3 className="text-xl font-bold font-display text-forest-700 mb-2">{item.title}</h3>
+                <h3 className="text-xl font-bold font-display text-forest-700 mb-2">
+                  <span className="mr-2">{item.icon}</span>
+                  {item.title}
+                </h3>
                 <p className="text-gray-600 text-sm">{item.description}</p>
               </div>
             ))}
