@@ -153,7 +153,7 @@ export default function ServicePage({ params }: Props) {
                 </Button>
               </Link>
               <Link href="/doctors">
-                <Button variant="secondary" size="lg" className="bg-white hover:bg-gray-100 text-forest-700">
+                <Button variant="secondary" size="lg">
                   View {service.name} Specialists
                 </Button>
               </Link>
@@ -520,7 +520,7 @@ export default function ServicePage({ params }: Props) {
               </Button>
             </Link>
             <Link href="/contact">
-              <Button variant="secondary" size="lg" className="bg-white text-forest-700 hover:bg-jade-50">
+              <Button variant="secondary" size="lg">
                 Have Questions? Contact Us
               </Button>
             </Link>

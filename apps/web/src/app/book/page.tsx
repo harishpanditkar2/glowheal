@@ -31,7 +31,7 @@ const concernSchema = z.object({
     errorMap: () => ({ message: 'Please select consultation type' }),
   }),
   specialty: z.string().min(1, 'Please select a specialty'),
-  concern: z.string().min(10, 'Please describe your concern (minimum 10 characters)').max(500),
+  concern: z.string().max(500).optional().or(z.literal('')), // Made optional
 });
 
 // Step 3: Preference Schema (with WhatsApp confirm)
@@ -60,9 +60,13 @@ function BookAppointmentPageContent() {
   const specialtySlug = searchParams.get('specialty');
   const { city: contextCity } = useCity();
   
-  // State for selected catalog items (provisional)
+  // State for selected catalog items (provisional) - Default to free consultation
   const [selectedItems, setSelectedItems] = useState<string[]>(() => {
-    return serviceCode ? [serviceCode] : [];
+    // Always include free consultation by default
+    if (serviceCode && serviceCode !== 'FREE_CONSULT') {
+      return ['FREE_CONSULT', serviceCode];
+    }
+    return ['FREE_CONSULT'];
   });
   const [showServiceModal, setShowServiceModal] = useState(false);
   
@@ -129,6 +133,27 @@ function BookAppointmentPageContent() {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1);
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  // Go to specific step
+  const goToStep = async (step: number) => {
+    if (step < currentStep) {
+      // Allow going back without validation
+      setCurrentStep(step);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (step > currentStep) {
+      // Going forward requires validation
+      let isValid = true;
+      for (let i = currentStep; i < step; i++) {
+        setCurrentStep(i);
+        isValid = await validateStep();
+        if (!isValid) break;
+      }
+      if (isValid) {
+        setCurrentStep(step);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     }
   };
 
@@ -289,6 +314,44 @@ function BookAppointmentPageContent() {
           city: data.city,
           specialty: data.specialty,
         });
+      }
+      
+      // WhatsApp submission: Format message and open WhatsApp
+      if (typeof window !== 'undefined') {
+        const servicesText = selectedItems.length > 0
+          ? selectedItems.map(code => {
+              const item = getCatalogItem('pune', code);
+              return item ? `- ${item.name} (${formatPrice(item.price)})` : '';
+            }).filter(Boolean).join('\n')
+          : 'No specific services selected';
+        
+        const whatsappMessage = `🌿 *Glowheal Booking Confirmation*
+
+📋 *Booking ID:* ${id}
+👤 *Name:* ${data.name}
+📱 *Phone:* ${data.phone}
+📧 *Email:* ${data.email || 'Not provided'}
+
+💚 *Consultation Type:* ${data.consultationType === 'free' ? 'Free First Consultation (₹0)' : 'Direct Specialist (₹499+)'}
+🩺 *Specialty:* ${data.specialty}
+📍 *City:* ${data.city}
+📅 *Preferred Date:* ${data.preferredDate}
+⏰ *Preferred Time:* ${data.preferredTime}
+
+📝 *Concern:*
+${data.concern}
+
+🛒 *Selected Services (Provisional):*
+${servicesText}
+
+✅ I confirm booking and will wait for your call to schedule the consultation.`;
+
+        const whatsappUrl = `https://wa.me/918329563445?text=${encodeURIComponent(whatsappMessage)}`;
+        
+        // Open WhatsApp in new tab after short delay (allow user to see success message first)
+        setTimeout(() => {
+          window.open(whatsappUrl, '_blank');
+        }, 1500);
       }
       
     } catch (error) {
@@ -530,28 +593,32 @@ function BookAppointmentPageContent() {
 
           {/* Progress Indicator */}
           <div className="mb-8">
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between">
               {STEPS.map((step, index) => (
                 <div key={step.id} className="flex items-center flex-1">
                   <div className="flex flex-col items-center flex-1">
-                    <div
-                      className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-colors ${
+                    <button
+                      onClick={() => goToStep(step.id)}
+                      disabled={step.id > currentStep && currentStep < STEPS.length}
+                      className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg transition-all mb-2 ${
                         currentStep >= step.id
-                          ? 'bg-forest-700 text-white'
-                          : 'bg-gray-200 text-gray-600'
-                      }`}
+                          ? 'bg-lime-400 text-forest-900 shadow-md cursor-pointer hover:bg-lime-500'
+                          : 'bg-gray-200 text-gray-600 cursor-not-allowed'
+                      } ${currentStep === step.id ? 'ring-4 ring-lime-200' : ''}`}
                     >
                       {step.id}
-                    </div>
-                    <div className="mt-2 text-center">
-                      <p className="text-sm font-medium text-gray-900">{step.title}</p>
+                    </button>
+                    <div className="text-center">
+                      <p className={`text-sm font-semibold ${currentStep >= step.id ? 'text-forest-900' : 'text-gray-600'}`}>
+                        {step.title}
+                      </p>
                       <p className="text-xs text-gray-500">{step.description}</p>
                     </div>
                   </div>
                   {index < STEPS.length - 1 && (
                     <div
                       className={`flex-1 h-1 mx-2 transition-colors ${
-                        currentStep > step.id ? 'bg-forest-700' : 'bg-gray-200'
+                        currentStep > step.id ? 'bg-lime-400' : 'bg-gray-200'
                       }`}
                     />
                   )}
@@ -649,7 +716,7 @@ function BookAppointmentPageContent() {
                       <button
                         type="button"
                         onClick={openServiceModal}
-                        className="bg-amber-500 hover:bg-amber-600 text-forest-700 px-5 py-3 rounded-xl font-semibold focus:outline-none focus:ring-2 focus:ring-forest-700 transition-colors"
+                        className="bg-lime-400 hover:bg-lime-500 text-forest-900 px-5 py-3 rounded-xl font-semibold focus:outline-none focus:ring-2 focus:ring-forest-700 transition-colors"
                         style={{ minHeight: '48px' }}
                       >
                         Browse Fixed Prices
@@ -708,6 +775,7 @@ function BookAppointmentPageContent() {
                           type="radio"
                           value="free"
                           {...register('consultationType')}
+                          defaultChecked
                           className="sr-only peer"
                         />
                         <div className="flex items-start justify-between mb-2">
@@ -774,13 +842,12 @@ function BookAppointmentPageContent() {
                   />
 
                   <Textarea
-                    label="Describe Your Concern"
-                    placeholder="Please describe your symptoms, concerns, or what you'd like to discuss with the doctor"
+                    label="Describe Your Concern (Optional)"
+                    placeholder="Tell us about your symptoms, concerns, or what you'd like to discuss with the doctor"
                     rows={6}
                     {...register('concern')}
                     error={errors.concern?.message}
-                    helperText="Minimum 10 characters. This helps us match you with the right doctor."
-                    required
+                    helperText="This is optional but helps us match you with the right doctor."
                   />
                 </div>
               )}
@@ -807,17 +874,23 @@ function BookAppointmentPageContent() {
                     required
                   />
 
-                  <Input
-                    label="Preferred Date"
-                    type="date"
-                    min={new Date().toISOString().split('T')[0]}
-                    {...register('preferredDate')}
-                    error={errors.preferredDate?.message}
-                    required
-                  />
-
                   <div>
                     <label className="block text-sm font-semibold text-forest-700 mb-2">
+                      Preferred Date <span className="text-red-500">*</span>
+                    </label>
+                    <Input
+                      label=""
+                      type="date"
+                      min={new Date().toISOString().split('T')[0]}
+                      {...register('preferredDate')}
+                      error={errors.preferredDate?.message}
+                      required
+                      className="text-base font-medium text-forest-900"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-forest-700 mb-3">
                       Preferred Time <span className="text-red-500">*</span>
                     </label>
                     <div className="grid grid-cols-3 gap-3">
@@ -828,7 +901,7 @@ function BookAppointmentPageContent() {
                       ].map((option) => (
                         <label
                           key={option.value}
-                          className="relative flex flex-col items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-forest-500 transition-colors"
+                          className="relative flex flex-col items-center p-4 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-forest-500 hover:bg-forest-50 transition-all"
                         >
                           <input
                             type="radio"
@@ -836,11 +909,11 @@ function BookAppointmentPageContent() {
                             {...register('preferredTime')}
                             className="sr-only peer"
                           />
-                          <div className="peer-checked:text-forest-700 font-semibold mb-1">
+                          <div className="text-forest-700 font-bold mb-1 text-base peer-checked:text-lime-600">
                             {option.label}
                           </div>
-                          <div className="text-xs text-gray-600">{option.time}</div>
-                          <div className="absolute inset-0 border-2 border-forest-700 rounded-lg opacity-0 peer-checked:opacity-100 transition-opacity" />
+                          <div className="text-sm text-gray-600 peer-checked:text-forest-700 peer-checked:font-medium">{option.time}</div>
+                          <div className="absolute inset-0 border-3 border-lime-500 bg-lime-50/30 rounded-lg opacity-0 peer-checked:opacity-100 transition-opacity" />
                         </label>
                       ))}
                     </div>

@@ -230,7 +230,7 @@ export default function ServicesPage() {
               </Button>
             </Link>
             <Link href="/doctors">
-              <Button variant="secondary" size="lg" className="bg-white hover:bg-gray-100 text-forest-700">
+              <Button variant="secondary" size="lg">
                 Browse Doctors
               </Button>
             </Link>

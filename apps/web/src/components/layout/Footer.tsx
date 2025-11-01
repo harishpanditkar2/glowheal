@@ -44,7 +44,9 @@ const footerSections = [
     links: [
       { label: 'Special Offers', href: '/landing/glowheal-offer' },
       { label: 'All Services', href: '/services' },
-      // Removed: About, Contact, Careers, Press - pages not yet created
+      { label: 'About Us', href: '/about' },
+      { label: 'Contact Us', href: '/contact' },
+      // Removed: Careers, Press - pages not yet created
     ],
   },
   {
@@ -175,7 +177,7 @@ export function Footer() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-lg bg-white text-navy-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-lime-500"
+                className="flex-1 px-4 py-3 rounded-lg bg-white text-forest-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-lime-500 font-medium"
                 required
               />
               <button
@@ -213,7 +215,7 @@ export function Footer() {
               <img 
                 src="/images/logo-white.svg" 
                 alt="Glowheal" 
-                className="h-10 w-auto"
+                className="h-14 w-auto"
               />
             </div>
             <p className="text-gray-400 text-sm">

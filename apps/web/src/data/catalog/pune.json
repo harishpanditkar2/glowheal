@@ -8,6 +8,29 @@
   },
   "specialties": [
     {
+      "slug": "free-consultation",
+      "title": "Free Consultation",
+      "items": [
+        {
+          "code": "FREE_CONSULT",
+          "name": "Free First Consultation",
+          "price": 0,
+          "unit": "session",
+          "includes": [
+            "In-house doctor consultation",
+            "Health assessment",
+            "Treatment recommendation",
+            "Specialist referral if needed"
+          ],
+          "excludes": [
+            "Specialist consultation",
+            "Lab tests",
+            "Medications"
+          ]
+        }
+      ]
+    },
+    {
       "slug": "dermatology",
       "title": "Dermatology",
       "items": [
@@ -90,7 +113,7 @@
           "code": "MOLE_WART_REMOVAL",
           "name": "Mole/Wart Removal",
           "price": 1999,
-          "unit": "procedure",
+          "unit": "session",
           "includes": [
             "Consultation",
             "Removal procedure",
@@ -336,7 +359,7 @@
           "code": "ANXIETY_PROGRAM_8W",
           "name": "Anxiety Management - 8 Weeks",
           "price": 5999,
-          "unit": "program",
+          "unit": "package",
           "includes": [
             "8 therapy sessions",
             "Coping strategies",
@@ -405,6 +428,65 @@
           "excludes": [
             "Advanced imaging"
           ]
+        },
+        {
+          "code": "SPORTS_NUTRITION_PLAN",
+          "name": "Sports Nutrition Plan - 60 Days",
+          "price": 1299,
+          "unit": "plan",
+          "includes": [
+            "Performance meal plan",
+            "2 progress reviews",
+            "Supplement guidance"
+          ],
+          "excludes": [
+            "Supplements cost",
+            "Lab tests"
+          ]
+        },
+        {
+          "code": "VEGAN_DIET_CONSULT",
+          "name": "Vegan/Vegetarian Diet Consultation",
+          "price": 699,
+          "unit": "session",
+          "includes": [
+            "Plant-based meal planning",
+            "Nutrition analysis",
+            "Recipe suggestions"
+          ],
+          "excludes": [
+            "Follow-up sessions"
+          ]
+        },
+        {
+          "code": "CHILD_NUTRITION_30",
+          "name": "Child Nutrition Plan - 30 Days",
+          "price": 799,
+          "unit": "plan",
+          "includes": [
+            "Age-appropriate meal plan",
+            "Growth tracking guidance",
+            "1 follow-up visit"
+          ],
+          "excludes": [
+            "Lab tests",
+            "Supplements"
+          ]
+        },
+        {
+          "code": "PREGNANCY_NUTRITION_90",
+          "name": "Pregnancy Nutrition - 90 Days",
+          "price": 2499,
+          "unit": "plan",
+          "includes": [
+            "Trimester-wise meal plans",
+            "3 consultations",
+            "WhatsApp support"
+          ],
+          "excludes": [
+            "Prenatal vitamins",
+            "Lab tests"
+          ]
         }
       ]
     },
@@ -438,6 +520,66 @@
           "excludes": [
             "Ultrasound scans"
           ]
+        },
+        {
+          "code": "MENOPAUSE_MANAGEMENT",
+          "name": "Menopause Management - 60 Days",
+          "price": 1499,
+          "unit": "plan",
+          "includes": [
+            "Hormone health guidance",
+            "2 consultations",
+            "Lifestyle plan"
+          ],
+          "excludes": [
+            "HRT medications",
+            "Lab tests"
+          ]
+        },
+        {
+          "code": "FERTILITY_CONSULT",
+          "name": "Fertility & Conception Consultation",
+          "price": 1299,
+          "unit": "session",
+          "includes": [
+            "Detailed assessment",
+            "Fertility guidance",
+            "Next steps plan"
+          ],
+          "excludes": [
+            "IVF treatments",
+            "Advanced tests"
+          ]
+        },
+        {
+          "code": "POSTPARTUM_CARE_60",
+          "name": "Postpartum Care - 60 Days",
+          "price": 1799,
+          "unit": "plan",
+          "includes": [
+            "Recovery guidance",
+            "2 consultations",
+            "Nutrition support"
+          ],
+          "excludes": [
+            "Home visits",
+            "Lab tests"
+          ]
+        },
+        {
+          "code": "WOMENS_WELLNESS_CHECKUP",
+          "name": "Women's Wellness Health Check",
+          "price": 2499,
+          "unit": "package",
+          "includes": [
+            "Complete health panel",
+            "Gynec consultation",
+            "Report interpretation"
+          ],
+          "excludes": [
+            "Mammography",
+            "PAP smear"
+          ]
         }
       ]
     },
@@ -469,6 +611,64 @@
           ],
           "excludes": [
             "Medications"
+          ]
+        },
+        {
+          "code": "TESTOSTERONE_CHECKUP",
+          "name": "Testosterone & Vitality Check",
+          "price": 1799,
+          "unit": "package",
+          "includes": [
+            "Hormone panel",
+            "Doctor consultation",
+            "Treatment plan"
+          ],
+          "excludes": [
+            "TRT medications"
+          ]
+        },
+        {
+          "code": "PROSTATE_HEALTH_SCREEN",
+          "name": "Prostate Health Screening",
+          "price": 1299,
+          "unit": "package",
+          "includes": [
+            "PSA test",
+            "Doctor consultation",
+            "Health guidance"
+          ],
+          "excludes": [
+            "Biopsy",
+            "MRI"
+          ]
+        },
+        {
+          "code": "MENS_FITNESS_PLAN_60",
+          "name": "Men's Fitness & Nutrition - 60 Days",
+          "price": 1499,
+          "unit": "plan",
+          "includes": [
+            "Custom fitness plan",
+            "Nutrition guidance",
+            "2 progress reviews"
+          ],
+          "excludes": [
+            "Gym membership",
+            "Supplements"
+          ]
+        },
+        {
+          "code": "MENS_WELLNESS_COMPLETE",
+          "name": "Men's Complete Wellness Check",
+          "price": 3499,
+          "unit": "package",
+          "includes": [
+            "Full health panel",
+            "Doctor consultation",
+            "Fitness assessment"
+          ],
+          "excludes": [
+            "Advanced imaging"
           ]
         }
       ]
@@ -503,6 +703,65 @@
           "excludes": [
             "Medications"
           ]
+        },
+        {
+          "code": "INSOMNIA_TREATMENT_60",
+          "name": "Insomnia Treatment - 60 Days",
+          "price": 1799,
+          "unit": "plan",
+          "includes": [
+            "Sleep therapy",
+            "2 consultations",
+            "CBT techniques"
+          ],
+          "excludes": [
+            "Sleep study",
+            "Medications"
+          ]
+        },
+        {
+          "code": "MINDFULNESS_PROGRAM_30",
+          "name": "Mindfulness & Meditation - 30 Days",
+          "price": 799,
+          "unit": "package",
+          "includes": [
+            "Guided sessions",
+            "Audio resources",
+            "Progress tracking"
+          ],
+          "excludes": [
+            "1-on-1 coaching"
+          ]
+        },
+        {
+          "code": "BURNOUT_RECOVERY_PLAN",
+          "name": "Burnout Recovery Program",
+          "price": 1499,
+          "unit": "plan",
+          "includes": [
+            "Therapy sessions",
+            "Stress management tools",
+            "Follow-up support"
+          ],
+          "excludes": [
+            "Medications",
+            "Time off work"
+          ]
+        },
+        {
+          "code": "SLEEP_APNEA_CONSULT",
+          "name": "Sleep Apnea Consultation",
+          "price": 1299,
+          "unit": "session",
+          "includes": [
+            "Sleep assessment",
+            "Treatment options",
+            "Device guidance"
+          ],
+          "excludes": [
+            "Sleep study",
+            "CPAP device"
+          ]
         }
       ]
     },
@@ -536,6 +795,64 @@
           "excludes": [
             "Advanced procedures"
           ]
+        },
+        {
+          "code": "IBS_TREATMENT_60",
+          "name": "IBS Treatment - 60 Days",
+          "price": 1799,
+          "unit": "plan",
+          "includes": [
+            "Dietary management",
+            "2 consultations",
+            "Symptom tracking"
+          ],
+          "excludes": [
+            "Colonoscopy",
+            "Medications"
+          ]
+        },
+        {
+          "code": "FOOD_INTOLERANCE_TEST",
+          "name": "Food Intolerance Testing + Consult",
+          "price": 2499,
+          "unit": "package",
+          "includes": [
+            "Comprehensive test",
+            "Results interpretation",
+            "Diet plan"
+          ],
+          "excludes": [
+            "Allergy tests"
+          ]
+        },
+        {
+          "code": "GASTRITIS_TREATMENT",
+          "name": "Gastritis & Acidity Management",
+          "price": 899,
+          "unit": "plan",
+          "includes": [
+            "Treatment plan",
+            "Diet guidance",
+            "1 follow-up"
+          ],
+          "excludes": [
+            "Endoscopy",
+            "Medications"
+          ]
+        },
+        {
+          "code": "MICROBIOME_RESTORE_90",
+          "name": "Gut Microbiome Restoration - 90 Days",
+          "price": 2999,
+          "unit": "package",
+          "includes": [
+            "Microbiome test",
+            "3 consultations",
+            "Probiotic guidance"
+          ],
+          "excludes": [
+            "Supplement costs"
+          ]
         }
       ]
     },
@@ -568,6 +885,65 @@
           ],
           "excludes": [
             "Advanced hormone tests"
+          ]
+        },
+        {
+          "code": "DIABETES_REVERSAL_90",
+          "name": "Diabetes Reversal Program - 90 Days",
+          "price": 3499,
+          "unit": "package",
+          "includes": [
+            "Comprehensive plan",
+            "3 consultations",
+            "Continuous monitoring"
+          ],
+          "excludes": [
+            "Insulin",
+            "CGM device"
+          ]
+        },
+        {
+          "code": "INSULIN_RESISTANCE_PLAN",
+          "name": "Insulin Resistance Management",
+          "price": 1799,
+          "unit": "plan",
+          "includes": [
+            "Diet & lifestyle plan",
+            "2 consultations",
+            "Progress tracking"
+          ],
+          "excludes": [
+            "Medications",
+            "Lab tests"
+          ]
+        },
+        {
+          "code": "CHOLESTEROL_MANAGEMENT",
+          "name": "Cholesterol Management - 60 Days",
+          "price": 1299,
+          "unit": "plan",
+          "includes": [
+            "Heart-healthy diet plan",
+            "2 consultations",
+            "Lipid monitoring"
+          ],
+          "excludes": [
+            "Statins",
+            "Lab tests"
+          ]
+        },
+        {
+          "code": "HORMONE_BALANCE_FEMALE",
+          "name": "Hormone Balance Program - Women",
+          "price": 2499,
+          "unit": "package",
+          "includes": [
+            "Hormone panel",
+            "Treatment plan",
+            "2 consultations"
+          ],
+          "excludes": [
+            "HRT medications"
           ]
         }
       ]

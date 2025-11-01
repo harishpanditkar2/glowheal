@@ -16,11 +16,13 @@ const mainNav = [
   { label: 'Cities', href: '/cities' },
   { label: 'Blog', href: '/blog' },
   { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const [isCityDropdownOpen, setIsCityDropdownOpen] = useState(false);
   const cityDropdownRef = useRef<HTMLDivElement>(null);
   const { ctaText, ctaHref, whatsappText } = useFreeCta();
@@ -300,14 +302,65 @@ export function Header() {
           <div className="lg:hidden py-6 border-t border-gray-200 bg-white">
             <nav className="space-y-1">
               {mainNav.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="block text-forest-700 hover:bg-jade-50 hover:text-jade-700 font-medium py-3 px-4 rounded-lg text-base transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.label}
-                </Link>
+                item.label === 'Services' ? (
+                  <div key={item.label}>
+                    <button
+                      onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                      className="w-full flex items-center justify-between text-forest-700 hover:bg-jade-50 hover:text-jade-700 font-medium py-3 px-4 rounded-lg text-base transition-colors"
+                    >
+                      <span>Services</span>
+                      <svg 
+                        className={`w-5 h-5 transition-transform ${isMobileServicesOpen ? 'rotate-180' : ''}`}
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                    {isMobileServicesOpen && (
+                      <div className="ml-4 mt-2 space-y-1 border-l-2 border-lime-400 pl-4">
+                        {services.map((service) => (
+                          <Link
+                            key={service.slug}
+                            href={`/services/${service.slug}`}
+                            className="flex items-center gap-3 py-2 px-3 text-forest-700 hover:bg-jade-50 hover:text-jade-700 rounded-lg transition-colors"
+                            onClick={() => {
+                              setIsMenuOpen(false);
+                              setIsMobileServicesOpen(false);
+                            }}
+                          >
+                            <span className="text-2xl">{service.icon}</span>
+                            <span className="text-sm font-medium">{service.name}</span>
+                          </Link>
+                        ))}
+                        <Link
+                          href="/services"
+                          className="flex items-center gap-2 py-2 px-3 mt-2 text-lime-600 hover:text-lime-700 font-semibold rounded-lg hover:bg-lime-50 transition-colors"
+                          onClick={() => {
+                            setIsMenuOpen(false);
+                            setIsMobileServicesOpen(false);
+                          }}
+                        >
+                          <span className="text-sm">View All Services</span>
+                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                          </svg>
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className="block text-forest-700 hover:bg-jade-50 hover:text-jade-700 font-medium py-3 px-4 rounded-lg text-base transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                )
               ))}
               <Link
                 href="/join-doctor"

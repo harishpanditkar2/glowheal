@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
 import { useCity, getCityDisplayName } from '@/lib/city-context';
 
 interface ServiceCardProps {
@@ -59,11 +60,19 @@ export function ServiceCard({
               <p className="text-gray-500 text-xs mb-1">First Consultation</p>
               <p className="font-semibold text-forest-700">Free (₹0)</p>
             </div>
-            <div>
-              <p className="text-royal-blue-600 font-semibold hover:text-royal-blue-700 text-sm transition-colors">
-                View Care Packages →
-              </p>
-              <p className="text-xs text-gray-500 mt-1">
+            <div className="space-y-2">
+              <Button 
+                variant="primary" 
+                size="sm" 
+                className="w-full"
+                onClick={(e) => {
+                  // Prevent Link navigation, let parent Link handle it
+                  e.stopPropagation();
+                }}
+              >
+                View Packages
+              </Button>
+              <p className="text-xs text-gray-500 text-center">
                 Start free—talk to a doctor
               </p>
             </div>
