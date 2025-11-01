@@ -88,12 +88,13 @@ export default function HomePage() {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold font-display mb-6 leading-tight">
-              <span className="block mb-2">Expert Dermatology & Skin Care</span>
-              <span className="block text-lime-300">FREE First Consultation</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-display mb-6 leading-tight">
+              <span className="block mb-2">Expert Dermatology</span>
+              <span className="block mb-2">& Skin Care</span>
+              <span className="block text-lime-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl">FREE First Consultation</span>
             </h1>
             
-            <p className="text-lg sm:text-xl mb-8 text-white/90 max-w-2xl mx-auto">
+            <p className="text-xl sm:text-2xl mb-8 text-white font-medium max-w-2xl mx-auto">
               Dr. Chetna Bhaisare — Board Certified Dermatologist
             </p>
             
