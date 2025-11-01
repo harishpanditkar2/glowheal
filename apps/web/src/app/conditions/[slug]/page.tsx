@@ -169,16 +169,22 @@ export default function ConditionPage({ params }: Props) {
               {services
                 .filter((s) => s.slug !== params.slug && s.category === service.category)
                 .slice(0, 6)
-                .map((relatedService) => (
-                  <Link
-                    key={relatedService.slug}
-                    href={`/conditions/${relatedService.slug}`}
-                    className="p-4 border-2 border-gray-200 rounded-lg hover:border-jade-500 hover:bg-jade-50 transition-all"
-                  >
-                    <h3 className="font-semibold text-forest-700 mb-2">{relatedService.name}</h3>
-                    <p className="text-sm text-gray-600">{relatedService.shortDescription}</p>
-                  </Link>
-                ))}
+                .map((relatedService) => {
+                  const RelatedIcon = (Icons as any)[relatedService.icon] || Icons.Stethoscope;
+                  return (
+                    <Link
+                      key={relatedService.slug}
+                      href={`/conditions/${relatedService.slug}`}
+                      className="p-4 border-2 border-gray-200 rounded-lg hover:border-jade-500 hover:bg-jade-50 transition-all flex flex-col items-center text-center"
+                    >
+                      <div className="mb-3 w-10 h-10 rounded-lg bg-gradient-to-br from-forest-100 to-jade-100 flex items-center justify-center">
+                        <RelatedIcon className="w-5 h-5 text-forest-700" />
+                      </div>
+                      <h3 className="font-semibold text-forest-700 mb-2">{relatedService.name}</h3>
+                      <p className="text-sm text-gray-600">{relatedService.shortDescription}</p>
+                    </Link>
+                  );
+                })}
             </div>
           </div>
         </div>

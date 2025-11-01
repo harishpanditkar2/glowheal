@@ -31,8 +31,8 @@ export function ServiceCard({
   
   return (
     <Link href={`/conditions/${slug}`}>
-      <Card variant="hover-lift" className="h-full relative flex flex-col">
-        <CardHeader>
+      <Card variant="hover-lift" className="h-full relative flex flex-col text-center">
+        <CardHeader className="flex flex-col items-center">
           <div className="mb-3 w-12 h-12 rounded-lg bg-gradient-to-br from-forest-100 to-jade-100 flex items-center justify-center">
             <IconComponent className="w-6 h-6 text-forest-700" />
           </div>
@@ -40,9 +40,9 @@ export function ServiceCard({
             {name}
           </CardTitle>
         </CardHeader>
-        <CardContent className="flex-1 flex flex-col">
+        <CardContent className="flex-1 flex flex-col items-center">
           <p className="text-gray-600 text-sm mb-4 line-clamp-2 min-h-[40px]">{shortDescription}</p>
-          <div className="space-y-3 mt-auto">
+          <div className="space-y-3 mt-auto w-full">
             <div className="text-sm">
               <p className="text-gray-500 text-xs mb-1">First Consultation</p>
               <p className="font-semibold text-forest-700">Free (₹0)</p>

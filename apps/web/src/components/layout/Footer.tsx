@@ -92,7 +92,7 @@ export function Footer() {
             Start with a Free Consultation
           </h3>
           <p className="text-white/90 mb-6 max-w-2xl mx-auto">
-            Get personalized care from Dr. Chetna Bhaisare — Your first consultation is FREE!
+            Get personalized care — Your first consultation is FREE!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href={ctaHref}>
@@ -188,7 +188,7 @@ export function Footer() {
               />
             </div>
             <p className="text-gray-400 text-sm">
-              © {currentYear} Dr. Chetna Bhaisare — Glowheal. All rights reserved.
+              © {currentYear} Glowheal. All rights reserved.
             </p>
           </div>
         </div>
