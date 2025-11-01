@@ -175,12 +175,12 @@ export function Footer() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-lg bg-white text-navy-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-forest-500"
+                className="flex-1 px-4 py-3 rounded-lg bg-white text-navy-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-lime-500"
                 required
               />
               <button
                 type="submit"
-                className="px-6 py-3 bg-gradient-pink-coral text-white rounded-lg font-semibold hover:shadow-lg transition-shadow"
+                className="px-6 py-3 bg-lime-400 text-forest-900 rounded-lg font-semibold hover:bg-lime-500 hover:shadow-lg transition-all"
               >
                 Subscribe
               </button>

@@ -81,9 +81,9 @@ export default function HomePage() {
           <img
             src="/images/hero/hero-home.jpg"
             alt="Healthcare consultation"
-            className="w-full h-full object-cover opacity-20"
+            className="w-full h-full object-cover opacity-40"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-forest-900/80 to-jade-900/80" />
+          <div className="absolute inset-0 bg-gradient-to-r from-forest-900/70 to-jade-900/70" />
         </div>
         
         <div className="container mx-auto px-4 relative z-10">

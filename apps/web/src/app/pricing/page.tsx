@@ -153,10 +153,10 @@ export default function PricingPage() {
       </section>
 
       {/* Tabs: Services vs Packages */}
-      <section className="section-spacing">
+      <section className="py-16">
         <div className="container-width">
           <Tabs defaultValue="services" className="w-full">
-            <div className="flex justify-center mb-12">
+            <div className="flex justify-center mb-16">
               <TabsList>
                 <TabsTrigger value="services">
                   Individual Services

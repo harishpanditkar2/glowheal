@@ -455,6 +455,20 @@
           "excludes": [
             "Additional medications"
           ]
+        },
+        {
+          "code": "GLUTATHIONE_IV",
+          "name": "Glutathione Brightening IV",
+          "price": 3499,
+          "unit": "session",
+          "includes": [
+            "Glutathione infusion",
+            "Medical consumables",
+            "Skin brightening support"
+          ],
+          "excludes": [
+            "Multiple session packages"
+          ]
         }
       ]
     },
@@ -473,6 +487,20 @@
           "excludes": [
             "X-rays",
             "MRI scans"
+          ]
+        },
+        {
+          "code": "PHYSIO_SESSION",
+          "name": "Physiotherapy Session",
+          "price": 799,
+          "unit": "session",
+          "includes": [
+            "45-minute physio session",
+            "Exercise plan"
+          ],
+          "excludes": [
+            "Multiple session packages",
+            "Advanced equipment"
           ]
         },
         {

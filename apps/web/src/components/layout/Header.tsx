@@ -220,12 +220,12 @@ export function Header() {
                   {/* Horizontal Mega Menu with hover delay */}
                   {isServicesOpen && (
                     <div 
-                      className="absolute left-1/2 transform -translate-x-1/2 top-full mt-2 w-[900px] bg-white rounded-2xl shadow-2xl p-8 border-2 border-lime-400"
+                      className="absolute left-0 top-full mt-2 w-[900px] max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl p-8 border-2 border-lime-400"
                       onMouseEnter={() => setIsServicesOpen(true)}
                       onMouseLeave={() => setIsServicesOpen(false)}
                     >
                       {/* Triangle indicator */}
-                      <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white border-l-2 border-t-2 border-lime-400 rotate-45"></div>
+                      <div className="absolute -top-2 left-24 w-4 h-4 bg-white border-l-2 border-t-2 border-lime-400 rotate-45"></div>
                       
                       <div className="grid grid-cols-3 gap-6">
                         {services.map((service) => (
@@ -264,7 +264,7 @@ export function Header() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-forest-700 hover:text-lime-600 font-semibold text-base transition-colors py-2 hover:border-b-2 hover:border-lime-400"
+                  className="text-forest-700 hover:text-lime-600 font-semibold text-base transition-colors py-2"
                 >
                   {item.label}
                 </Link>

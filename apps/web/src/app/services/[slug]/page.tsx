@@ -135,9 +135,9 @@ export default function ServicePage({ params }: Props) {
             <img
               src={service.heroImage}
               alt={`${service.name} consultation`}
-              className="w-full h-full object-cover opacity-20"
+              className="w-full h-full object-cover opacity-40"
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-forest-900/80 to-jade-900/80" />
+            <div className="absolute inset-0 bg-gradient-to-br from-forest-900/70 to-jade-900/70" />
           </div>
         )}
         
