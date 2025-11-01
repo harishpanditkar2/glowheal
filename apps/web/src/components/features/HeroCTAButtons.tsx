@@ -38,11 +38,6 @@ export function HeroCTAButtons() {
           {ctaText}
         </Button>
       </Link>
-      <Link href="/join-doctor" onClick={handleSecondaryCTAClick}>
-        <Button variant="secondary" size="lg" className="w-full sm:w-auto text-base sm:text-lg">
-          Join as Doctor
-        </Button>
-      </Link>
     </div>
   );
 }
