@@ -513,7 +513,19 @@ function BookAppointmentPageContent() {
           {/* Hero Banner for Free Consultation */}
           <div className="bg-gradient-to-r from-forest-700 to-jade-600 text-white rounded-2xl p-6 mb-8 shadow-lg">
             <h1 className="text-3xl font-bold mb-2">Book Your Consultation</h1>
-            <p className="text-forest-50 text-lg">{proofText}</p>
+            <p className="text-forest-50 text-lg mb-3">{proofText}</p>
+            <div className="flex items-center gap-2 text-sm text-forest-50">
+              <span>Prefer to call?</span>
+              <a 
+                href="tel:+918329563445" 
+                className="inline-flex items-center gap-1.5 text-white font-semibold hover:text-forest-100 transition-colors underline underline-offset-2"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                </svg>
+                +91 832 956 3445
+              </a>
+            </div>
           </div>
 
           {/* Progress Indicator */}
