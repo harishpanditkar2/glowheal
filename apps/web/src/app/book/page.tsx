@@ -209,6 +209,7 @@ function BookAppointmentPageContent() {
   };
 
   const onSubmit = async (data: BookingFormData) => {
+    console.log('Form submitted with data:', data);
     setIsSubmitting(true);
 
     try {
@@ -249,6 +250,8 @@ function BookAppointmentPageContent() {
           } : null;
         }).filter(Boolean),
       };
+
+      console.log('Submitting lead data:', leadData);
 
       // Save to API route (which writes to /data/leads/*.json)
       const response = await fetch('/api/bookings', {
@@ -1103,12 +1106,31 @@ ${servicesText}
                       type="submit"
                       disabled={isSubmitting}
                       className="flex-1"
+                      onClick={() => {
+                        console.log('Submit button clicked');
+                        console.log('Form errors:', errors);
+                        console.log('Current form values:', getValues());
+                      }}
                     >
                       {isSubmitting ? 'Submitting...' : 'Confirm Booking'}
                     </Button>
                   </>
                 )}
               </div>
+
+              {/* Show validation errors if any */}
+              {Object.keys(errors).length > 0 && currentStep === STEPS.length && (
+                <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+                  <p className="text-sm font-semibold text-red-800 mb-2">Please fix the following errors:</p>
+                  <ul className="text-sm text-red-700 space-y-1">
+                    {Object.entries(errors).map(([field, error]) => (
+                      <li key={field}>
+                        <strong>{field}:</strong> {error.message}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
               {/* Booking Reassurance - Below Submit Button */}
               {currentStep === STEPS.length && (

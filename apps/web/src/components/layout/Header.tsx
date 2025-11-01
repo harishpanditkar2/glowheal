@@ -319,7 +319,7 @@ export function Header() {
                       </svg>
                     </button>
                     {isMobileServicesOpen && (
-                      <div className="ml-4 mt-2 space-y-1 border-l-2 border-lime-400 pl-4 max-h-[400px] overflow-y-auto">
+                      <div className="ml-4 mt-2 space-y-1 border-l-2 border-lime-400 pl-4">
                         {services.map((service) => (
                           <Link
                             key={service.slug}
