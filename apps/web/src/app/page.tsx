@@ -90,7 +90,7 @@ export default function HomePage() {
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold font-display mb-6 leading-tight">
               <span className="block mb-2">Expert Dermatology & Skin Care</span>
-              <span className="block text-teal-300">FREE First Consultation</span>
+              <span className="block text-lime-300">FREE First Consultation</span>
             </h1>
             
             <p className="text-lg sm:text-xl mb-8 text-white/90 max-w-2xl mx-auto">
@@ -137,32 +137,32 @@ export default function HomePage() {
       <section className="bg-white py-8 shadow-sm">
         <div className="container mx-auto px-4">
           <div className="text-center mb-4">
-            <p className="text-teal-700 font-semibold text-lg">
+            <p className="text-forest-700 font-semibold text-lg">
               No fees for your first consultation
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div>
               <div className="flex flex-col items-center mb-2">
-                <span className="text-3xl md:text-4xl font-bold text-teal-600">10+</span>
+                <span className="text-3xl md:text-4xl font-bold text-jade-500">10+</span>
               </div>
               <div className="text-gray-600 font-medium">Years Experience</div>
             </div>
             <div>
               <div className="flex flex-col items-center mb-2">
-                <span className="text-3xl md:text-4xl font-bold text-teal-600">5000+</span>
+                <span className="text-3xl md:text-4xl font-bold text-jade-500">5000+</span>
               </div>
               <div className="text-gray-600 font-medium">Happy Patients</div>
             </div>
             <div>
               <div className="flex flex-col items-center mb-2">
-                <span className="text-3xl md:text-4xl font-bold text-teal-600">15+</span>
+                <span className="text-3xl md:text-4xl font-bold text-jade-500">15+</span>
               </div>
               <div className="text-gray-600 font-medium">Skin Conditions Treated</div>
             </div>
             <div>
               <div className="flex flex-col items-center mb-2">
-                <span className="text-3xl md:text-4xl font-bold text-teal-600">Pune</span>
+                <span className="text-3xl md:text-4xl font-bold text-jade-500">Pune</span>
               </div>
               <div className="text-gray-600 font-medium">In-clinic & Online</div>
             </div>
@@ -216,7 +216,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold font-display text-forest-700 mb-4">
-              📋 How It Works 📋
+              How It Works
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Simple 4-step process to get started with your personalized care plan
@@ -247,7 +247,7 @@ export default function HomePage() {
               },
             ].map((item) => (
               <div key={item.step} className="text-center">
-                <div className="w-16 h-16 bg-teal-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                <div className="w-16 h-16 bg-forest-700 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                   {item.step}
                 </div>
                 <h3 className="text-xl font-bold font-display text-forest-700 mb-2">{item.title}</h3>
@@ -256,7 +256,7 @@ export default function HomePage() {
             ))}
           </div>
           
-          <div className="text-center mt-12 p-6 bg-teal-50 rounded-xl max-w-3xl mx-auto border-2 border-teal-200">
+          <div className="text-center mt-12 p-6 bg-jade-50 rounded-xl max-w-3xl mx-auto border-2 border-jade-200">
             <p className="text-forest-700 font-medium text-lg">
               Your first consultation is FREE — Start your wellness journey today!
             </p>
@@ -276,23 +276,23 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-br from-teal-600 to-amber-600 text-white">
+      <section className="py-16 bg-gradient-to-br from-forest-700 to-jade-600 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold font-display mb-6 leading-relaxed">
-            🌟 Ready to Start Your Healing Journey? 🌟
+            Ready to Start Your Healing Journey?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto text-white/90 leading-relaxed">
-            Join 5,000+ happy patients. Your first consultation with Dr. Chetna is completely free. 💚
+            Join 5,000+ happy patients. Your first consultation with Dr. Chetna is completely free.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href={ctaHref}>
-              <Button variant="primary" size="lg" className="bg-white text-teal-700 hover:bg-teal-50">
-                📅 Book Free Consultation
+              <Button variant="primary" size="lg" className="bg-white text-forest-700 hover:bg-lime-50">
+                Book Free Consultation
               </Button>
             </Link>
             <Link href="/contact">
-              <Button variant="secondary" size="lg" className="bg-amber-500 text-white hover:bg-amber-600 border-0">
-                💬 Contact Us
+              <Button variant="secondary" size="lg" className="bg-lime-500 text-white hover:bg-lime-600 border-0">
+                Contact Us
               </Button>
             </Link>
           </div>

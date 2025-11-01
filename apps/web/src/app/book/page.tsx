@@ -807,16 +807,16 @@ ${servicesText}
                   </div>
 
                   {/* Free Consultation Info Banner */}
-                  <div className="bg-teal-50 border-2 border-teal-200 rounded-xl p-6 mb-6">
+                  <div className="bg-jade-50 border-2 border-jade-200 rounded-xl p-6 mb-6">
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 bg-jade-600 rounded-full flex items-center justify-center flex-shrink-0">
                         <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                         </svg>
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-lg font-bold text-teal-900 mb-1">Free First Consultation</h3>
-                        <p className="text-sm text-teal-700">
+                        <h3 className="text-lg font-bold text-jade-900 mb-1">Free First Consultation</h3>
+                        <p className="text-sm text-jade-700">
                           Your first consultation with Dr. Chetna Bhaisare is completely free. No hidden charges.
                         </p>
                       </div>
@@ -864,7 +864,7 @@ ${servicesText}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {/* Online Consultation */}
                       <label
-                        className="relative flex flex-col p-5 border-2 border-gray-300 rounded-xl cursor-pointer hover:border-teal-500 transition-colors"
+                        className="relative flex flex-col p-5 border-2 border-gray-300 rounded-xl cursor-pointer hover:border-jade-500 transition-colors"
                       >
                         <input
                           type="radio"
@@ -874,7 +874,7 @@ ${servicesText}
                           className="sr-only peer"
                         />
                         <div className="flex items-start gap-3 mb-2">
-                          <svg className="w-6 h-6 text-teal-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                          <svg className="w-6 h-6 text-jade-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
                           </svg>
                           <div className="flex-1">
@@ -884,12 +884,12 @@ ${servicesText}
                             </p>
                           </div>
                         </div>
-                        <div className="absolute inset-0 border-3 border-teal-600 rounded-xl opacity-0 peer-checked:opacity-100 transition-opacity" />
+                        <div className="absolute inset-0 border-3 border-jade-600 rounded-xl opacity-0 peer-checked:opacity-100 transition-opacity" />
                       </label>
 
                       {/* In-Clinic Visit */}
                       <label
-                        className="relative flex flex-col p-5 border-2 border-gray-300 rounded-xl cursor-pointer hover:border-teal-500 transition-colors"
+                        className="relative flex flex-col p-5 border-2 border-gray-300 rounded-xl cursor-pointer hover:border-jade-500 transition-colors"
                       >
                         <input
                           type="radio"
@@ -898,7 +898,7 @@ ${servicesText}
                           className="sr-only peer"
                         />
                         <div className="flex items-start gap-3 mb-2">
-                          <svg className="w-6 h-6 text-teal-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                          <svg className="w-6 h-6 text-jade-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clipRule="evenodd" />
                           </svg>
                           <div className="flex-1">
@@ -908,7 +908,7 @@ ${servicesText}
                             </p>
                           </div>
                         </div>
-                        <div className="absolute inset-0 border-3 border-teal-600 rounded-xl opacity-0 peer-checked:opacity-100 transition-opacity" />
+                        <div className="absolute inset-0 border-3 border-jade-600 rounded-xl opacity-0 peer-checked:opacity-100 transition-opacity" />
                       </label>
                     </div>
                     {errors.visitType && (

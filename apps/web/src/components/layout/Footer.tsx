@@ -6,14 +6,7 @@ import services from '@/data/services.json';
 const footerSections = [
   {
     title: 'Skin Conditions',
-    links: services.slice(0, 5).map((service) => ({
-      label: service.name,
-      href: `/conditions/${service.slug}`,
-    })),
-  },
-  {
-    title: 'Wellness Services',
-    links: services.slice(5, 10).map((service) => ({
+    links: services.filter(s => s.category === 'dermatology').slice(0, 6).map((service) => ({
       label: service.name,
       href: `/conditions/${service.slug}`,
     })),
@@ -23,25 +16,8 @@ const footerSections = [
     links: [
       { label: 'Free Consultation', href: '/book' },
       { label: 'Pricing', href: '/pricing' },
-      { label: 'All Conditions', href: '/conditions' },
       { label: 'About Dr. Chetna', href: '/about' },
-    ],
-  },
-  {
-    title: 'Location',
-    links: [
-      { label: 'Clinic - Pune', href: '/contact' },
-      { label: 'Online Consultations', href: '/book' },
       { label: 'Contact Us', href: '/contact' },
-      { label: 'WhatsApp', href: `https://wa.me/918329563445` },
-    ],
-  },
-  {
-    title: 'Company',
-    links: [
-      { label: 'About Us', href: '/about' },
-      { label: 'Contact Us', href: '/contact' },
-      { label: 'Pricing', href: '/pricing' },
     ],
   },
   {
@@ -49,9 +25,7 @@ const footerSections = [
     links: [
       { label: 'Privacy Policy', href: '/privacy' },
       { label: 'Terms of Service', href: '/terms' },
-      { label: 'Cookie Policy', href: '/cookies' },
       { label: 'Medical Disclaimer', href: '/disclaimer' },
-      { label: 'Refund Policy', href: '/refunds' },
     ],
   },
 ];
@@ -122,7 +96,7 @@ export function Footer() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href={ctaHref}>
-              <Button variant="primary" size="lg" className="min-w-[200px] bg-white text-teal-700 hover:bg-teal-50">
+              <Button variant="primary" size="lg" className="min-w-[200px] bg-white text-jade-700 hover:bg-jade-50">
                 Book Free Consultation
               </Button>
             </Link>
@@ -177,7 +151,7 @@ export function Footer() {
               />
               <button
                 type="submit"
-                className="px-6 py-3 bg-teal-500 text-white rounded-lg font-semibold hover:bg-teal-600 hover:shadow-lg transition-all"
+                className="px-6 py-3 bg-jade-500 text-white rounded-lg font-semibold hover:bg-jade-600 hover:shadow-lg transition-all"
               >
                 Subscribe
               </button>
