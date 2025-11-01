@@ -87,59 +87,57 @@ export function Header() {
                   {/* Conditions Dropdown */}
                   {isConditionsOpen && (
                     <div 
-                      className="absolute left-0 top-full mt-2 w-[800px] max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl p-6 border-2 border-jade-400"
+                      className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[95vw] max-w-[1400px] bg-white rounded-2xl shadow-2xl p-8 border-2 border-jade-400"
                       onMouseEnter={() => setIsConditionsOpen(true)}
                       onMouseLeave={() => setIsConditionsOpen(false)}
                     >
-                      <div className="grid grid-cols-2 gap-6">
-                        {/* Dermatology Column */}
-                        <div>
-                          <h3 className="text-sm font-bold text-jade-700 uppercase tracking-wide mb-3">Dermatology</h3>
-                          <div className="space-y-2">
-                            {dermatologyServices.map((service) => {
-                              const IconComponent = (Icons as any)[service.icon] || Icons.Stethoscope;
-                              return (
-                                <Link
-                                  key={service.slug}
-                                  href={`/conditions/${service.slug}`}
-                                  className="flex items-start space-x-3 p-3 rounded-lg hover:bg-jade-50 border border-transparent hover:border-jade-200 transition-all"
-                                >
-                                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-forest-100 to-jade-100 flex items-center justify-center flex-shrink-0">
-                                    <IconComponent className="w-4 h-4 text-forest-700" />
-                                  </div>
-                                  <div className="flex-1">
-                                    <div className="font-semibold text-forest-900 text-sm">{service.name}</div>
-                                    <div className="text-xs text-gray-600 line-clamp-1">{service.shortDescription}</div>
-                                  </div>
-                                </Link>
-                              );
-                            })}
-                          </div>
+                      {/* Dermatology Section - Horizontal Grid */}
+                      <div className="mb-8">
+                        <h3 className="text-lg font-bold text-jade-700 uppercase tracking-wide mb-4 flex items-center gap-2">
+                          <Icons.Stethoscope className="w-5 h-5" />
+                          Dermatology
+                        </h3>
+                        <div className="grid grid-cols-5 gap-4">
+                          {dermatologyServices.map((service) => {
+                            const IconComponent = (Icons as any)[service.icon] || Icons.Stethoscope;
+                            return (
+                              <Link
+                                key={service.slug}
+                                href={`/conditions/${service.slug}`}
+                                className="flex flex-col items-center text-center p-4 rounded-lg hover:bg-jade-50 border border-transparent hover:border-jade-300 transition-all group"
+                              >
+                                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-forest-100 to-jade-100 flex items-center justify-center flex-shrink-0 mb-2 group-hover:scale-110 transition-transform">
+                                  <IconComponent className="w-6 h-6 text-forest-700" />
+                                </div>
+                                <div className="font-semibold text-forest-900 text-xs leading-tight">{service.name}</div>
+                              </Link>
+                            );
+                          })}
                         </div>
+                      </div>
 
-                        {/* Ayurveda Column */}
-                        <div>
-                          <h3 className="text-sm font-bold text-amber-700 uppercase tracking-wide mb-3">Ayurveda</h3>
-                          <div className="space-y-2">
-                            {ayurvedaServices.map((service) => {
-                              const IconComponent = (Icons as any)[service.icon] || Icons.Stethoscope;
-                              return (
-                                <Link
-                                  key={service.slug}
-                                  href={`/conditions/${service.slug}`}
-                                  className="flex items-start space-x-3 p-3 rounded-lg hover:bg-amber-50 border border-transparent hover:border-amber-200 transition-all"
-                                >
-                                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-forest-100 to-lime-100 flex items-center justify-center flex-shrink-0">
-                                    <IconComponent className="w-4 h-4 text-forest-700" />
-                                  </div>
-                                  <div className="flex-1">
-                                    <div className="font-semibold text-forest-900 text-sm">{service.name}</div>
-                                    <div className="text-xs text-gray-600 line-clamp-1">{service.shortDescription}</div>
-                                  </div>
-                                </Link>
-                              );
-                            })}
-                          </div>
+                      {/* Ayurveda Section - Horizontal Grid */}
+                      <div className="border-t border-gray-200 pt-6">
+                        <h3 className="text-lg font-bold text-lime-700 uppercase tracking-wide mb-4 flex items-center gap-2">
+                          <Icons.Leaf className="w-5 h-5" />
+                          Ayurveda
+                        </h3>
+                        <div className="grid grid-cols-5 gap-4">
+                          {ayurvedaServices.map((service) => {
+                            const IconComponent = (Icons as any)[service.icon] || Icons.Stethoscope;
+                            return (
+                              <Link
+                                key={service.slug}
+                                href={`/conditions/${service.slug}`}
+                                className="flex flex-col items-center text-center p-4 rounded-lg hover:bg-lime-50 border border-transparent hover:border-lime-300 transition-all group"
+                              >
+                                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-forest-100 to-lime-100 flex items-center justify-center flex-shrink-0 mb-2 group-hover:scale-110 transition-transform">
+                                  <IconComponent className="w-6 h-6 text-forest-700" />
+                                </div>
+                                <div className="font-semibold text-forest-900 text-xs leading-tight">{service.name}</div>
+                              </Link>
+                            );
+                          })}
                         </div>
                       </div>
                     </div>
@@ -232,8 +230,8 @@ export function Header() {
                         </div>
                         
                         {/* Ayurveda Section */}
-                        <div className="border-l-2 border-amber-400 pl-4">
-                          <div className="text-xs font-bold text-amber-700 uppercase tracking-wide mb-2">Ayurveda</div>
+                        <div className="border-l-2 border-lime-400 pl-4">
+                          <div className="text-xs font-bold text-lime-700 uppercase tracking-wide mb-2">Ayurveda</div>
                           <div className="space-y-1">
                             {ayurvedaServices.map((service) => {
                               const IconComponent = (Icons as any)[service.icon] || Icons.Stethoscope;
@@ -241,7 +239,7 @@ export function Header() {
                                 <Link
                                   key={service.slug}
                                   href={`/conditions/${service.slug}`}
-                                  className="flex items-center gap-3 py-2 px-3 text-forest-700 hover:bg-amber-50 hover:text-amber-700 rounded-lg transition-colors"
+                                  className="flex items-center gap-3 py-2 px-3 text-forest-700 hover:bg-lime-50 hover:text-lime-700 rounded-lg transition-colors"
                                   onClick={() => {
                                     setIsMenuOpen(false);
                                     setIsMobileConditionsOpen(false);

@@ -34,7 +34,7 @@ export function HeroCTAButtons() {
   return (
     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
       <Link href={ctaHref} onClick={handlePrimaryCTAClick}>
-        <Button variant="primary" size="lg" className="w-full sm:w-auto text-base sm:text-lg">
+        <Button variant="primary" size="lg" className="w-full sm:w-auto text-base sm:text-lg bg-lime-400 text-forest-900 hover:bg-lime-300 shadow-xl hover:shadow-2xl">
           {ctaText}
         </Button>
       </Link>

@@ -87,7 +87,7 @@ export function Footer() {
     <footer className="bg-forest-900 text-white pt-16 pb-8">
       <div className="container mx-auto px-4">
         {/* Free Consultation CTA Banner */}
-        <div className="bg-gradient-to-r from-teal-600 to-amber-600 rounded-2xl p-8 mb-12 text-center">
+        <div className="bg-gradient-to-r from-forest-700 to-jade-600 rounded-2xl p-8 mb-12 text-center">
           <h3 className="font-bold font-display text-2xl md:text-3xl mb-3">
             Start with a Free Consultation
           </h3>
@@ -96,7 +96,7 @@ export function Footer() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href={ctaHref}>
-              <Button variant="primary" size="lg" className="min-w-[200px] bg-white text-jade-700 hover:bg-jade-50">
+              <Button variant="primary" size="lg" className="min-w-[200px] bg-white text-forest-700 hover:bg-lime-50">
                 Book Free Consultation
               </Button>
             </Link>
@@ -105,7 +105,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="secondary" size="lg" className="min-w-[200px] bg-amber-500 text-white hover:bg-amber-600 border-0">
+              <Button variant="secondary" size="lg" className="min-w-[200px] bg-lime-500 text-white hover:bg-lime-600 border-0">
                 Chat on WhatsApp
               </Button>
             </Link>

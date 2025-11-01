@@ -228,7 +228,7 @@ export default function HomePage() {
             {[
               {
                 step: '1',
-                title: 'Book Free Consultation 📱',
+                title: 'Book Consultation 📱',
                 description: 'Schedule your first consultation with Dr. Chetna — completely free of charge',
               },
               {
@@ -287,12 +287,12 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href={ctaHref}>
-              <Button variant="primary" size="lg" className="bg-white text-forest-700 hover:bg-lime-50">
+              <Button variant="primary" size="lg" className="bg-white text-forest-700 hover:bg-lime-50 shadow-xl">
                 Book Free Consultation
               </Button>
             </Link>
             <Link href="/contact">
-              <Button variant="secondary" size="lg" className="bg-lime-500 text-white hover:bg-lime-600 border-0">
+              <Button variant="secondary" size="lg" className="bg-lime-500 text-white hover:bg-lime-600 border-0 shadow-xl">
                 Contact Us
               </Button>
             </Link>
