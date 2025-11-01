@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import services from '@/data/services.json';
+import * as Icons from 'lucide-react';
 
 type Props = {
   params: { slug: string };
@@ -36,12 +37,20 @@ export default function ConditionPage({ params }: Props) {
     notFound();
   }
 
+  // Get the icon component
+  const IconComponent = (Icons as any)[service.icon] || Icons.Stethoscope;
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-forest-700 to-jade-600 text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
+            <div className="mb-6 flex justify-center">
+              <div className="w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center">
+                <IconComponent className="w-10 h-10 text-white" />
+              </div>
+            </div>
             <h1 className="text-4xl md:text-5xl font-bold font-display mb-4">
               {service.name} Treatment
             </h1>

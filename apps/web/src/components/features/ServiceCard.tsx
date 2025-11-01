@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+import * as Icons from 'lucide-react';
 
 interface ServiceCardProps {
   name: string;
@@ -23,14 +24,17 @@ export function ServiceCard({
   icon,
   category,
 }: ServiceCardProps) {
-  const categoryColor = category === 'dermatology' ? 'teal' : 'amber';
+  const categoryColor = category === 'dermatology' ? 'jade' : 'lime';
+  
+  // Dynamically get the icon component from lucide-react
+  const IconComponent = (Icons as any)[icon] || Icons.Stethoscope;
   
   return (
     <Link href={`/conditions/${slug}`}>
       <Card variant="hover-lift" className="h-full relative flex flex-col">
         <CardHeader>
-          <div className="mb-3 text-5xl">
-            {icon}
+          <div className="mb-3 w-12 h-12 rounded-lg bg-gradient-to-br from-forest-100 to-jade-100 flex items-center justify-center">
+            <IconComponent className="w-6 h-6 text-forest-700" />
           </div>
           <CardTitle as="h3" className="text-forest-700">
             {name}

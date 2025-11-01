@@ -2,140 +2,140 @@
   {
     "slug": "acne-treatment",
     "name": "Acne & Pimples",
-    "icon": "",
+    "icon": "Droplet",
     "category": "dermatology",
     "shortDescription": "Holistic acne treatment combining modern dermatology with Ayurvedic healing"
   },
   {
     "slug": "eczema-psoriasis",
     "name": "Eczema & Psoriasis",
-    "icon": "",
+    "icon": "Waves",
     "category": "dermatology",
     "shortDescription": "Ayurvedic-dermatological approach to chronic skin inflammation"
   },
   {
     "slug": "hair-loss",
     "name": "Hair Loss & Alopecia",
-    "icon": "",
+    "icon": "Scissors",
     "category": "dermatology",
     "shortDescription": "Integrative hair restoration using dermatology and Ayurvedic therapies"
   },
   {
     "slug": "skin-aging",
     "name": "Anti-Aging & Pigmentation",
-    "icon": "",
+    "icon": "Sparkles",
     "category": "dermatology",
     "shortDescription": "Natural anti-aging treatments with modern dermatological techniques"
   },
   {
     "slug": "vitiligo",
     "name": "Vitiligo",
-    "icon": "",
+    "icon": "Palette",
     "category": "dermatology",
     "shortDescription": "Comprehensive vitiligo management with Ayurvedic and dermatological care"
   },
   {
     "slug": "chemical-peels",
     "name": "Chemical Peels",
-    "icon": "",
+    "icon": "Beaker",
     "category": "dermatology",
     "shortDescription": "Professional chemical peels for skin rejuvenation and texture improvement"
   },
   {
     "slug": "laser-treatments",
     "name": "Laser Hair Removal",
-    "icon": "",
+    "icon": "Zap",
     "category": "dermatology",
     "shortDescription": "Advanced laser treatments for permanent hair reduction"
   },
   {
     "slug": "microneedling",
     "name": "Microneedling & PRP",
-    "icon": "",
+    "icon": "Syringe",
     "category": "dermatology",
     "shortDescription": "Collagen induction therapy for skin rejuvenation and scar reduction"
   },
   {
     "slug": "melasma-treatment",
     "name": "Melasma Treatment",
-    "icon": "",
+    "icon": "Sun",
     "category": "dermatology",
     "shortDescription": "Specialized treatment for stubborn facial pigmentation"
   },
   {
     "slug": "rosacea",
     "name": "Rosacea Management",
-    "icon": "",
+    "icon": "Thermometer",
     "category": "dermatology",
     "shortDescription": "Comprehensive care for rosacea and facial redness"
   },
   {
     "slug": "skin-infections",
     "name": "Skin Infections",
-    "icon": "",
+    "icon": "Bug",
     "category": "dermatology",
     "shortDescription": "Treatment for fungal, bacterial, and viral skin infections"
   },
   {
     "slug": "wart-removal",
     "name": "Wart & Mole Removal",
-    "icon": "",
+    "icon": "Eraser",
     "category": "dermatology",
     "shortDescription": "Safe removal of warts, moles, and skin tags"
   },
   {
     "slug": "dark-circles",
     "name": "Dark Circles Treatment",
-    "icon": "",
+    "icon": "Eye",
     "category": "dermatology",
     "shortDescription": "Effective solutions for under-eye dark circles and puffiness"
   },
   {
     "slug": "stretch-marks",
     "name": "Stretch Marks",
-    "icon": "",
+    "icon": "Activity",
     "category": "dermatology",
     "shortDescription": "Modern treatments to reduce the appearance of stretch marks"
   },
   {
     "slug": "nail-disorders",
     "name": "Nail Disorders",
-    "icon": "",
+    "icon": "Hand",
     "category": "dermatology",
     "shortDescription": "Diagnosis and treatment of nail infections and conditions"
   },
   {
     "slug": "panchakarma",
     "name": "Panchakarma Detox",
-    "icon": "",
+    "icon": "Leaf",
     "category": "ayurveda",
     "shortDescription": "Traditional Ayurvedic detoxification and rejuvenation therapy"
   },
   {
     "slug": "dosha-consultation",
     "name": "Dosha Balancing",
-    "icon": "",
+    "icon": "Scale",
     "category": "ayurveda",
     "shortDescription": "Personalized Ayurvedic consultations for constitutional balance"
   },
   {
     "slug": "rasayana-therapy",
     "name": "Rasayana Rejuvenation",
-    "icon": "",
+    "icon": "HeartPulse",
     "category": "ayurveda",
     "shortDescription": "Anti-aging and immunity-boosting Ayurvedic treatments"
   },
   {
     "slug": "ayurvedic-skin-care",
     "name": "Ayurvedic Skin Care",
-    "icon": "",
+    "icon": "Flower2",
     "category": "ayurveda",
     "shortDescription": "Natural herbal treatments for radiant healthy skin"
   },
   {
     "slug": "stress-wellness",
     "name": "Stress & Wellness",
-    "icon": "",
+    "icon": "Heart",
     "category": "ayurveda",
     "shortDescription": "Mind-body healing through Ayurvedic principles"
   }
