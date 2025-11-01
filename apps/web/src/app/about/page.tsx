@@ -33,24 +33,24 @@ export default function AboutPage() {
       <section className="bg-gradient-to-br from-teal-50 to-amber-50 py-20">
         <div className="container-width max-w-4xl text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-forest-900 mb-6 tracking-tight">
-            👩‍⚕️ Dr. Chetna Bhaisare 🌿
+            Dr. Chetna Bhaisare
           </h1>
           <p className="text-2xl text-teal-600 font-semibold mb-4">
             Dermatology & Ayurveda Specialist
           </p>
           <p className="text-lg text-forest-700 mb-8 max-w-3xl mx-auto">
-            ✨ Integrative healthcare approach combining modern dermatology with traditional Ayurvedic healing. ✨<br/>
-            Over 10 years of experience helping patients achieve optimal skin health and wellness. 💚
+            Integrative healthcare approach combining modern dermatology with traditional Ayurvedic healing.<br/>
+            Over 10 years of experience helping patients achieve optimal skin health and wellness.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/book">
               <Button variant="primary" size="lg">
-                📅 Book Consultation
+                Book Consultation
               </Button>
             </Link>
             <Link href="/contact">
               <Button variant="secondary" size="lg">
-                💬 Contact Us
+                Contact Us
               </Button>
             </Link>
           </div>
@@ -82,35 +82,51 @@ export default function AboutPage() {
                   <p className="text-gray-700 leading-relaxed mb-6 text-lg">
                     With over 10 years of clinical experience, I specialize in integrative healthcare that bridges 
                     modern dermatology and traditional Ayurveda. My practice focuses on personalized treatment plans 
-                    that address both immediate concerns and long-term wellness. 💙
+                    that address both immediate concerns and long-term wellness.
                   </p>
                   
                   <div className="w-full space-y-4 text-left">
-                    <h4 className="text-xl font-semibold text-forest-900 mb-3">🎓 Specializations</h4>
+                    <h4 className="text-xl font-semibold text-forest-900 mb-3">Specializations</h4>
                     <div className="grid md:grid-cols-2 gap-3">
                       <div className="flex items-start gap-3">
-                        <span className="text-2xl">🔬</span>
+                        <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <svg className="w-6 h-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                          </svg>
+                        </div>
                         <div>
                           <p className="font-semibold text-forest-900">Dermatology</p>
                           <p className="text-sm text-gray-600">Acne, Eczema, Psoriasis, Hair Loss, Skin Aging</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
-                        <span className="text-2xl">🌿</span>
+                        <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <svg className="w-6 h-6 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                          </svg>
+                        </div>
                         <div>
                           <p className="font-semibold text-forest-900">Ayurveda</p>
                           <p className="text-sm text-gray-600">Panchakarma, Dosha Balancing, Rasayana</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
-                        <span className="text-2xl">💆‍♀️</span>
+                        <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <svg className="w-6 h-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </div>
                         <div>
                           <p className="font-semibold text-forest-900">Holistic Wellness</p>
                           <p className="text-sm text-gray-600">Stress Management, Lifestyle Guidance</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
-                        <span className="text-2xl">🛡️</span>
+                        <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <svg className="w-6 h-6 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                          </svg>
+                        </div>
                         <div>
                           <p className="font-semibold text-forest-900">Preventive Care</p>
                           <p className="text-sm text-gray-600">Skin Health, Anti-aging, Nutrition</p>
@@ -125,18 +141,18 @@ export default function AboutPage() {
 
           {/* Why Choose Me */}
           <div className="mb-16 bg-gradient-to-br from-amber-50 to-teal-50 rounded-2xl p-8 md:p-12">
-            <h2 className="text-3xl font-bold text-forest-900 mb-6 text-center">💡 Why Choose Integrative Care</h2>
+            <h2 className="text-3xl font-bold text-forest-900 mb-6 text-center">Why Choose Integrative Care</h2>
             <div className="max-w-3xl mx-auto space-y-4 text-gray-700 leading-relaxed">
               <p>
                 Modern dermatology excels at treating symptoms quickly and effectively. Ayurveda offers deep wisdom 
                 about root causes and long-term balance. Together, they create a comprehensive approach that addresses 
-                both immediate concerns and underlying health patterns. 🌟
+                both immediate concerns and underlying health patterns.
               </p>
               <p>
                 <strong className="text-forest-900">My practice philosophy:</strong> Every patient is unique. I take 
                 time to understand your medical history, lifestyle, and goals before recommending treatments. Whether 
                 you're dealing with chronic skin conditions or seeking preventive care, you'll receive personalized 
-                attention and evidence-based solutions. 🎯
+                attention and evidence-based solutions.
               </p>
               <p>
                 With consultations available both in-clinic and online, quality healthcare is accessible when you need 

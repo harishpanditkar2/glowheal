@@ -45,21 +45,20 @@ const contactSchema = z.object({
   email: z.string().email('Enter valid email address').optional().or(z.literal('')),
 });
 
-// Step 2: Concern Schema (with free consultation default)
+// Step 2: Concern Schema (free consultation only for single doctor)
 const concernSchema = z.object({
-  consultationType: z.enum(['free', 'specialist'], {
-    errorMap: () => ({ message: 'Please select consultation type' }),
-  }),
   specialty: z.string().min(1, 'Please select a specialty'),
   concern: z.string().max(500).optional().or(z.literal('')), // Made optional
 });
 
-// Step 3: Preference Schema (with WhatsApp confirm)
+// Step 3: Preference Schema (simplified for single city)
 const preferenceSchema = z.object({
-  city: z.string().min(1, 'Please select a city'),
   preferredDate: z.string().min(1, 'Please select preferred date'),
   preferredTime: z.enum(['morning', 'afternoon', 'evening'], {
     errorMap: () => ({ message: 'Please select preferred time' }),
+  }),
+  visitType: z.enum(['online', 'in-clinic'], {
+    errorMap: () => ({ message: 'Please select visit type' }),
   }),
   whatsappConfirm: z.boolean(),
 });
@@ -71,7 +70,7 @@ type BookingFormData = z.infer<typeof bookingSchema>;
 const STEPS = [
   { id: 1, title: 'Contact Info', description: 'Your details' },
   { id: 2, title: 'Your Concern', description: 'What brings you here' },
-  { id: 3, title: 'Preferences', description: 'City & timing' },
+  { id: 3, title: 'Preferences', description: 'Visit type & timing' },
 ] as const;
 
 function BookAppointmentPageContent() {
@@ -112,9 +111,8 @@ function BookAppointmentPageContent() {
     resolver: zodResolver(bookingSchema) as any,
     mode: 'onChange',
     defaultValues: {
-      consultationType: 'free' as const, // Default to free consultation
       whatsappConfirm: true, // Default WhatsApp confirm on
-      city: getCityDisplayName(contextCity), // Pre-fill city from context
+      visitType: 'online' as const, // Default to online consultation
       preferredDate: new Date().toISOString().split('T')[0], // Default to today
       preferredTime: (() => {
         // Default to current time period
@@ -126,14 +124,6 @@ function BookAppointmentPageContent() {
     },
   });
 
-  // Pre-fill city when context changes
-  useEffect(() => {
-    setValue('city', getCityDisplayName(contextCity));
-  }, [contextCity, setValue]);
-
-  // Watch consultation type to show dynamic pricing
-  const consultationType = watch('consultationType');
-
   // Validate current step before proceeding
   const validateStep = async (): Promise<boolean> => {
     let fieldsToValidate: (keyof BookingFormData)[] = [];
@@ -141,9 +131,9 @@ function BookAppointmentPageContent() {
     if (currentStep === 1) {
       fieldsToValidate = ['name', 'phone', 'email'];
     } else if (currentStep === 2) {
-      fieldsToValidate = ['consultationType', 'specialty', 'concern'];
+      fieldsToValidate = ['specialty', 'concern'];
     } else if (currentStep === 3) {
-      fieldsToValidate = ['city', 'preferredDate', 'preferredTime', 'whatsappConfirm'];
+      fieldsToValidate = ['visitType', 'preferredDate', 'preferredTime', 'whatsappConfirm'];
     }
 
     const result = await trigger(fieldsToValidate);
@@ -247,9 +237,8 @@ function BookAppointmentPageContent() {
       const leadData = {
         id,
         timestamp,
-        source: data.consultationType === 'free' ? 'free_consult' : 'website-booking-flow',
+        source: 'free_consult', // Single doctor - always free first consultation
         status: 'pending',
-        consultationType: data.consultationType, // 'free' or 'specialist'
         contact: {
           name: data.name,
           phone: phoneWithPrefix, // E.164 format
@@ -260,12 +249,12 @@ function BookAppointmentPageContent() {
           description: data.concern || '',
         },
         preferences: {
-          city: data.city,
+          visitType: data.visitType, // 'online' or 'in-clinic'
           preferredDate: data.preferredDate,
           preferredTime: data.preferredTime,
           whatsappConfirm: data.whatsappConfirm,
         },
-        // NEW: Add selected catalog items
+        // NEW: Add selected catalog items (currently none - simplified form)
         items: selectedItems.map(code => {
           const item = getCatalogItem('pune', code);
           return item ? {
@@ -301,7 +290,7 @@ function BookAppointmentPageContent() {
             body: JSON.stringify({
               leadId: id,
               items: selectedItems,
-              city: data.city,
+              city: 'Pune', // Single location - always Pune
               contact: {
                 name: data.name,
                 phone: phoneWithPrefix,
@@ -345,10 +334,9 @@ function BookAppointmentPageContent() {
           event: 'free_consult_form_submit',
           selectedItems: selectedItems,
           itemsCount: selectedItems.length,
-          cta_color: 'orange', // Phase 2: Track CTA color for conversion analysis
-          brand_color: 'royal-blue', // Phase 2: Track brand color system
-          city: data.city,
+          city: 'pune', // Single location - always Pune
           specialty: data.specialty,
+          visitType: data.visitType,
         });
       }
       
@@ -368,9 +356,9 @@ function BookAppointmentPageContent() {
 📱 *Phone:* ${phoneWithPrefix}
 📧 *Email:* ${data.email || 'Not provided'}
 
-💚 *Consultation Type:* ${data.consultationType === 'free' ? 'Free First Consultation (₹0)' : 'Direct Specialist (₹499+)'}
+💚 *Consultation Type:* Free First Consultation (₹0)
 🩺 *Specialty:* ${data.specialty}
-📍 *City:* ${data.city}
+📍 *Visit Type:* ${data.visitType === 'online' ? 'Online Video Consultation' : 'In-Clinic Visit (Pune)'}
 📅 *Preferred Date:* ${data.preferredDate}
 ⏰ *Preferred Time:* ${data.preferredTime}
 
@@ -407,7 +395,7 @@ ${servicesText}
   // Success view
   if (bookingSuccess) {
     const formData = getValues();
-    const isFreeConsult = formData.consultationType === 'free';
+    const isFreeConsult = true; // Single doctor - always free first consultation
     
     // WhatsApp message with free consultation context and selected services
     const selectedServiceNames = selectedItems
@@ -421,10 +409,10 @@ ${servicesText}
       : selectedServiceNames;
     
     const whatsappMessage = isFreeConsult 
-      ? `Hi, I want to book my free first consultation for ${formData.specialty} in ${formData.city}. My booking ID is ${bookingId}.${truncatedServiceNames ? ` I'm interested in: ${truncatedServiceNames}` : ''}`
-      : `Hi, I just submitted booking ${bookingId}. My name is ${formData.name} and I need ${formData.specialty} consultation in ${formData.city}.${truncatedServiceNames ? ` Interested in: ${truncatedServiceNames}` : ''}`;
+      ? `Hi, I want to book my free first consultation for ${formData.specialty}. My booking ID is ${bookingId}.${truncatedServiceNames ? ` I'm interested in: ${truncatedServiceNames}` : ''}`
+      : `Hi, I just submitted booking ${bookingId}. My name is ${formData.name} and I need ${formData.specialty} consultation.${truncatedServiceNames ? ` Interested in: ${truncatedServiceNames}` : ''}`;
     
-    const whatsappURL = getFreeConsultWhatsAppURL(formData.specialty, formData.city);
+    const whatsappURL = getFreeConsultWhatsAppURL(formData.specialty);
     const whatsappFallback = `https://api.whatsapp.com/send?phone=918329563445&text=${encodeURIComponent(whatsappMessage)}`;
 
     return (
@@ -459,7 +447,7 @@ ${servicesText}
                 <div className="text-left space-y-2 text-sm">
                   <p><strong>Consultation Type:</strong> {isFreeConsult ? 'Free First Consultation (₹0)' : 'Specialist Consultation'}</p>
                   <p><strong>Specialty:</strong> {formData.specialty}</p>
-                  <p><strong>City:</strong> {formData.city}</p>
+                  <p><strong>Visit Type:</strong> {formData.visitType === 'online' ? 'Online Video Consultation' : 'In-Clinic Visit (Pune)'}</p>
                   <p><strong>Preferred Date:</strong> {formData.preferredDate}</p>
                   <p><strong>Preferred Time:</strong> {formData.preferredTime}</p>
                 </div>
@@ -818,70 +806,21 @@ ${servicesText}
                     <p className="text-base text-gray-600">Help us understand your health concern</p>
                   </div>
 
-                  {/* Consultation Type Selection */}
-                  <div>
-                    <label className="block text-sm font-semibold text-forest-700 mb-3">
-                      Consultation Type <span className="text-red-500">*</span>
-                    </label>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {/* Free Consultation Option */}
-                      <label
-                        className="relative flex flex-col p-6 border-2 border-forest-300 rounded-xl cursor-pointer hover:border-forest-500 transition-colors bg-forest-50"
-                      >
-                        <input
-                          type="radio"
-                          value="free"
-                          {...register('consultationType')}
-                          defaultChecked
-                          className="sr-only peer"
-                        />
-                        <div className="flex items-start justify-between mb-2">
-                          <div className="font-bold text-forest-700 text-lg">Free First Consultation</div>
-                          <div className="text-2xl font-bold text-forest-700">₹0</div>
-                        </div>
-                        <p className="text-sm text-forest-600 mb-3">
-                          Talk to our in-house doctor at no cost. Get routed to a specialist if needed.
+                  {/* Free Consultation Info Banner */}
+                  <div className="bg-teal-50 border-2 border-teal-200 rounded-xl p-6 mb-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-bold text-teal-900 mb-1">Free First Consultation</h3>
+                        <p className="text-sm text-teal-700">
+                          Your first consultation with Dr. Chetna Bhaisare is completely free. No hidden charges.
                         </p>
-                        <div className="flex items-center text-xs text-forest-700 font-medium">
-                          <svg className="w-4 h-4 mr-1 text-lime-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                          </svg>
-                          Recommended for first-time patients
-                        </div>
-                        <div className="absolute inset-0 border-3 border-forest-700 rounded-xl opacity-0 peer-checked:opacity-100 transition-opacity" />
-                      </label>
-
-                      {/* Specialist Consultation Option */}
-                      <label
-                        className="relative flex flex-col p-6 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-jade-500 transition-colors"
-                      >
-                        <input
-                          type="radio"
-                          value="specialist"
-                          {...register('consultationType')}
-                          className="sr-only peer"
-                        />
-                        <div className="flex items-start justify-between mb-2">
-                          <div className="font-bold text-forest-700 text-lg">Direct Specialist</div>
-                          <div className="text-2xl font-bold text-gray-700">₹499+</div>
-                        </div>
-                        <p className="text-sm text-gray-600 mb-3">
-                          Book directly with a verified specialist for your specific concern.
-                        </p>
-                        <div className="flex items-center text-xs text-gray-600 font-medium">
-                          <svg className="w-4 h-4 mr-1 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-                          </svg>
-                          For returning patients
-                        </div>
-                        <div className="absolute inset-0 border-3 border-jade-600 rounded-xl opacity-0 peer-checked:opacity-100 transition-opacity" />
-                      </label>
+                      </div>
                     </div>
-                    {errors.consultationType && (
-                      <p className="mt-2 text-sm text-red-600" role="alert">
-                        {errors.consultationType.message}
-                      </p>
-                    )}
                   </div>
 
                   <Select
@@ -913,23 +852,71 @@ ${servicesText}
               {currentStep === 3 && (
                 <div className="space-y-6">
                   <div className="border-b-2 border-forest-100 pb-4 mb-6">
-                    <h2 className="text-3xl font-bold text-forest-900 mb-2">📍 Your Preferences</h2>
-                    <p className="text-base text-gray-600">When and where would you like your consultation?</p>
+                    <h2 className="text-3xl font-bold text-forest-900 mb-2">Your Preferences</h2>
+                    <p className="text-base text-gray-600">When would you like your consultation?</p>
                   </div>
 
-                  <Select
-                    label="Select City"
-                    options={[
-                      { value: '', label: 'Choose your city...' },
-                      ...citiesData.map(city => ({
-                        value: city.name,
-                        label: city.name,
-                      })),
-                    ]}
-                    {...register('city')}
-                    error={errors.city?.message}
-                    required
-                  />
+                  {/* Visit Type Selection */}
+                  <div>
+                    <label className="block text-sm font-semibold text-forest-700 mb-3">
+                      Visit Type <span className="text-red-500">*</span>
+                    </label>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {/* Online Consultation */}
+                      <label
+                        className="relative flex flex-col p-5 border-2 border-gray-300 rounded-xl cursor-pointer hover:border-teal-500 transition-colors"
+                      >
+                        <input
+                          type="radio"
+                          value="online"
+                          {...register('visitType')}
+                          defaultChecked
+                          className="sr-only peer"
+                        />
+                        <div className="flex items-start gap-3 mb-2">
+                          <svg className="w-6 h-6 text-teal-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
+                          </svg>
+                          <div className="flex-1">
+                            <div className="font-bold text-forest-700 text-base">Online Video Consultation</div>
+                            <p className="text-sm text-gray-600 mt-1">
+                              Consult from anywhere via video call
+                            </p>
+                          </div>
+                        </div>
+                        <div className="absolute inset-0 border-3 border-teal-600 rounded-xl opacity-0 peer-checked:opacity-100 transition-opacity" />
+                      </label>
+
+                      {/* In-Clinic Visit */}
+                      <label
+                        className="relative flex flex-col p-5 border-2 border-gray-300 rounded-xl cursor-pointer hover:border-teal-500 transition-colors"
+                      >
+                        <input
+                          type="radio"
+                          value="in-clinic"
+                          {...register('visitType')}
+                          className="sr-only peer"
+                        />
+                        <div className="flex items-start gap-3 mb-2">
+                          <svg className="w-6 h-6 text-teal-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clipRule="evenodd" />
+                          </svg>
+                          <div className="flex-1">
+                            <div className="font-bold text-forest-700 text-base">In-Clinic Visit (Pune)</div>
+                            <p className="text-sm text-gray-600 mt-1">
+                              Visit Dr. Chetna Bhaisare at the clinic in Pune
+                            </p>
+                          </div>
+                        </div>
+                        <div className="absolute inset-0 border-3 border-teal-600 rounded-xl opacity-0 peer-checked:opacity-100 transition-opacity" />
+                      </label>
+                    </div>
+                    {errors.visitType && (
+                      <p className="mt-2 text-sm text-red-600" role="alert">
+                        {errors.visitType.message}
+                      </p>
+                    )}
+                  </div>
 
                   <div>
                     <label className="block text-sm font-semibold text-forest-700 mb-2">
@@ -1001,107 +988,6 @@ ${servicesText}
                         </p>
                       </div>
                     </label>
-                  </div>
-                </div>
-              )}
-
-              {/* Popular Add-ons (shown on step 3) */}
-              {currentStep === 3 && (
-                <div className="mt-8 border-t-2 border-gray-200 pt-8">
-                  <div className="bg-jade-50 border-2 border-jade-200 rounded-lg p-6">
-                    <div className="flex items-center gap-2 mb-4">
-                      <svg className="w-5 h-5 text-jade-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                      </svg>
-                      <h3 className="text-lg font-bold text-forest-700">
-                        Popular Add-ons (Optional)
-                      </h3>
-                    </div>
-                    
-                    <p className="text-sm text-gray-700 mb-4">
-                      Boost your health journey with these optional services. Add them now for a complete quote.
-                    </p>
-
-                    <div className="space-y-3">
-                      <label className="flex items-start gap-3 p-3 bg-white rounded-lg border border-jade-300 hover:border-jade-500 cursor-pointer transition-colors">
-                        <input
-                          type="checkbox"
-                          value="LAB_BASIC"
-                          onChange={(e) => {
-                            const code = e.target.value;
-                            if (e.target.checked) {
-                              setSelectedItems([...selectedItems, code]);
-                            } else {
-                              setSelectedItems(selectedItems.filter((s: string) => s !== code));
-                            }
-                          }}
-                          checked={selectedItems.includes('LAB_BASIC')}
-                          className="mt-1 h-5 w-5 text-jade-600 border-gray-300 rounded focus:ring-2 focus:ring-forest-700"
-                        />
-                        <div className="flex-1">
-                          <div className="flex items-center justify-between mb-1">
-                            <span className="font-semibold text-forest-900">Basic Health Panel</span>
-                            <span className="text-lg font-bold text-jade-600">₹999</span>
-                          </div>
-                          <p className="text-xs text-gray-600">CBC, Blood Sugar, Lipid Profile, Liver & Kidney Function</p>
-                        </div>
-                      </label>
-
-                      <label className="flex items-start gap-3 p-3 bg-white rounded-lg border border-jade-300 hover:border-jade-500 cursor-pointer transition-colors">
-                        <input
-                          type="checkbox"
-                          value="HEALTH_CHECK_PLUS"
-                          onChange={(e) => {
-                            const code = e.target.value;
-                            if (e.target.checked) {
-                              setSelectedItems([...selectedItems, code]);
-                            } else {
-                              setSelectedItems(selectedItems.filter((s: string) => s !== code));
-                            }
-                          }}
-                          checked={selectedItems.includes('HEALTH_CHECK_PLUS')}
-                          className="mt-1 h-5 w-5 text-jade-600 border-gray-300 rounded focus:ring-2 focus:ring-forest-700"
-                        />
-                        <div className="flex-1">
-                          <div className="flex items-center justify-between mb-1">
-                            <span className="font-semibold text-forest-900">Comprehensive Health Check Plus</span>
-                            <span className="text-lg font-bold text-jade-600">₹5,999</span>
-                          </div>
-                          <p className="text-xs text-gray-600">Full panel + consultation + diet plan (saves ₹1,899)</p>
-                        </div>
-                      </label>
-
-                      <label className="flex items-start gap-3 p-3 bg-white rounded-lg border border-jade-300 hover:border-jade-500 cursor-pointer transition-colors">
-                        <input
-                          type="checkbox"
-                          value="GUT_PANEL"
-                          onChange={(e) => {
-                            const code = e.target.value;
-                            if (e.target.checked) {
-                              setSelectedItems([...selectedItems, code]);
-                            } else {
-                              setSelectedItems(selectedItems.filter((s: string) => s !== code));
-                            }
-                          }}
-                          checked={selectedItems.includes('GUT_PANEL')}
-                          className="mt-1 h-5 w-5 text-jade-600 border-gray-300 rounded focus:ring-2 focus:ring-forest-700"
-                        />
-                        <div className="flex-1">
-                          <div className="flex items-center justify-between mb-1">
-                            <span className="font-semibold text-forest-900">Gut Health Panel</span>
-                            <span className="text-lg font-bold text-jade-600">₹1,999</span>
-                          </div>
-                          <p className="text-xs text-gray-600">Microbiome analysis, food sensitivities, inflammation markers</p>
-                        </div>
-                      </label>
-                    </div>
-
-                    <p className="text-xs text-gray-500 mt-4 flex items-start gap-2">
-                      <svg className="w-4 h-4 flex-shrink-0 text-forest-600 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <span>Add-ons are optional and billed only after your free consultation and consent. They'll be included in your quote.</span>
-                    </p>
                   </div>
                 </div>
               )}

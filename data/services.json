@@ -22,7 +22,7 @@
   },
   {
     "slug": "skin-aging",
-    "name": "Skin Aging & Pigmentation",
+    "name": "Anti-Aging & Pigmentation",
     "icon": "",
     "category": "dermatology",
     "shortDescription": "Natural anti-aging treatments with modern dermatological techniques"
@@ -33,6 +33,76 @@
     "icon": "",
     "category": "dermatology",
     "shortDescription": "Comprehensive vitiligo management with Ayurvedic and dermatological care"
+  },
+  {
+    "slug": "chemical-peels",
+    "name": "Chemical Peels",
+    "icon": "",
+    "category": "dermatology",
+    "shortDescription": "Professional chemical peels for skin rejuvenation and texture improvement"
+  },
+  {
+    "slug": "laser-treatments",
+    "name": "Laser Hair Removal",
+    "icon": "",
+    "category": "dermatology",
+    "shortDescription": "Advanced laser treatments for permanent hair reduction"
+  },
+  {
+    "slug": "microneedling",
+    "name": "Microneedling & PRP",
+    "icon": "",
+    "category": "dermatology",
+    "shortDescription": "Collagen induction therapy for skin rejuvenation and scar reduction"
+  },
+  {
+    "slug": "melasma-treatment",
+    "name": "Melasma Treatment",
+    "icon": "",
+    "category": "dermatology",
+    "shortDescription": "Specialized treatment for stubborn facial pigmentation"
+  },
+  {
+    "slug": "rosacea",
+    "name": "Rosacea Management",
+    "icon": "",
+    "category": "dermatology",
+    "shortDescription": "Comprehensive care for rosacea and facial redness"
+  },
+  {
+    "slug": "skin-infections",
+    "name": "Skin Infections",
+    "icon": "",
+    "category": "dermatology",
+    "shortDescription": "Treatment for fungal, bacterial, and viral skin infections"
+  },
+  {
+    "slug": "wart-removal",
+    "name": "Wart & Mole Removal",
+    "icon": "",
+    "category": "dermatology",
+    "shortDescription": "Safe removal of warts, moles, and skin tags"
+  },
+  {
+    "slug": "dark-circles",
+    "name": "Dark Circles Treatment",
+    "icon": "",
+    "category": "dermatology",
+    "shortDescription": "Effective solutions for under-eye dark circles and puffiness"
+  },
+  {
+    "slug": "stretch-marks",
+    "name": "Stretch Marks",
+    "icon": "",
+    "category": "dermatology",
+    "shortDescription": "Modern treatments to reduce the appearance of stretch marks"
+  },
+  {
+    "slug": "nail-disorders",
+    "name": "Nail Disorders",
+    "icon": "",
+    "category": "dermatology",
+    "shortDescription": "Diagnosis and treatment of nail infections and conditions"
   },
   {
     "slug": "panchakarma",

@@ -35,17 +35,17 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       'disabled:pointer-events-none disabled:opacity-50',
       // Variants
       {
-        // Primary: Lime green for brand consistency and high visibility
-        'bg-lime-400 text-forest-900 shadow-md hover:bg-lime-500 hover:shadow-lg transform hover:-translate-y-0.5 font-bold':
+        // Primary: Teal for physician brand + high visibility
+        'bg-teal-600 text-white shadow-md hover:bg-teal-700 hover:shadow-lg transform hover:-translate-y-0.5 font-bold':
           variant === 'primary',
-        // Secondary: Forest outline with hover fill
-        'border-2 border-forest-700 text-forest-700 bg-white hover:bg-forest-700 hover:text-white':
+        // Secondary: Amber/teal outline with proper hover
+        'border-2 border-teal-600 text-teal-700 bg-white hover:bg-teal-600 hover:text-white hover:border-teal-700':
           variant === 'secondary',
-        // Outline: Forest border for low-emphasis actions
-        'border-2 border-forest-700 text-forest-700 bg-white hover:bg-mist-50':
+        // Outline: Teal border for low-emphasis actions
+        'border-2 border-teal-600 text-teal-700 bg-white hover:bg-teal-50':
           variant === 'outline',
-        // Tertiary: Royal blue text link
-        'text-royal-blue-600 hover:text-royal-blue-700 hover:underline underline-offset-2': 
+        // Tertiary: Teal text link
+        'text-teal-600 hover:text-teal-700 hover:underline underline-offset-2': 
           variant === 'tertiary',
         // Phone: WhatsApp green for contact actions
         'bg-[#25D366] text-white shadow-md hover:bg-[#1EA952] hover:shadow-lg':

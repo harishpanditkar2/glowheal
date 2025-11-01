@@ -5,39 +5,39 @@ import services from '@/data/services.json';
 
 const footerSections = [
   {
-    title: '🌸 Conditions',
+    title: 'Skin Conditions',
     links: services.slice(0, 5).map((service) => ({
       label: service.name,
       href: `/conditions/${service.slug}`,
     })),
   },
   {
-    title: '🌿 More Conditions',
+    title: 'Wellness Services',
     links: services.slice(5, 10).map((service) => ({
       label: service.name,
       href: `/conditions/${service.slug}`,
     })),
   },
   {
-    title: '📋 Quick Links',
+    title: 'Quick Links',
     links: [
-      { label: '🆓 Free Consultation', href: '/book' },
-      { label: '💰 Pricing', href: '/pricing' },
-      { label: '📍 Conditions', href: '/conditions' },
-      { label: '👩‍⚕️ About Dr. Chetna', href: '/about' },
+      { label: 'Free Consultation', href: '/book' },
+      { label: 'Pricing', href: '/pricing' },
+      { label: 'All Conditions', href: '/conditions' },
+      { label: 'About Dr. Chetna', href: '/about' },
     ],
   },
   {
-    title: '📍 Location',
+    title: 'Location',
     links: [
-      { label: '🏥 Clinic - Pune', href: '/contact' },
-      { label: '💻 Online Consultations', href: '/book' },
-      { label: '💬 Contact Us', href: '/contact' },
-      { label: '📞 WhatsApp', href: `https://wa.me/918329563445` },
+      { label: 'Clinic - Pune', href: '/contact' },
+      { label: 'Online Consultations', href: '/book' },
+      { label: 'Contact Us', href: '/contact' },
+      { label: 'WhatsApp', href: `https://wa.me/918329563445` },
     ],
   },
   {
-    title: 'ℹ️ Company',
+    title: 'Company',
     links: [
       { label: 'About Us', href: '/about' },
       { label: 'Contact Us', href: '/contact' },
@@ -45,7 +45,7 @@ const footerSections = [
     ],
   },
   {
-    title: '📄 Legal',
+    title: 'Legal',
     links: [
       { label: 'Privacy Policy', href: '/privacy' },
       { label: 'Terms of Service', href: '/terms' },
@@ -115,15 +115,15 @@ export function Footer() {
         {/* Free Consultation CTA Banner */}
         <div className="bg-gradient-to-r from-teal-600 to-amber-600 rounded-2xl p-8 mb-12 text-center">
           <h3 className="font-bold font-display text-2xl md:text-3xl mb-3">
-            🌟 Start with a Free Consultation 🌟
+            Start with a Free Consultation
           </h3>
           <p className="text-white/90 mb-6 max-w-2xl mx-auto">
-            Get personalized care from Dr. Chetna Bhaisare — Your first consultation is FREE! 💚
+            Get personalized care from Dr. Chetna Bhaisare — Your first consultation is FREE!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href={ctaHref}>
               <Button variant="primary" size="lg" className="min-w-[200px] bg-white text-teal-700 hover:bg-teal-50">
-                📅 Book Free Consultation
+                Book Free Consultation
               </Button>
             </Link>
             <Link
@@ -132,7 +132,7 @@ export function Footer() {
               rel="noopener noreferrer"
             >
               <Button variant="secondary" size="lg" className="min-w-[200px] bg-amber-500 text-white hover:bg-amber-600 border-0">
-                💬 Chat on WhatsApp
+                Chat on WhatsApp
               </Button>
             </Link>
           </div>
@@ -163,10 +163,10 @@ export function Footer() {
         <div className="border-t border-gray-700 pt-8 mb-8">
           <div className="max-w-2xl mx-auto text-center">
             <h3 className="font-bold font-display text-xl mb-2">
-              📧 Subscribe to Wellness Updates
+              Subscribe to Wellness Updates
             </h3>
             <p className="text-gray-300 mb-4">
-              Get expert health tips, Ayurveda insights, and wellness advice from Dr. Chetna 🌿
+              Get expert health tips, Ayurveda insights, and wellness advice from Dr. Chetna
             </p>
             <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <input
@@ -179,7 +179,7 @@ export function Footer() {
                 type="submit"
                 className="px-6 py-3 bg-teal-500 text-white rounded-lg font-semibold hover:bg-teal-600 hover:shadow-lg transition-all"
               >
-                ✨ Subscribe
+                Subscribe
               </button>
             </form>
           </div>
@@ -214,7 +214,7 @@ export function Footer() {
               />
             </div>
             <p className="text-gray-400 text-sm">
-              © {currentYear} Dr. Chetna Bhaisare — Glowheal. All rights reserved. 💚
+              © {currentYear} Dr. Chetna Bhaisare — Glowheal. All rights reserved.
             </p>
           </div>
         </div>
