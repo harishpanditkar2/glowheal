@@ -93,6 +93,14 @@ function BookAppointmentPageContent() {
       consultationType: 'free' as const, // Default to free consultation
       whatsappConfirm: true, // Default WhatsApp confirm on
       city: getCityDisplayName(contextCity), // Pre-fill city from context
+      preferredDate: new Date().toISOString().split('T')[0], // Default to today
+      preferredTime: (() => {
+        // Default to current time period
+        const hour = new Date().getHours();
+        if (hour < 12) return 'morning' as const;
+        if (hour < 17) return 'afternoon' as const;
+        return 'evening' as const;
+      })(),
     },
   });
 
@@ -348,10 +356,8 @@ ${servicesText}
 
         const whatsappUrl = `https://wa.me/918329563445?text=${encodeURIComponent(whatsappMessage)}`;
         
-        // Open WhatsApp in new tab after short delay (allow user to see success message first)
-        setTimeout(() => {
-          window.open(whatsappUrl, '_blank');
-        }, 1500);
+        // Open WhatsApp immediately
+        window.open(whatsappUrl, '_blank');
       }
       
     } catch (error) {
@@ -633,9 +639,9 @@ ${servicesText}
               {/* Step 1: Contact Info */}
               {currentStep === 1 && (
                 <div className="space-y-6">
-                  <div>
-                    <h2 className="text-2xl font-bold text-forest-700 mb-2">Contact Information</h2>
-                    <p className="text-gray-600">We'll use these details to confirm your appointment</p>
+                  <div className="border-b-2 border-forest-100 pb-4 mb-6">
+                    <h2 className="text-3xl font-bold text-forest-900 mb-2">📱 Contact Information</h2>
+                    <p className="text-base text-gray-600">We'll use these details to confirm your appointment</p>
                   </div>
 
                   {/* NEW: Selected Services Card */}
@@ -661,26 +667,45 @@ ${servicesText}
                       <div className="space-y-3 mb-4">
                         {selectedItems.map((code) => {
                           const item = getCatalogItem('pune', code);
+                          const isFreeConsult = code === 'FREE_CONSULT';
                           return item ? (
-                            <div key={code} className="flex items-start justify-between bg-white rounded-lg p-4 shadow-sm">
+                            <div 
+                              key={code} 
+                              className={`flex items-start justify-between rounded-lg p-4 shadow-sm ${
+                                isFreeConsult 
+                                  ? 'bg-lime-100 border-2 border-lime-400' 
+                                  : 'bg-white'
+                              }`}
+                            >
                               <div className="flex-1">
-                                <p className="font-semibold text-forest-700">{item.name}</p>
-                                <p className="text-sm text-gray-600 mt-1">
+                                <div className="flex items-center gap-2">
+                                  <p className={`font-semibold ${isFreeConsult ? 'text-forest-900' : 'text-forest-700'}`}>
+                                    {item.name}
+                                  </p>
+                                  {isFreeConsult && (
+                                    <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-bold bg-lime-400 text-forest-900">
+                                      ✓ Selected
+                                    </span>
+                                  )}
+                                </div>
+                                <p className={`text-sm mt-1 ${isFreeConsult ? 'text-forest-700 font-medium' : 'text-gray-600'}`}>
                                   {formatPrice(item.price)} / {item.unit}
                                 </p>
                               </div>
-                              <button
-                                type="button"
-                                onClick={() => removeService(code)}
-                                className="ml-4 inline-flex items-center gap-1 rounded-full bg-gray-100 hover:bg-red-100 text-gray-600 hover:text-red-600 px-3 py-1 text-xs font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-forest-700"
-                                style={{ minHeight: '44px', minWidth: '44px' }}
-                                aria-label={`Remove ${item.name} from selection`}
-                              >
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                                Remove
-                              </button>
+                              {!isFreeConsult && (
+                                <button
+                                  type="button"
+                                  onClick={() => removeService(code)}
+                                  className="ml-4 inline-flex items-center gap-1 rounded-full bg-gray-100 hover:bg-red-100 text-gray-600 hover:text-red-600 px-3 py-1 text-xs font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-forest-700"
+                                  style={{ minHeight: '44px', minWidth: '44px' }}
+                                  aria-label={`Remove ${item.name} from selection`}
+                                >
+                                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                  </svg>
+                                  Remove
+                                </button>
+                              )}
                             </div>
                           ) : null;
                         })}
@@ -756,9 +781,9 @@ ${servicesText}
               {/* Step 2: Concern */}
               {currentStep === 2 && (
                 <div className="space-y-6">
-                  <div>
-                    <h2 className="text-2xl font-bold text-forest-700 mb-2">What brings you here?</h2>
-                    <p className="text-gray-600">Help us understand your health concern</p>
+                  <div className="border-b-2 border-forest-100 pb-4 mb-6">
+                    <h2 className="text-3xl font-bold text-forest-900 mb-2">💚 Your Concern</h2>
+                    <p className="text-base text-gray-600">Help us understand your health concern</p>
                   </div>
 
                   {/* Consultation Type Selection */}
@@ -855,9 +880,9 @@ ${servicesText}
               {/* Step 3: Preferences */}
               {currentStep === 3 && (
                 <div className="space-y-6">
-                  <div>
-                    <h2 className="text-2xl font-bold text-forest-700 mb-2">Your Preferences</h2>
-                    <p className="text-gray-600">When and where would you like your consultation?</p>
+                  <div className="border-b-2 border-forest-100 pb-4 mb-6">
+                    <h2 className="text-3xl font-bold text-forest-900 mb-2">📍 Your Preferences</h2>
+                    <p className="text-base text-gray-600">When and where would you like your consultation?</p>
                   </div>
 
                   <Select
