@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -599,14 +599,14 @@ ${servicesText}
 
           {/* Progress Indicator */}
           <div className="mb-8">
-            <div className="flex items-center justify-between gap-2">
+            <div className="flex items-start justify-center gap-2 sm:gap-4">
               {STEPS.map((step, index) => (
-                <div key={step.id} className="flex items-center flex-1 min-w-0">
-                  <div className="flex flex-col items-center flex-1 min-w-0">
+                <React.Fragment key={step.id}>
+                  <div className="flex flex-col items-center flex-shrink-0">
                     <button
                       onClick={() => goToStep(step.id)}
                       disabled={step.id > currentStep && currentStep < STEPS.length}
-                      className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold text-base sm:text-lg transition-all mb-2 flex-shrink-0 ${
+                      className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold text-base sm:text-lg transition-all mb-2 ${
                         currentStep >= step.id
                           ? 'bg-lime-400 text-forest-900 shadow-md cursor-pointer hover:bg-lime-500'
                           : 'bg-gray-200 text-gray-600 cursor-not-allowed'
@@ -614,21 +614,23 @@ ${servicesText}
                     >
                       {step.id}
                     </button>
-                    <div className="text-center w-full px-1">
-                      <p className={`text-xs sm:text-sm font-semibold truncate ${currentStep >= step.id ? 'text-forest-900' : 'text-gray-600'}`}>
+                    <div className="text-center">
+                      <p className={`text-xs sm:text-sm font-semibold whitespace-nowrap ${currentStep >= step.id ? 'text-forest-900' : 'text-gray-600'}`}>
                         {step.title}
                       </p>
-                      <p className="text-[10px] sm:text-xs text-gray-500 truncate hidden sm:block">{step.description}</p>
+                      <p className="text-[10px] sm:text-xs text-gray-500 whitespace-nowrap hidden sm:block">{step.description}</p>
                     </div>
                   </div>
                   {index < STEPS.length - 1 && (
-                    <div
-                      className={`flex-shrink-0 w-4 sm:w-8 h-1 mx-1 sm:mx-2 transition-colors ${
-                        currentStep > step.id ? 'bg-lime-400' : 'bg-gray-200'
-                      }`}
-                    />
+                    <div className="flex items-center pt-5 flex-shrink-0">
+                      <div
+                        className={`w-8 sm:w-16 h-1 transition-colors ${
+                          currentStep > step.id ? 'bg-lime-400' : 'bg-gray-200'
+                        }`}
+                      />
+                    </div>
                   )}
-                </div>
+                </React.Fragment>
               ))}
             </div>
           </div>
