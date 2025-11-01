@@ -30,7 +30,7 @@ export default function AboutPage() {
       <MultiSchemaRenderer schemas={schemas} />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-forest-50 to-jade-50 py-16">
+      <section className="bg-gradient-to-br from-forest-50 to-jade-50 py-20">
         <div className="container-width max-w-4xl text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-forest-900 mb-6 tracking-tight">
             Healthcare Made Simple, Transparent, and Accessible
@@ -180,7 +180,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-forest-50 py-16">
+      <section className="bg-forest-50 py-20">
         <div className="container-width max-w-3xl text-center">
           <h2 className="text-3xl font-bold text-forest-900 mb-4">Ready to Get Started?</h2>
           <p className="text-lg text-forest-700 mb-8">

@@ -161,7 +161,7 @@ export default function DoctorsPage() {
       <MultiSchemaRenderer schemas={schemas} />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-forest-700 to-jade-600 text-white py-16">
+      <section className="bg-gradient-to-r from-forest-700 to-jade-600 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -477,7 +477,7 @@ export default function DoctorsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-forest-700 to-jade-600 text-white py-16">
+      <section className="bg-gradient-to-r from-forest-700 to-jade-600 text-white py-20">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Can't Find the Right Doctor?

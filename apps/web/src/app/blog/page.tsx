@@ -30,7 +30,7 @@ export default function BlogPage() {
       <MultiSchemaRenderer schemas={schemas} />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-forest-50 to-jade-50 py-16">
+      <section className="bg-gradient-to-br from-forest-50 to-jade-50 py-20">
         <div className="container-width max-w-4xl text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-forest-900 mb-6 tracking-tight">
             Healthcare Insights & Wellness Tips

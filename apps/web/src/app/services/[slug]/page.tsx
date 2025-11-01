@@ -496,7 +496,7 @@ export default function ServicePage({ params }: Props) {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 bg-gradient-to-r from-forest-700 to-jade-600 text-white">
+      <section className="py-20 bg-gradient-to-r from-forest-700 to-jade-600 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">
             Ready to Start Your {service.name} Journey?
