@@ -61,7 +61,7 @@ export function ServiceCard({
               <p className="font-semibold text-forest-700">Free (₹0)</p>
             </div>
             <div>
-              <p className="text-jade-600 font-semibold hover:text-jade-800 text-sm">
+              <p className="text-royal-blue-600 font-semibold hover:text-royal-blue-700 text-sm transition-colors">
                 View Care Packages →
               </p>
               <p className="text-xs text-gray-500 mt-1">

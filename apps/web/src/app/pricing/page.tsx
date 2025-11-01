@@ -66,7 +66,7 @@ export default function PricingPage() {
         <div className="container-width">
           <ol className="flex items-center gap-2 text-sm text-gray-600">
             <li>
-              <Link href="/" className="hover:text-forest-700 transition-colors">
+              <Link href="/" className="text-royal-blue-600 hover:text-royal-blue-700 transition-colors">
                 Home
               </Link>
             </li>

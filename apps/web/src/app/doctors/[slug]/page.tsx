@@ -164,13 +164,13 @@ export default function DoctorProfilePage({ params }: { params: { slug: string }
             <nav className="mb-6 text-sm">
               <ol className="flex items-center space-x-2">
                 <li>
-                  <Link href="/" className="text-forest-100 hover:text-white">
+                  <Link href="/" className="text-white/80 hover:text-white transition-colors">
                     Home
                   </Link>
                 </li>
                 <li className="text-forest-200">/</li>
                 <li>
-                  <Link href="/doctors" className="text-forest-100 hover:text-white">
+                  <Link href="/doctors" className="text-white/80 hover:text-white transition-colors">
                     Doctors
                   </Link>
                 </li>

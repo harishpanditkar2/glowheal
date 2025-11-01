@@ -3,6 +3,7 @@ import { buildOrganizationSchema, buildMedicalOrganizationSchema } from '@/lib/s
 import { ServiceCard } from '@/components/features/ServiceCard';
 import { FAQAccordion, FAQItem } from '@/components/features/FAQAccordion';
 import { Button } from '@/components/ui/Button';
+import { HeroCTAButtons } from '@/components/features/HeroCTAButtons';
 import { useFreeCta, getFreeConsultWhatsAppURL } from '@/hooks/useFreeCta';
 import Link from 'next/link';
 import services from '@/data/services.json';
@@ -83,30 +84,43 @@ export default function HomePage() {
             </h1>
             
             {/* FREE Capsule - Orange CTA Color for Prominence */}
-            <div className="inline-flex items-center gap-2 bg-cta-orange text-white px-4 py-2 rounded-lg h-10 shadow-cta-hover mb-6">
+            <div className="inline-flex items-center gap-2 bg-cta-orange text-white px-4 py-2 rounded-lg h-10 shadow-cta-hover mb-4">
               <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
               <span className="font-bold whitespace-nowrap">₹0 first visit — no hidden costs</span>
             </div>
             
+            {/* Trust Chips - Research-backed confidence builders */}
+            <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-white/90 mb-6">
+              <span className="flex items-center gap-1.5 h-8">
+                <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="whitespace-nowrap">Verified doctors</span>
+              </span>
+              <span className="text-white/60" aria-hidden="true">·</span>
+              <span className="flex items-center gap-1.5 h-8">
+                <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                </svg>
+                <span className="whitespace-nowrap">Transparent fixed prices</span>
+              </span>
+              <span className="text-white/60" aria-hidden="true">·</span>
+              <span className="flex items-center gap-1.5 h-8">
+                <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="whitespace-nowrap">₹0 first consult</span>
+              </span>
+            </div>
+            
             <p className="text-lg sm:text-xl md:text-2xl mb-8 text-jade-100 max-w-3xl mx-auto leading-relaxed line-clamp-2 md:line-clamp-none">
               Talk to our in-house doctor at no cost; get a personalized plan and city-specific fixed prices—no surprise fees.
             </p>
             
-            {/* CTA Row with City Selector */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-              <Link href={ctaHref}>
-                <Button variant="primary" size="lg" className="w-full sm:w-auto text-base sm:text-lg">
-                  {ctaText}
-                </Button>
-              </Link>
-              <Link href="/join-doctor">
-                <Button variant="secondary" size="lg" className="w-full sm:w-auto text-base sm:text-lg">
-                  Join as Doctor
-                </Button>
-              </Link>
-            </div>
+            {/* CTA Row with Analytics Tracking */}
+            <HeroCTAButtons />
             
             {/* Microproof Row */}
             <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm sm:text-base text-white mt-4 md:mt-5 px-2">
